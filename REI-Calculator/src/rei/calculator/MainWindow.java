@@ -157,6 +157,8 @@ public class MainWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        jPopupMenu2 = new javax.swing.JPopupMenu();
         jToolBar1 = new javax.swing.JToolBar();
         new_button = new javax.swing.JButton();
         open_button = new javax.swing.JButton();
@@ -169,13 +171,40 @@ public class MainWindow extends javax.swing.JFrame {
         close_button = new javax.swing.JButton();
         help_button = new javax.swing.JButton();
         SFI_button = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        main_panel = new javax.swing.JPanel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jSeparator4 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem13 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jSeparator3 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem9 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem10 = new javax.swing.JMenuItem();
+        jMenuItem11 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem14 = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuItem12 = new javax.swing.JMenuItem();
+        jMenuItem15 = new javax.swing.JMenuItem();
+        jSeparator5 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem16 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(0, 31, 1100, 520));
         setResizable(false);
         setSize(new java.awt.Dimension(1100, 550));
 
+        jToolBar1.setBackground(new java.awt.Color(204, 204, 255));
         jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
         jToolBar1.setAlignmentX(0.0F);
@@ -186,8 +215,6 @@ public class MainWindow extends javax.swing.JFrame {
         new_button.setFocusable(false);
         new_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         new_button.setPreferredSize(new java.awt.Dimension(40, 40));
-        new_button.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/rei/calculator/new1.png"))); // NOI18N
-        new_button.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         new_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 new_buttonActionPerformed(evt);
@@ -282,18 +309,126 @@ public class MainWindow extends javax.swing.JFrame {
         SFI_button.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(SFI_button);
 
-        jPanel2.setBackground(new java.awt.Color(30, 30, 30));
+        main_panel.setBackground(new java.awt.Color(30, 30, 30));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout main_panelLayout = new javax.swing.GroupLayout(main_panel);
+        main_panel.setLayout(main_panelLayout);
+        main_panelLayout.setHorizontalGroup(
+            main_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1100, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        main_panelLayout.setVerticalGroup(
+            main_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 520, Short.MAX_VALUE)
         );
+
+        jMenu1.setText("File");
+
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem1.setIcon(new javax.swing.ImageIcon("E:\\PNG Icons\\Paint 3D\\new.png")); // NOI18N
+        jMenuItem1.setText("New File");
+        jMenuItem1.setActionCommand("");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem2.setIcon(new javax.swing.ImageIcon("E:\\PNG Icons\\Paint 3D\\open.png")); // NOI18N
+        jMenuItem2.setText("Load / Open");
+        jMenu1.add(jMenuItem2);
+
+        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem3.setIcon(new javax.swing.ImageIcon("E:\\PNG Icons\\Paint 3D\\save.png")); // NOI18N
+        jMenuItem3.setText("Save");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem3);
+
+        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem4.setIcon(new javax.swing.ImageIcon("E:\\PNG Icons\\Paint 3D\\saveas.png")); // NOI18N
+        jMenuItem4.setText("Save As");
+        jMenu1.add(jMenuItem4);
+        jMenu1.add(jSeparator1);
+
+        jMenuItem6.setText("Import");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem6);
+
+        jMenuItem5.setText("Export As");
+        jMenu1.add(jMenuItem5);
+        jMenu1.add(jSeparator4);
+
+        jMenuItem7.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F10, 0));
+        jMenuItem7.setIcon(new javax.swing.ImageIcon("E:\\PNG Icons\\Paint 3D\\execute.png")); // NOI18N
+        jMenuItem7.setText("Execute");
+        jMenu1.add(jMenuItem7);
+        jMenu1.add(jSeparator2);
+
+        jMenuItem13.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem13.setText("Print");
+        jMenu1.add(jMenuItem13);
+
+        jMenuItem8.setIcon(new javax.swing.ImageIcon("E:\\PNG Icons\\Paint 3D\\email.png")); // NOI18N
+        jMenuItem8.setText("Email / Send");
+        jMenu1.add(jMenuItem8);
+        jMenu1.add(jSeparator3);
+
+        jMenuItem9.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
+        jMenuItem9.setIcon(new javax.swing.ImageIcon("E:\\PNG Icons\\Paint 3D\\close.png")); // NOI18N
+        jMenuItem9.setText("Close");
+        jMenu1.add(jMenuItem9);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+
+        jMenuItem10.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F8, 0));
+        jMenuItem10.setIcon(new javax.swing.ImageIcon("E:\\PNG Icons\\Paint 3D\\clearAll.png")); // NOI18N
+        jMenuItem10.setText("ClearAll / Reset");
+        jMenu2.add(jMenuItem10);
+
+        jMenuItem11.setText("Import Images");
+        jMenu2.add(jMenuItem11);
+
+        jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("Tools");
+
+        jMenuItem14.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem14.setIcon(new javax.swing.ImageIcon("E:\\PNG Icons\\Paint 3D\\settings.png")); // NOI18N
+        jMenuItem14.setText("Settings");
+        jMenu3.add(jMenuItem14);
+
+        jMenuBar1.add(jMenu3);
+
+        jMenu4.setText("About");
+
+        jMenuItem12.setText("REI Calculator v2.0");
+        jMenu4.add(jMenuItem12);
+
+        jMenuItem15.setIcon(new javax.swing.ImageIcon("E:\\PNG Icons\\Paint 3D\\SFI.png")); // NOI18N
+        jMenuItem15.setText("SFI");
+        jMenu4.add(jMenuItem15);
+        jMenu4.add(jSeparator5);
+
+        jMenuItem16.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0));
+        jMenuItem16.setIcon(new javax.swing.ImageIcon("E:\\PNG Icons\\Paint 3D\\help.png")); // NOI18N
+        jMenuItem16.setText("Help");
+        jMenu4.add(jMenuItem16);
+
+        jMenuBar1.add(jMenu4);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -301,7 +436,7 @@ public class MainWindow extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(main_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -310,7 +445,7 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(main_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -320,6 +455,18 @@ public class MainWindow extends javax.swing.JFrame {
     private void new_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_new_buttonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_new_buttonActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -363,8 +510,36 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton email_button;
     private javax.swing.JButton execute_button;
     private javax.swing.JButton help_button;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem11;
+    private javax.swing.JMenuItem jMenuItem12;
+    private javax.swing.JMenuItem jMenuItem13;
+    private javax.swing.JMenuItem jMenuItem14;
+    private javax.swing.JMenuItem jMenuItem15;
+    private javax.swing.JMenuItem jMenuItem16;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JPopupMenu jPopupMenu1;
+    private javax.swing.JPopupMenu jPopupMenu2;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
+    private javax.swing.JPopupMenu.Separator jSeparator3;
+    private javax.swing.JPopupMenu.Separator jSeparator4;
+    private javax.swing.JPopupMenu.Separator jSeparator5;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JPanel main_panel;
     private javax.swing.JButton new_button;
     private javax.swing.JButton open_button;
     private javax.swing.JButton saveAs_button;
