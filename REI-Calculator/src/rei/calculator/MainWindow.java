@@ -322,6 +322,10 @@ public class MainWindow extends javax.swing.JFrame {
             .addGap(0, 520, Short.MAX_VALUE)
         );
 
+        jMenuBar1.setBackground(new java.awt.Color(255, 255, 255));
+        jMenuBar1.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        jMenuBar1.setPreferredSize(new java.awt.Dimension(134, 20));
+
         jMenu1.setText("File");
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
@@ -375,6 +379,7 @@ public class MainWindow extends javax.swing.JFrame {
         jMenu1.add(jSeparator2);
 
         jMenuItem13.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem13.setIcon(new javax.swing.ImageIcon("E:\\PNG Icons\\Paint 3D\\print.png")); // NOI18N
         jMenuItem13.setText("Print");
         jMenu1.add(jMenuItem13);
 
