@@ -42,7 +42,7 @@ public class IncomePanel extends javax.swing.JPanel {
         jSpinner2 = new javax.swing.JSpinner();
 
         setBackground(new java.awt.Color(20, 20, 20));
-        setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 1, true));
+        setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 0), 1, true));
         setPreferredSize(new java.awt.Dimension(934, 428));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
