@@ -1169,6 +1169,7 @@ public class MainWindow extends javax.swing.JFrame {
         this.jPanel_tabPanel.removeAll();
         this.jPanel_tabPanel.repaint();
         this.jPanel_tabPanel.add(expense).setBounds(0, 0, this.jPanel_tabPanel.getWidth(), this.jPanel_tabPanel.getHeight());
+//        this.jPanel_tabPanel.repaint();
     }//GEN-LAST:event_jPanel_expenseMouseClicked
 
     private void jPanel_assumptionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_assumptionMouseClicked
