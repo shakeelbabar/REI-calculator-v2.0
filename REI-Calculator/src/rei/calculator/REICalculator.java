@@ -53,13 +53,7 @@ public class REICalculator {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                MainWindow ob = new MainWindow();
-                ob.setTitle("REI-Calculator");
-                ob.setLocationRelativeTo(null);
-                ImageIcon icon = new ImageIcon("./res/SFI.png");
-                ob.setIconImage(icon.getImage());
-                ob.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                ob.setVisible(true);            
+
             }
         });
         

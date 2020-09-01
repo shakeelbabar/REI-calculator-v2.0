@@ -11,6 +11,7 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.net.URL;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -1233,7 +1234,14 @@ public class MainWindow extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainWindow().setVisible(true);
+                 MainWindow ob = new MainWindow();
+                ob.setTitle("REI-Calculator");
+                ob.setLocationRelativeTo(null);
+                ob.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                ob.pack();
+                ob.setVisible(true);        
+                ImageIcon icon = new ImageIcon("./res/SFI.png");
+                ob.setIconImage(icon.getImage());
             }
         });
     }
