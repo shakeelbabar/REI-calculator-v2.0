@@ -69,130 +69,114 @@ public class ExpensePanel extends javax.swing.JPanel {
         jTextField20 = new javax.swing.JTextField();
         jLabel39 = new javax.swing.JLabel();
         jTextField21 = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(20, 20, 20));
-        setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 0), 1, true));
+        setBackground(new java.awt.Color(246, 245, 245));
+        setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
         setPreferredSize(new java.awt.Dimension(934, 428));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
         jLabel1.setText("Expenditure Information");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
         jLabel2.setText("Total Fixed Expense");
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jTextField1.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
 
-        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 17)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
         jLabel14.setText("Fixed Expenses (USD)");
 
-        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 17)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
         jLabel15.setText("Variable Expeses (USD)");
 
-        jTextField3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jTextField3.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
 
-        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel17.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
         jLabel17.setText("Electric");
 
-        jTextField7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jTextField7.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
 
-        jLabel19.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel19.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
         jLabel19.setText("Water and Sewer");
 
-        jLabel20.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel20.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
         jLabel20.setText("PMI");
 
-        jTextField10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jTextField10.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
 
-        jTextField11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jTextField11.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
 
-        jLabel23.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel23.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
         jLabel23.setText("Garbase");
 
-        jLabel25.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jLabel25.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel25.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
         jLabel25.setText("HOA ");
 
-        jTextField13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jTextField13.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
 
-        jLabel26.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jLabel26.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel26.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
         jLabel26.setText("Monthly Taxes");
 
-        jTextField14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jTextField14.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
 
-        jLabel29.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jLabel29.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel29.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
         jLabel29.setText("Insurance");
 
-        jTextField15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jTextField15.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
 
-        jLabel30.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jLabel30.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel30.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
         jLabel30.setText("Miscellaneous");
 
-        jTextField16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jTextField16.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
 
-        jLabel32.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jLabel32.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel32.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
         jLabel32.setText("Repairs/Maintenance ($)");
 
-        jLabel33.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jLabel33.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel33.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
         jLabel33.setText("Cap. Ex. (%)");
 
-        jTextField12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jTextField12.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
 
-        jTextField17.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jTextField17.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
 
-        jLabel34.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jLabel34.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel34.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
         jLabel34.setText("Cap. Ex. ($)");
 
-        jLabel35.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jLabel35.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel35.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
         jLabel35.setText("Management Fee ($)");
 
-        jTextField18.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jTextField18.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel3.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
         jLabel3.setText("Total Variable Expense");
 
-        jTextField4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jTextField4.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
 
-        jLabel36.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jLabel36.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel36.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
         jLabel36.setText("Repairs/Maintenance (%)");
 
-        jTextField8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jTextField8.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
 
-        jTextField2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jTextField2.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
 
-        jLabel37.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jLabel37.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel37.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
         jLabel37.setText("Vacancy (%)");
 
-        jTextField19.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jTextField19.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
 
-        jLabel38.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jLabel38.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel38.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
         jLabel38.setText("Vacancy ($)");
 
-        jTextField20.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jTextField20.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
 
-        jLabel39.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jLabel39.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel39.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
         jLabel39.setText("Management Fee (%)");
 
-        jTextField21.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jTextField21.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+
+        jLabel16.setBackground(new java.awt.Color(225, 227, 228));
+        jLabel16.setForeground(new java.awt.Color(196, 199, 200));
+        jLabel16.setText("________________________________________________________________________________________________________________________________");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -249,19 +233,23 @@ public class ExpensePanel extends javax.swing.JPanel {
                                     .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jLabel15)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(66, 66, 66)
-                        .addComponent(jLabel14)))
+                        .addComponent(jLabel14))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel16)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(46, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
+                .addGap(40, 40, 40)
                 .addComponent(jLabel1)
-                .addGap(35, 35, 35)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
                     .addComponent(jLabel15))
@@ -343,7 +331,7 @@ public class ExpensePanel extends javax.swing.JPanel {
                                 .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -352,6 +340,7 @@ public class ExpensePanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
