@@ -238,6 +238,8 @@
       </Properties>
       <Events>
         <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="asking_priceCaretUpdate"/>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="asking_priceFocusGained"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="asking_priceFocusLost"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="purchase_price">
@@ -246,6 +248,9 @@
           <Font name="Roboto Medium" size="16" style="0"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="purchase_priceCaretUpdate"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="rehab_budget">
       <Properties>
@@ -321,6 +326,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="downpayment_dollar">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Roboto Medium" size="16" style="0"/>
         </Property>
@@ -328,6 +334,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="loan_amount">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Roboto Medium" size="16" style="0"/>
         </Property>
@@ -368,6 +375,9 @@
           </StringArray>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="rehab_checkItemStateChanged"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
@@ -385,6 +395,9 @@
           <Font name="Roboto Medium" size="14" style="1"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="downpayment_pecentageStateChanged"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JSpinner" name="annual_interest_rate">
       <Properties>
