@@ -54,7 +54,7 @@ public class REICalculator {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 MainWindow ob = new MainWindow();
-                ImageIcon icon = new ImageIcon("./res/SFI.png");
+                ImageIcon icon = new ImageIcon(getClass().getResource("/rei/calculator/SFI.png"));
                 ob.setIconImage(icon.getImage());
                 ob.setTitle("REI-Calculator");
                 ob.setLocationRelativeTo(null);

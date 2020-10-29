@@ -12,6 +12,7 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.net.URL;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -26,10 +27,43 @@ public class MainWindow extends javax.swing.JFrame {
     /**
      * Creates new form MainWindow
      */
+    PropertyPanel property;
+    PurchasePanel purchase;
+    IncomePanel income;
+    ExpensePanel expense;
+    AssumptionPanel assumption;
+    ReportPanel report;
+
+    private JButton homebtn;
     public MainWindow() {
         initComponents();
         setToolBarIcons();
-//        this.jPanel_property
+        
+        
+//        Initializing Panels Globally to be used in the entire application
+        property = new PropertyPanel();
+        purchase = new PurchasePanel();
+        income = new IncomePanel();
+        expense = new ExpensePanel();
+        assumption = new AssumptionPanel();
+        report = new ReportPanel();
+        
+        
+        // New Button 
+        URL icon = getClass().getResource("/rei/calculator/SFI.png");
+        ImageIcon imgicon = new ImageIcon(icon);
+        Image img = imgicon.getImage();
+        Image img_scaled = img.getScaledInstance(this.jLabel_logo.getWidth(), this.jLabel_logo.getHeight(), Image.SCALE_SMOOTH);
+        imgicon = new ImageIcon(img_scaled);
+        this.jLabel_logo.setIcon(imgicon); // NOI18N
+        
+        homebtn = new JButton();
+        homebtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel_propertyMouseClicked(evt);
+            }
+        });
+        homebtn.doClick();
     }
     
     public void setToolBarIcons(){
@@ -200,6 +234,7 @@ public class MainWindow extends javax.swing.JFrame {
         jPanel_report = new javax.swing.JPanel();
         jPanel_report_active = new javax.swing.JPanel();
         jLabel_report = new javax.swing.JLabel();
+        jLabel_logo = new javax.swing.JLabel();
         jPanel_tabPanel = new javax.swing.JPanel();
         jTextField8 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
@@ -402,7 +437,7 @@ public class MainWindow extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_propertyLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(jLabel_property, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel_property_active, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
@@ -640,6 +675,8 @@ public class MainWindow extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jLabel_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rei/calculator/SFI.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -650,6 +687,10 @@ public class MainWindow extends javax.swing.JFrame {
             .addComponent(jPanel_expense, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel_assumption, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel_report, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -666,12 +707,13 @@ public class MainWindow extends javax.swing.JFrame {
                 .addComponent(jPanel_assumption, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel_report, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(222, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
         );
 
         jPanel_tabPanel.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel_tabPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 0), 1, true));
-        jPanel_tabPanel.setPreferredSize(new java.awt.Dimension(934, 428));
+        jPanel_tabPanel.setPreferredSize(new java.awt.Dimension(934, 524));
 
         jTextField8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTextField8.setForeground(new java.awt.Color(96, 96, 99));
@@ -819,7 +861,7 @@ public class MainWindow extends javax.swing.JFrame {
                             .addComponent(jSpinner2)
                             .addComponent(jSpinner3)))
                     .addComponent(jLabel19))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
         jPanel_tabPanelLayout.setVerticalGroup(
             jPanel_tabPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -892,7 +934,7 @@ public class MainWindow extends javax.swing.JFrame {
             .addGroup(main_panelLayout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel_tabPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel_tabPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         main_panelLayout.setVerticalGroup(
@@ -900,7 +942,7 @@ public class MainWindow extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, main_panelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel_tabPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 524, Short.MAX_VALUE)
+                .addComponent(jPanel_tabPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1032,7 +1074,7 @@ public class MainWindow extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(main_panel, javax.swing.GroupLayout.DEFAULT_SIZE, 1100, Short.MAX_VALUE)
+            .addComponent(main_panel, javax.swing.GroupLayout.DEFAULT_SIZE, 1124, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1121,11 +1163,10 @@ public class MainWindow extends javax.swing.JFrame {
     private void new_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_new_buttonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_new_buttonActionPerformed
-
     private void jPanel_propertyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_propertyMouseClicked
         // TODO add your handling code here:
         setTabColors(evt);
-        PropertyPanel property = new PropertyPanel();
+//        property = new PropertyPanel();
         this.jPanel_tabPanel.removeAll();
         this.jPanel_tabPanel.repaint();
         this.jPanel_tabPanel.add(property).setBounds(0, 0, this.jPanel_tabPanel.getWidth(), this.jPanel_tabPanel.getHeight());
@@ -1135,7 +1176,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void jPanel_purchaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_purchaseMouseClicked
         // TODO add your handling code here:
         setTabColors(evt);
-        PurchasePanel purchase = new PurchasePanel();
+//        purchase = new PurchasePanel();
         this.jPanel_tabPanel.removeAll();
         this.jPanel_tabPanel.repaint();
         this.jPanel_tabPanel.add(purchase).setBounds(0, 0, this.jPanel_tabPanel.getWidth(), this.jPanel_tabPanel.getHeight());
@@ -1145,7 +1186,6 @@ public class MainWindow extends javax.swing.JFrame {
     private void jPanel_incomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_incomeMouseClicked
         // TODO add your handling code here:
         setTabColors(evt);
-        IncomePanel income = new IncomePanel();
         this.jPanel_tabPanel.removeAll();
         this.jPanel_tabPanel.repaint();
         this.jPanel_tabPanel.add(income).setBounds(0, 0, this.jPanel_tabPanel.getWidth(), this.jPanel_tabPanel.getHeight());
@@ -1155,7 +1195,6 @@ public class MainWindow extends javax.swing.JFrame {
     private void jPanel_expenseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_expenseMouseClicked
         // TODO add your handling code here:
         setTabColors(evt);
-        ExpensePanel expense = new ExpensePanel();
         this.jPanel_tabPanel.removeAll();
         this.jPanel_tabPanel.repaint();
         this.jPanel_tabPanel.add(expense).setBounds(0, 0, this.jPanel_tabPanel.getWidth(), this.jPanel_tabPanel.getHeight());
@@ -1165,7 +1204,6 @@ public class MainWindow extends javax.swing.JFrame {
     private void jPanel_assumptionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_assumptionMouseClicked
         // TODO add your handling code here:
         setTabColors(evt);
-        AssumptionPanel assumption = new AssumptionPanel();
         this.jPanel_tabPanel.removeAll();
         this.jPanel_tabPanel.repaint();
         this.jPanel_tabPanel.add(assumption).setBounds(0, 0, this.jPanel_tabPanel.getWidth(), this.jPanel_tabPanel.getHeight());
@@ -1175,7 +1213,6 @@ public class MainWindow extends javax.swing.JFrame {
     private void jPanel_reportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_reportMouseClicked
         // TODO add your handling code here:
         setTabColors(evt);
-        ReportPanel report = new ReportPanel();
         this.jPanel_tabPanel.removeAll();
         this.jPanel_tabPanel.repaint();
         this.jPanel_tabPanel.add(report).setBounds(0, 0, this.jPanel_tabPanel.getWidth(), this.jPanel_tabPanel.getHeight());
@@ -1252,6 +1289,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_assumption;
     private javax.swing.JLabel jLabel_expense;
     private javax.swing.JLabel jLabel_income;
+    private javax.swing.JLabel jLabel_logo;
     private javax.swing.JLabel jLabel_property;
     private javax.swing.JLabel jLabel_purchase;
     private javax.swing.JLabel jLabel_report;
