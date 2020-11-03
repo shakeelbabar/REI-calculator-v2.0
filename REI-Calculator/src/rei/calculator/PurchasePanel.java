@@ -2,10 +2,12 @@ package rei.calculator;
 
 import java.text.NumberFormat;
 import java.text.ParseException;
+import java.util.Formatter;
 import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JTextField;
+import javax.swing.text.Keymap;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -90,7 +92,7 @@ public class PurchasePanel extends javax.swing.JPanel {
         jLabel7.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
         jLabel7.setText("Closing Costs ($)");
 
-        asking_price.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        asking_price.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         asking_price.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 asking_priceCaretUpdate(evt);
@@ -98,21 +100,42 @@ public class PurchasePanel extends javax.swing.JPanel {
         });
         asking_price.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                asking_priceFocusGained(evt);
+                PurchasePanel.this.focusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                asking_priceFocusLost(evt);
+                PurchasePanel.this.focusLost(evt);
             }
         });
 
-        purchase_price.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        purchase_price.setFont(new java.awt.Font("Roboto Medium", 0, 15)); // NOI18N
         purchase_price.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 purchase_priceCaretUpdate(evt);
             }
         });
+        purchase_price.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                PurchasePanel.this.focusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                PurchasePanel.this.focusLost(evt);
+            }
+        });
 
         rehab_budget.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        rehab_budget.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                rehab_budgetCaretUpdate(evt);
+            }
+        });
+        rehab_budget.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                PurchasePanel.this.focusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                PurchasePanel.this.focusLost(evt);
+            }
+        });
         rehab_budget.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rehab_budgetActionPerformed(evt);
@@ -120,8 +143,24 @@ public class PurchasePanel extends javax.swing.JPanel {
         });
 
         arv.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        arv.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                PurchasePanel.this.focusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                PurchasePanel.this.focusLost(evt);
+            }
+        });
 
         closing_cost.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        closing_cost.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                PurchasePanel.this.focusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                PurchasePanel.this.focusLost(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
         jLabel8.setText("Downpayment (%)");
@@ -148,6 +187,14 @@ public class PurchasePanel extends javax.swing.JPanel {
         loan_amount.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
 
         emergency_funds.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        emergency_funds.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                PurchasePanel.this.focusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                PurchasePanel.this.focusLost(evt);
+            }
+        });
 
         jLabel14.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
         jLabel14.setText("Purchase");
@@ -304,53 +351,55 @@ public class PurchasePanel extends javax.swing.JPanel {
     private void asking_priceCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_asking_priceCaretUpdate
         JTextField source = (JTextField) evt.getSource();
         if(!source.getText().equalsIgnoreCase("")){
-            double num=0;
-            try {
-                num = formatter.parse(source.getText()).doubleValue();
-            } catch (ParseException ex) {
-                Logger.getLogger(PurchasePanel.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            this.purchase_price.setText(formatter.format(num));
-            this.rehab_budget.setText(formatter.format(num));
+//            source.setText(String.valueOf(parse(source.getText())));
         }
+//            double num = 0;
+//            if(source.getText().contains("$")){
+//                try {
+//                    num = formatter.parse(source.getText()).doubleValue();
+//                } catch (ParseException ex) {
+//                    Logger.getLogger(PurchasePanel.class.getName()).log(Level.SEVERE, null, ex);
+//                }
+//            }
+//            else num= Double.parseDouble(source.getText()); 
+////            try {
+////                num = formatter.parse(source.getText()).doubleValue();
+////            } catch (ParseException ex) {
+////                Logger.getLogger(PurchasePanel.class.getName()).log(Level.SEVERE, null, ex);
+////            }
+//            this.purchase_price.setText(Format.format(num));
+//            this.rehab_budget.setText(Format.format(num));
     }//GEN-LAST:event_asking_priceCaretUpdate
-
-    public double get_PurchaseValue(){
+    
+    
+    
+    public float get_PurchaseValue(){
+        float pur_val = 0;
         if(!this.purchase_price.getText().equalsIgnoreCase("")){
-            double pur_val = 0;
-            try {
-                return formatter.parse(this.purchase_price.getText()).doubleValue();
-            } catch (ParseException ex) {
-                Logger.getLogger(PurchasePanel.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            return Format.parse(this.purchase_price.getText());
         }
-        return 0.0d;
+        return pur_val;
     }
     
     public void setDownpayment(){
         int per = (int) this.downpayment_pecentage.getValue();
-        double calculate_dollar_amount = REI_Calculations.calculate_dollar_amount(get_PurchaseValue(),((double)per)/100);
-        this.downpayment_dollar.setText(formatter.format(calculate_dollar_amount));
+        float calculate_dollar_amount = REI_Calculations.calculate_dollar_amount(get_PurchaseValue(),(per)/100);
+        this.downpayment_dollar.setText(Format.format(calculate_dollar_amount));
     }
-    
     public void setLoanAmount() {
         setDownpayment();
         if(!this.rehab_budget.getText().equalsIgnoreCase("")){
-            double rb =0, dp = 0;
-            try {
-                if(this.rehab_check.getItemAt(this.rehab_check.getSelectedIndex()).equalsIgnoreCase("NO"))
-                     rb = 0;
-                else rb = formatter.parse(this.rehab_budget.getText()).doubleValue();
-                dp = formatter.parse(this.downpayment_dollar.getText()).doubleValue();
-            } catch (ParseException ex) {
-                Logger.getLogger(PurchasePanel.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            double loan_amount = REI_Calculations.full_loan_amount(get_PurchaseValue(), rb, dp);
-            this.loan_amount.setText(formatter.format(loan_amount));
+            float rb =0, dp = 0;
+            if(this.rehab_check.getItemAt(this.rehab_check.getSelectedIndex()).equalsIgnoreCase("NO"))
+                rb = 0;
+            else rb = Format.parse(this.rehab_budget.getText());
+            dp = Format.parse(this.downpayment_dollar.getText());
+            float loan_amount = REI_Calculations.full_loan_amount(get_PurchaseValue(), rb, dp);
+            this.loan_amount.setText(Format.format(loan_amount));
         }
 //        int per = (int) this.downpayment_pecentage.getValue();
 //        double calculate_dollar_amount = REI_Calculations.calculate_dollar_amount(pur_val,((double)per)/100);
-//        this.downpayment_dollar.setText(formatter.format(calculate_dollar_amount));
+//        this.downpayment_dollar.setText(Format.format(calculate_dollar_amount));
     }
 
     private void purchase_priceCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_purchase_priceCaretUpdate
@@ -369,26 +418,26 @@ public class PurchasePanel extends javax.swing.JPanel {
         setLoanAmount();
     }//GEN-LAST:event_rehab_checkItemStateChanged
 
-    private void asking_priceFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_asking_priceFocusGained
+    private void focusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_focusGained
         // TODO add your handling code here:
         JTextField source = (JTextField) evt.getSource();
         if(!source.getText().equalsIgnoreCase("")){
-            try {
-                source.setText(formatter.parse(source.getText()).toString());
-            } catch (ParseException ex) {
-                Logger.getLogger(PurchasePanel.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            source.setText(Format.formatTo2Float(Format.parse(source.getText())));
         }
-    }//GEN-LAST:event_asking_priceFocusGained
+    }//GEN-LAST:event_focusGained
 
-    private void asking_priceFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_asking_priceFocusLost
+    private void focusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_focusLost
         // TODO add your handling code here:
         JTextField source = (JTextField) evt.getSource();
         if(!source.getText().equalsIgnoreCase("")){
-//            
-            source.setText(formatter.format(Double.parseDouble(source.getText())));
+            source.setText(Format.format(Double.parseDouble(source.getText())));
         }
-    }//GEN-LAST:event_asking_priceFocusLost
+    }//GEN-LAST:event_focusLost
+
+    private void rehab_budgetCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_rehab_budgetCaretUpdate
+        setDownpayment();
+        setLoanAmount();
+    }//GEN-LAST:event_rehab_budgetCaretUpdate
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

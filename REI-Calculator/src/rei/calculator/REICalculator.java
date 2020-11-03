@@ -12,6 +12,8 @@ import java.awt.Toolkit;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Formatter;
+import java.util.logging.LogRecord;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -26,6 +28,14 @@ public class REICalculator {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
+//        
+//        Formatter fmt = new Formatter();
+//        
+////        for(double i =1000; i<1.0e+10; i*=10){
+//            fmt.format("%.2f",2.4e+10);
+//            System.out.println(fmt+" here");
+////        }
+//        
         
                 /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -64,7 +74,5 @@ public class REICalculator {
 
             }
         });
-        
-
     }
 }

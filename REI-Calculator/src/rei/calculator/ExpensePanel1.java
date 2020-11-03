@@ -12,12 +12,13 @@ import javax.swing.JTextField;
  *
  * @author Shakeel Ahmed
  */
-public class ExpensePanel extends javax.swing.JPanel {
+public class ExpensePanel1 extends javax.swing.JPanel {
 
     /**
      * Creates new form NewJPanel
      */
-    public ExpensePanel() {
+    public ExpensePanel1() {
+        System.out.println("here");
         initComponents();
         System.out.println("here after");
     }
@@ -33,43 +34,43 @@ public class ExpensePanel extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        total_fixed_expense = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        electric = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        water_and_sewer = new javax.swing.JTextField();
+        jTextField7 = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        pmi = new javax.swing.JTextField();
-        garbage = new javax.swing.JTextField();
+        jTextField10 = new javax.swing.JTextField();
+        jTextField11 = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
-        hoa = new javax.swing.JTextField();
+        jTextField13 = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
-        monthly_taxes = new javax.swing.JTextField();
+        jTextField14 = new javax.swing.JTextField();
         jLabel29 = new javax.swing.JLabel();
-        insurance = new javax.swing.JTextField();
+        jTextField15 = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
-        miscellaneous = new javax.swing.JTextField();
+        jTextField16 = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
-        cap_ex_perc = new javax.swing.JTextField();
-        cap_ex_dollar = new javax.swing.JTextField();
+        jTextField12 = new javax.swing.JTextField();
+        jTextField17 = new javax.swing.JTextField();
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
-        management_fee_dollar = new javax.swing.JTextField();
+        jTextField18 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        repair_maint_perc = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
         jLabel36 = new javax.swing.JLabel();
-        repair_maint_dollar = new javax.swing.JTextField();
-        total_variable_expense = new javax.swing.JTextField();
+        jTextField8 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
         jLabel37 = new javax.swing.JLabel();
-        vacancy_perc = new javax.swing.JTextField();
+        jTextField19 = new javax.swing.JTextField();
         jLabel38 = new javax.swing.JLabel();
-        vacancy_dollar = new javax.swing.JTextField();
+        jTextField20 = new javax.swing.JTextField();
         jLabel39 = new javax.swing.JLabel();
-        management_free_perc = new javax.swing.JTextField();
+        jTextField21 = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(246, 245, 245));
@@ -82,10 +83,10 @@ public class ExpensePanel extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
         jLabel2.setText("Total Fixed Expense");
 
-        total_fixed_expense.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
-        total_fixed_expense.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                total_fixed_expenseFocusLost(evt);
+        jTextField1.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
             }
         });
 
@@ -95,26 +96,26 @@ public class ExpensePanel extends javax.swing.JPanel {
         jLabel15.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
         jLabel15.setText("Variable Expeses (USD)");
 
-        electric.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
-        electric.addFocusListener(new java.awt.event.FocusAdapter() {
+        jTextField3.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jTextField3.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                ExpensePanel.this.focusGained(evt);
+                ExpensePanel1.this.focusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                ExpensePanel.this.focusLost(evt);
+                ExpensePanel1.this.focusLost(evt);
             }
         });
 
         jLabel17.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
         jLabel17.setText("Electric");
 
-        water_and_sewer.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
-        water_and_sewer.addFocusListener(new java.awt.event.FocusAdapter() {
+        jTextField7.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jTextField7.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                ExpensePanel.this.focusGained(evt);
+                ExpensePanel1.this.focusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                ExpensePanel.this.focusLost(evt);
+                ExpensePanel1.this.focusLost(evt);
             }
         });
 
@@ -124,23 +125,23 @@ public class ExpensePanel extends javax.swing.JPanel {
         jLabel20.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
         jLabel20.setText("PMI");
 
-        pmi.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
-        pmi.addFocusListener(new java.awt.event.FocusAdapter() {
+        jTextField10.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jTextField10.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                ExpensePanel.this.focusGained(evt);
+                ExpensePanel1.this.focusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                ExpensePanel.this.focusLost(evt);
+                ExpensePanel1.this.focusLost(evt);
             }
         });
 
-        garbage.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
-        garbage.addFocusListener(new java.awt.event.FocusAdapter() {
+        jTextField11.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jTextField11.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                ExpensePanel.this.focusGained(evt);
+                ExpensePanel1.this.focusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                ExpensePanel.this.focusLost(evt);
+                ExpensePanel1.this.focusLost(evt);
             }
         });
 
@@ -150,48 +151,48 @@ public class ExpensePanel extends javax.swing.JPanel {
         jLabel25.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
         jLabel25.setText("HOA ");
 
-        hoa.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
-        hoa.addFocusListener(new java.awt.event.FocusAdapter() {
+        jTextField13.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jTextField13.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                ExpensePanel.this.focusGained(evt);
+                ExpensePanel1.this.focusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                ExpensePanel.this.focusLost(evt);
+                ExpensePanel1.this.focusLost(evt);
             }
         });
 
         jLabel26.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
         jLabel26.setText("Monthly Taxes");
 
-        monthly_taxes.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jTextField14.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
 
         jLabel29.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
         jLabel29.setText("Insurance");
 
-        insurance.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jTextField15.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
 
         jLabel30.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
         jLabel30.setText("Miscellaneous");
 
-        miscellaneous.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
-        miscellaneous.addFocusListener(new java.awt.event.FocusAdapter() {
+        jTextField16.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jTextField16.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                ExpensePanel.this.focusGained(evt);
+                ExpensePanel1.this.focusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                ExpensePanel.this.focusLost(evt);
+                ExpensePanel1.this.focusLost(evt);
             }
         });
 
         jLabel32.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
-        jLabel32.setText("Repairs/Maint ($)");
+        jLabel32.setText("Repairs/Maintenance ($)");
 
         jLabel33.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
         jLabel33.setText("Cap. Ex. (%)");
 
-        cap_ex_perc.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jTextField12.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
 
-        cap_ex_dollar.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jTextField17.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
 
         jLabel34.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
         jLabel34.setText("Cap. Ex. ($)");
@@ -199,34 +200,34 @@ public class ExpensePanel extends javax.swing.JPanel {
         jLabel35.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
         jLabel35.setText("Management Fee ($)");
 
-        management_fee_dollar.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jTextField18.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
         jLabel3.setText("Total Variable Expense");
 
-        repair_maint_perc.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jTextField4.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
 
         jLabel36.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
-        jLabel36.setText("Repairs/Maint (%)");
+        jLabel36.setText("Repairs/Maintenance (%)");
 
-        repair_maint_dollar.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jTextField8.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
 
-        total_variable_expense.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jTextField2.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
 
         jLabel37.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
         jLabel37.setText("Vacancy (%)");
 
-        vacancy_perc.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jTextField19.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
 
         jLabel38.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
         jLabel38.setText("Vacancy ($)");
 
-        vacancy_dollar.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jTextField20.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
 
         jLabel39.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
         jLabel39.setText("Management Fee (%)");
 
-        management_free_perc.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jTextField21.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
 
         jLabel16.setBackground(new java.awt.Color(225, 227, 228));
         jLabel16.setForeground(new java.awt.Color(196, 199, 200));
@@ -252,15 +253,15 @@ public class ExpensePanel extends javax.swing.JPanel {
                             .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(electric, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(water_and_sewer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pmi, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(garbage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(hoa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(monthly_taxes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(insurance, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(miscellaneous, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(total_fixed_expense, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField14, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField16, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(40, 40, 40)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -276,15 +277,15 @@ public class ExpensePanel extends javax.swing.JPanel {
                                     .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(10, 10, 10)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(repair_maint_perc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(repair_maint_dollar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cap_ex_perc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cap_ex_dollar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(vacancy_perc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(vacancy_dollar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(management_free_perc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(management_fee_dollar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(total_variable_expense, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField17, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField20, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField21, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField18, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jLabel15)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(66, 66, 66)
@@ -347,56 +348,49 @@ public class ExpensePanel extends javax.swing.JPanel {
                         .addGap(11, 11, 11)
                         .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(total_variable_expense, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(repair_maint_perc, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(repair_maint_dollar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cap_ex_perc, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cap_ex_dollar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(vacancy_perc, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(vacancy_dollar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(management_free_perc, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(management_fee_dollar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(total_fixed_expense, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(electric, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(water_and_sewer, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pmi, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(garbage, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(hoa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(monthly_taxes, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(insurance, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(miscellaneous, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void updateTFE(float value){
-        float initial_value = 0.00f;
-        if(!this.total_fixed_expense.getText().equalsIgnoreCase("")){
-            float val = Format.parse(this.total_fixed_expense.getText());
-            float total = val+value;
-            String totals = Format.format(total);
-            this.total_fixed_expense.setText(totals);
-        }
-        else this.total_fixed_expense.setText(Format.format(value));
-    }
-    
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
     private void focusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_focusGained
         // TODO add your handling code here:
         JTextField source = (JTextField) evt.getSource();
@@ -413,19 +407,8 @@ public class ExpensePanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_focusLost
 
-    private void total_fixed_expenseFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_total_fixed_expenseFocusLost
-        this.updateTFE(192900.00f);
-        // TODO add your handling code here:
-    }//GEN-LAST:event_total_fixed_expenseFocusLost
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField cap_ex_dollar;
-    private javax.swing.JTextField cap_ex_perc;
-    private javax.swing.JTextField electric;
-    private javax.swing.JTextField garbage;
-    private javax.swing.JTextField hoa;
-    private javax.swing.JTextField insurance;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -448,17 +431,23 @@ public class ExpensePanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
-    private javax.swing.JTextField management_fee_dollar;
-    private javax.swing.JTextField management_free_perc;
-    private javax.swing.JTextField miscellaneous;
-    private javax.swing.JTextField monthly_taxes;
-    private javax.swing.JTextField pmi;
-    private javax.swing.JTextField repair_maint_dollar;
-    private javax.swing.JTextField repair_maint_perc;
-    private javax.swing.JTextField total_fixed_expense;
-    private javax.swing.JTextField total_variable_expense;
-    private javax.swing.JTextField vacancy_dollar;
-    private javax.swing.JTextField vacancy_perc;
-    private javax.swing.JTextField water_and_sewer;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField10;
+    private javax.swing.JTextField jTextField11;
+    private javax.swing.JTextField jTextField12;
+    private javax.swing.JTextField jTextField13;
+    private javax.swing.JTextField jTextField14;
+    private javax.swing.JTextField jTextField15;
+    private javax.swing.JTextField jTextField16;
+    private javax.swing.JTextField jTextField17;
+    private javax.swing.JTextField jTextField18;
+    private javax.swing.JTextField jTextField19;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField20;
+    private javax.swing.JTextField jTextField21;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
     // End of variables declaration//GEN-END:variables
 }

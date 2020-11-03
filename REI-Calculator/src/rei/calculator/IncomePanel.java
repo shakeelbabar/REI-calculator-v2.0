@@ -1,5 +1,7 @@
 package rei.calculator;
 
+import javax.swing.JTextField;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -63,12 +65,44 @@ public class IncomePanel extends javax.swing.JPanel {
         jLabel6.setText("Total Monthly Income ($)");
 
         jTextField1.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                IncomePanel.this.focusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                IncomePanel.this.focusLost(evt);
+            }
+        });
 
         jTextField2.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jTextField2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                IncomePanel.this.focusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                IncomePanel.this.focusLost(evt);
+            }
+        });
 
         jTextField4.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jTextField4.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                IncomePanel.this.focusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                IncomePanel.this.focusLost(evt);
+            }
+        });
 
         jTextField5.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jTextField5.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                IncomePanel.this.focusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                IncomePanel.this.focusLost(evt);
+            }
+        });
 
         jSpinner2.setFont(new java.awt.Font("Roboto Medium", 1, 16)); // NOI18N
 
@@ -139,6 +173,23 @@ public class IncomePanel extends javax.swing.JPanel {
                 .addContainerGap(173, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void focusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_focusGained
+        // TODO add your handling code here:
+        JTextField source = (JTextField) evt.getSource();
+        if(!source.getText().equalsIgnoreCase("")){
+            source.setText(Format.formatTo2Float(Format.parse(source.getText())));
+        }
+    }//GEN-LAST:event_focusGained
+
+    private void focusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_focusLost
+        // TODO add your handling code here:
+        JTextField source = (JTextField) evt.getSource();
+        if(!source.getText().equalsIgnoreCase("")){
+            source.setText(Format.formatToCurrency(source.getText()));
+        }
+
+    }//GEN-LAST:event_focusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
