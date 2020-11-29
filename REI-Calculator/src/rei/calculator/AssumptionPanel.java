@@ -1,5 +1,7 @@
 package rei.calculator;
 
+import javax.swing.JTextField;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -42,28 +44,80 @@ public class AssumptionPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(246, 245, 245));
         setPreferredSize(new java.awt.Dimension(934, 524));
 
-        jLabel1.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Leelawadee UI", 0, 24)); // NOI18N
         jLabel1.setText("Assumptions Credentials");
 
-        jLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel2.setText("Annual Rate Appreciation (%)");
 
-        jLabel3.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel3.setText("Annual Expense Appreciation (%)");
 
-        jLabel4.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel4.setText("Annual Property Appreciation (%)");
 
-        jLabel6.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel6.setText("Selling Costs (%)");
 
-        jTextField1.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jTextField1.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
+        jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                focusGained_perc(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                focusLost_perc(evt);
+            }
+        });
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                validateKey(evt);
+            }
+        });
 
-        jTextField2.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jTextField2.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
+        jTextField2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                focusGained_perc(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                focusLost_perc(evt);
+            }
+        });
+        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                validateKey(evt);
+            }
+        });
 
-        jTextField4.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jTextField4.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
+        jTextField4.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                focusGained_perc(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                focusLost_perc(evt);
+            }
+        });
+        jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                validateKey(evt);
+            }
+        });
 
-        jTextField5.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jTextField5.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
+        jTextField5.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                focusGained_perc(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                focusLost_perc(evt);
+            }
+        });
+        jTextField5.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                validateKey(evt);
+            }
+        });
 
         jLabel5.setBackground(new java.awt.Color(225, 227, 228));
         jLabel5.setForeground(new java.awt.Color(196, 199, 200));
@@ -122,6 +176,32 @@ public class AssumptionPanel extends javax.swing.JPanel {
                 .addContainerGap(221, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void focusGained_perc(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_focusGained_perc
+        // TODO add your handling code here:
+        JTextField source = (JTextField) evt.getSource();
+        if(!source.getText().equalsIgnoreCase("")){
+            source.setText(Format.formatTo2Float(Float.valueOf(source.getText().replace("%",""))));
+        }
+    }//GEN-LAST:event_focusGained_perc
+
+    private void focusLost_perc(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_focusLost_perc
+        // TODO add your handling code here:
+        JTextField source = (JTextField) evt.getSource();
+        if(!source.getText().equalsIgnoreCase("")){
+            source.setText(Format.formatToPercent(source.getText()));
+        }
+    }//GEN-LAST:event_focusLost_perc
+
+    private void validateKey(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_validateKey
+        // TODO add your handling code here:
+        JTextField source = (JTextField) evt.getSource();
+        if ((evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') || evt.getKeyCode() == 8 || evt.getKeyChar() == '-' || evt.getKeyChar() == '.' || (evt.getKeyCode() >=37 && evt.getKeyCode() <=40)) {
+            source.setEditable(true);
+        } else {
+            source.setEditable(false);
+        }
+    }//GEN-LAST:event_validateKey
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

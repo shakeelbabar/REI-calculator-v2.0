@@ -97,6 +97,11 @@ public class ExpensePanel1 extends javax.swing.JPanel {
         jLabel15.setText("Variable Expeses (USD)");
 
         jTextField3.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jTextField3.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                TFE_update(evt);
+            }
+        });
         jTextField3.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 ExpensePanel1.this.focusGained(evt);
@@ -110,6 +115,11 @@ public class ExpensePanel1 extends javax.swing.JPanel {
         jLabel17.setText("Electric");
 
         jTextField7.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jTextField7.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                TFE_update(evt);
+            }
+        });
         jTextField7.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 ExpensePanel1.this.focusGained(evt);
@@ -126,6 +136,11 @@ public class ExpensePanel1 extends javax.swing.JPanel {
         jLabel20.setText("PMI");
 
         jTextField10.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jTextField10.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                TFE_update(evt);
+            }
+        });
         jTextField10.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 ExpensePanel1.this.focusGained(evt);
@@ -136,6 +151,11 @@ public class ExpensePanel1 extends javax.swing.JPanel {
         });
 
         jTextField11.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jTextField11.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                TFE_update(evt);
+            }
+        });
         jTextField11.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 ExpensePanel1.this.focusGained(evt);
@@ -152,6 +172,11 @@ public class ExpensePanel1 extends javax.swing.JPanel {
         jLabel25.setText("HOA ");
 
         jTextField13.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jTextField13.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                TFE_update(evt);
+            }
+        });
         jTextField13.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 ExpensePanel1.this.focusGained(evt);
@@ -175,6 +200,11 @@ public class ExpensePanel1 extends javax.swing.JPanel {
         jLabel30.setText("Miscellaneous");
 
         jTextField16.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jTextField16.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                TFE_update(evt);
+            }
+        });
         jTextField16.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 ExpensePanel1.this.focusGained(evt);
@@ -406,6 +436,10 @@ public class ExpensePanel1 extends javax.swing.JPanel {
             source.setText(Format.formatToCurrency(source.getText()));
         }
     }//GEN-LAST:event_focusLost
+
+    private void TFE_update(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_TFE_update
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TFE_update
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

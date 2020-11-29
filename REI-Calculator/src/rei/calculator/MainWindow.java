@@ -425,8 +425,8 @@ public class MainWindow extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jLabel_property.setFont(new java.awt.Font("Roboto", 1, 16)); // NOI18N
-        jLabel_property.setForeground(new java.awt.Color(96, 96, 99));
+        jLabel_property.setFont(new java.awt.Font("Leelawadee UI", 0, 18)); // NOI18N
+        jLabel_property.setForeground(new java.awt.Color(50, 50, 50));
         jLabel_property.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel_property.setText("Property");
 
@@ -470,8 +470,8 @@ public class MainWindow extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jLabel_purchase.setFont(new java.awt.Font("Roboto", 1, 16)); // NOI18N
-        jLabel_purchase.setForeground(new java.awt.Color(96, 96, 99));
+        jLabel_purchase.setFont(new java.awt.Font("Leelawadee UI", 0, 18)); // NOI18N
+        jLabel_purchase.setForeground(new java.awt.Color(50, 50, 50));
         jLabel_purchase.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel_purchase.setText("Purchase");
 
@@ -515,8 +515,8 @@ public class MainWindow extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jLabel_income.setFont(new java.awt.Font("Roboto", 1, 16)); // NOI18N
-        jLabel_income.setForeground(new java.awt.Color(96, 96, 99));
+        jLabel_income.setFont(new java.awt.Font("Leelawadee UI", 0, 18)); // NOI18N
+        jLabel_income.setForeground(new java.awt.Color(50, 50, 50));
         jLabel_income.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel_income.setText("Income");
 
@@ -560,8 +560,8 @@ public class MainWindow extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jLabel_expense.setFont(new java.awt.Font("Roboto", 1, 16)); // NOI18N
-        jLabel_expense.setForeground(new java.awt.Color(96, 96, 99));
+        jLabel_expense.setFont(new java.awt.Font("Leelawadee UI", 0, 18)); // NOI18N
+        jLabel_expense.setForeground(new java.awt.Color(50, 50, 50));
         jLabel_expense.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel_expense.setText("Expense");
 
@@ -605,8 +605,8 @@ public class MainWindow extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jLabel_assumption.setFont(new java.awt.Font("Roboto", 1, 16)); // NOI18N
-        jLabel_assumption.setForeground(new java.awt.Color(96, 96, 99));
+        jLabel_assumption.setFont(new java.awt.Font("Leelawadee UI", 0, 18)); // NOI18N
+        jLabel_assumption.setForeground(new java.awt.Color(50, 50, 50));
         jLabel_assumption.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel_assumption.setText("Assumptions");
 
@@ -650,8 +650,8 @@ public class MainWindow extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jLabel_report.setFont(new java.awt.Font("Roboto", 1, 16)); // NOI18N
-        jLabel_report.setForeground(new java.awt.Color(96, 96, 99));
+        jLabel_report.setFont(new java.awt.Font("Leelawadee UI", 0, 18)); // NOI18N
+        jLabel_report.setForeground(new java.awt.Color(50, 50, 50));
         jLabel_report.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel_report.setText("Report");
 
@@ -707,7 +707,7 @@ public class MainWindow extends javax.swing.JFrame {
                 .addComponent(jPanel_assumption, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel_report, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40))
         );
@@ -774,13 +774,16 @@ public class MainWindow extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "YES", "NO" }));
 
         jSpinner1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jSpinner1.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
         jTextField6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTextField6.setForeground(new java.awt.Color(96, 96, 99));
 
         jSpinner2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jSpinner2.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 1));
 
         jSpinner3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jSpinner3.setModel(new javax.swing.SpinnerNumberModel(4.5f, null, null, 0.01f));
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(96, 96, 99));
@@ -861,7 +864,7 @@ public class MainWindow extends javax.swing.JFrame {
                             .addComponent(jSpinner2)
                             .addComponent(jSpinner3)))
                     .addComponent(jLabel19))
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
         jPanel_tabPanelLayout.setVerticalGroup(
             jPanel_tabPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -947,7 +950,7 @@ public class MainWindow extends javax.swing.JFrame {
         );
 
         jMenuBar1.setBackground(new java.awt.Color(255, 255, 255));
-        jMenuBar1.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        jMenuBar1.setFont(new java.awt.Font("Leelawadee UI Semilight", 0, 12)); // NOI18N
         jMenuBar1.setPreferredSize(new java.awt.Dimension(134, 20));
 
         jMenu1.setText("File");
@@ -1122,43 +1125,43 @@ public class MainWindow extends javax.swing.JFrame {
     private void setTabColors(java.awt.event.MouseEvent evt){
         this.jPanel_property.setBackground(new java.awt.Color(225,227,228));
         this.jPanel_property_active.setBackground(new java.awt.Color(225,227,228));
-        this.jLabel_property.setForeground(new Color(96,96,99));
+        this.jLabel_property.setForeground(new Color(80,80,80));
 //        this.jLabel_property.setFont(new java.awt.Font("Gotham XLight", 1, 16));
-        this.jLabel_property.setFont(new java.awt.Font("Roboto", 1, 16));
+        this.jLabel_property.setFont(new java.awt.Font("Leelawadee UI", 0, 18));
         
         this.jPanel_purchase.setBackground(new java.awt.Color(225,227,228));
         this.jPanel_purchase_active.setBackground(new java.awt.Color(225,227,228));
-        this.jLabel_purchase.setForeground(new Color(96,96,99));
-        this.jLabel_purchase.setFont(new java.awt.Font("Roboto", 1, 16));
+        this.jLabel_purchase.setForeground(new Color(80,80,80));
+        this.jLabel_purchase.setFont(new java.awt.Font("Leelawadee UI", 0, 18));
 
         this.jPanel_expense.setBackground(new java.awt.Color(225,227,228));
         this.jPanel_expense_active.setBackground(new java.awt.Color(225,227,228));
-        this.jLabel_expense.setForeground(new Color(96,96,99));
-        this.jLabel_expense.setFont(new java.awt.Font("Roboto", 1, 16));
+        this.jLabel_expense.setForeground(new Color(80,80,80));
+        this.jLabel_expense.setFont(new java.awt.Font("Leelawadee UI", 0, 18));
 
         this.jPanel_income.setBackground(new java.awt.Color(225,227,228));
         this.jPanel_income_active.setBackground(new java.awt.Color(225,227,228));
-        this.jLabel_income.setForeground(new Color(96,96,99));
-        this.jLabel_income.setFont(new java.awt.Font("Roboto", 1, 16));
+        this.jLabel_income.setForeground(new Color(80,80,80));
+        this.jLabel_income.setFont(new java.awt.Font("Leelawadee UI", 0, 18));
 
         this.jPanel_assumption.setBackground(new java.awt.Color(225,227,228));
         this.jPanel_assumption_active.setBackground(new java.awt.Color(225,227,228));
-        this.jLabel_assumption.setForeground(new Color(96,96,99));
-        this.jLabel_assumption.setFont(new java.awt.Font("Roboto", 1, 16));
+        this.jLabel_assumption.setForeground(new Color(80,80,80));
+        this.jLabel_assumption.setFont(new java.awt.Font("Leelawadee UI", 0, 18));
 
         this.jPanel_report.setBackground(new java.awt.Color(225,227,228));
         this.jPanel_report_active.setBackground(new java.awt.Color(225,227,228));
-        this.jLabel_report.setForeground(new Color(96,96,99));
-        this.jLabel_report.setFont(new java.awt.Font("Roboto", 1, 16));
+        this.jLabel_report.setForeground(new Color(80,80,80));
+        this.jLabel_report.setFont(new java.awt.Font("Leelawadee UI", 0, 18));
 
         JPanel p = (JPanel)evt.getSource();
 //        p.setBackground(new Color(50,50,50));
         p.setBackground(new Color(196,199,200));
         JPanel active = (JPanel)p.getComponent(1);
-        active.setBackground(new Color(96,96,99));
+        active.setBackground(new Color(30,30,30));
         JLabel label_active = (JLabel)p.getComponent(0);
-        label_active.setFont(new java.awt.Font("Roboto", 1, 16));
-        label_active.setForeground(new Color(96,96,99));
+        label_active.setFont(new java.awt.Font("Leelawadee UI", 0, 18));
+        label_active.setForeground(new Color(30,30,30));
     }
     private void new_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_new_buttonActionPerformed
         // TODO add your handling code here:

@@ -18,11 +18,12 @@ import java.util.logging.Logger;
  */
 public class Format {
     
-    private static NumberFormat formatter = NumberFormat.getCurrencyInstance(Locale.US);
+    public static NumberFormat formatter = NumberFormat.getCurrencyInstance(Locale.US);
+    public static Formatter fmt = new Formatter();
     public Format(){
 //        this.formatter = NumberFormat.getCurrencyInstance(Locale.US);
     }
-            
+    
     public static float parse(String value){
         if(value.contains("$")){
             try {
@@ -31,6 +32,12 @@ public class Format {
                 Logger.getLogger(PurchasePanel.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        return Float.parseFloat(value);
+    }
+
+    public static float parse_perc(String value){
+        if(value.contains("%"))
+            return Float.valueOf(value.replace("%", ""));        
         return Float.parseFloat(value);
     }
     
@@ -42,8 +49,17 @@ public class Format {
         }
     }
     
+    public static String formatToPercent(String value){
+        if(!value.contains("%")){
+            value = formatTo2Float(Float.valueOf(value));
+            return value+"%";
+        }
+        else 
+            return value;            
+    }
+    
     public static String formatTo2Float(float value){
-        Formatter fmt = new Formatter();
+        fmt = new Formatter();
         fmt.format("%.2f", value);
         return fmt.toString();
     }

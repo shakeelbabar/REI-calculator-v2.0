@@ -49,38 +49,38 @@ public class PropertyPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(246, 245, 245));
         setPreferredSize(new java.awt.Dimension(934, 524));
 
-        jLabel1.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Leelawadee UI", 0, 24)); // NOI18N
         jLabel1.setText("Property Credentials");
 
-        jLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel2.setText("Property Address");
 
-        jLabel3.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel3.setText("City");
 
-        jLabel4.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel4.setText("State");
 
-        jLabel5.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel5.setText("ZIP Code");
 
-        jLabel6.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel6.setText("Prior Year's Taxes USD");
 
-        jLabel7.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel7.setText("Landload Insurance USD");
 
-        jTextField_property_address.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jTextField_property_address.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
 
-        jTextField_city.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jTextField_city.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
 
-        jTextField_zip_code.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jTextField_zip_code.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
 
-        jTextField_taxes.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jTextField_taxes.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
 
-        jTextField_insurance.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jTextField_insurance.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
 
-        jList_imagelist.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        jList_imagelist.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jList_imagelist.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
@@ -88,7 +88,7 @@ public class PropertyPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jList_imagelist);
 
-        jButton_loadimages.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
+        jButton_loadimages.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jButton_loadimages.setText("Attach Images");
         jButton_loadimages.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,7 +96,7 @@ public class PropertyPanel extends javax.swing.JPanel {
             }
         });
 
-        jComboBox_state.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jComboBox_state.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jComboBox_state.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AK", "AL", "AR", "AS", "AZ", "CA", "CO", "CT", "DC", "DE", "FL", "GA", "HI", "IA", "ID", "IL", "IN", "KS", "KY", "LA", "MA", "ME", "MD", "MI", "MN", "MO", "MS", "MT", "NC", "ND", "NE", "NH", "NJ", "NM", "NV", "NY", "OH", "OK", "OR", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VA", "VI", "VT", "WA", "WI", "WV", "WY" }));
         jComboBox_state.setPreferredSize(new java.awt.Dimension(52, 30));
 
@@ -139,7 +139,7 @@ public class PropertyPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addComponent(jLabel8)))
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

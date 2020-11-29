@@ -36,36 +36,36 @@ public class IncomePanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jSpinner2 = new javax.swing.JSpinner();
+        total_monthly_income_units = new javax.swing.JTextField();
+        average_rent_per_unit = new javax.swing.JTextField();
+        other_income = new javax.swing.JTextField();
+        total_monthly_income = new javax.swing.JTextField();
+        numbe_of_units = new javax.swing.JSpinner();
         jLabel16 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(246, 245, 245));
         setPreferredSize(new java.awt.Dimension(934, 524));
 
-        jLabel1.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Leelawadee UI", 0, 24)); // NOI18N
         jLabel1.setText("Income Information");
 
-        jLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel2.setText("Number of Units ");
 
-        jLabel3.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel3.setText("Average Rent per Unit ($)");
 
-        jLabel4.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel4.setText("Total Monthly Income ($)");
 
-        jLabel5.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel5.setText("Other Income per Month ($)");
 
-        jLabel6.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel6.setText("Total Monthly Income ($)");
 
-        jTextField1.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
-        jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
+        total_monthly_income_units.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
+        total_monthly_income_units.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 IncomePanel.this.focusGained(evt);
             }
@@ -73,9 +73,14 @@ public class IncomePanel extends javax.swing.JPanel {
                 IncomePanel.this.focusLost(evt);
             }
         });
+        total_monthly_income_units.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                validateKey(evt);
+            }
+        });
 
-        jTextField2.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
-        jTextField2.addFocusListener(new java.awt.event.FocusAdapter() {
+        average_rent_per_unit.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
+        average_rent_per_unit.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 IncomePanel.this.focusGained(evt);
             }
@@ -83,9 +88,14 @@ public class IncomePanel extends javax.swing.JPanel {
                 IncomePanel.this.focusLost(evt);
             }
         });
+        average_rent_per_unit.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                validateKey(evt);
+            }
+        });
 
-        jTextField4.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
-        jTextField4.addFocusListener(new java.awt.event.FocusAdapter() {
+        other_income.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
+        other_income.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 IncomePanel.this.focusGained(evt);
             }
@@ -93,9 +103,14 @@ public class IncomePanel extends javax.swing.JPanel {
                 IncomePanel.this.focusLost(evt);
             }
         });
+        other_income.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                validateKey(evt);
+            }
+        });
 
-        jTextField5.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
-        jTextField5.addFocusListener(new java.awt.event.FocusAdapter() {
+        total_monthly_income.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
+        total_monthly_income.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 IncomePanel.this.focusGained(evt);
             }
@@ -103,8 +118,19 @@ public class IncomePanel extends javax.swing.JPanel {
                 IncomePanel.this.focusLost(evt);
             }
         });
+        total_monthly_income.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                validateKey(evt);
+            }
+        });
 
-        jSpinner2.setFont(new java.awt.Font("Roboto Medium", 1, 16)); // NOI18N
+        numbe_of_units.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
+        numbe_of_units.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        numbe_of_units.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                numbe_of_unitsStateChanged(evt);
+            }
+        });
 
         jLabel16.setBackground(new java.awt.Color(225, 227, 228));
         jLabel16.setForeground(new java.awt.Color(196, 199, 200));
@@ -123,12 +149,12 @@ public class IncomePanel extends javax.swing.JPanel {
                             .addComponent(jLabel5))
                         .addGap(110, 110, 110)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                            .addComponent(jTextField1)
-                            .addComponent(jSpinner2, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addContainerGap(307, Short.MAX_VALUE))
+                            .addComponent(other_income, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                            .addComponent(total_monthly_income, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                            .addComponent(average_rent_per_unit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                            .addComponent(total_monthly_income_units)
+                            .addComponent(numbe_of_units, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addContainerGap(313, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
@@ -152,24 +178,24 @@ public class IncomePanel extends javax.swing.JPanel {
                 .addComponent(jLabel16)
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(numbe_of_units, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(average_rent_per_unit, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(total_monthly_income_units, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(other_income, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(total_monthly_income, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(173, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -191,8 +217,47 @@ public class IncomePanel extends javax.swing.JPanel {
 
     }//GEN-LAST:event_focusLost
 
+    private void validateKey(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_validateKey
+        // TODO add your handling code here:
+        JTextField source = (JTextField) evt.getSource();
+        if ((evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') || evt.getKeyCode() == 8 || (evt.getKeyCode() >=37 && evt.getKeyCode() <=40)) {
+            source.setEditable(true);
+        } else {
+            source.setEditable(false);
+        }
+    }//GEN-LAST:event_validateKey
 
+    private void setTotalMonthlyIncomeOfUnits(){
+        if(!this.average_rent_per_unit.getText().equalsIgnoreCase("")){
+            int a = (int) this.numbe_of_units.getValue();
+            Float b = Format.parse(this.average_rent_per_unit.getText());
+            String value = Format.format(a * b);
+            this.total_monthly_income_units.setText(value);
+        }
+        else
+            this.total_monthly_income_units.setText(Format.format(0.00d));
+    }
+    
+    private void setTotalMonthlyIncome(){
+        if(!this.total_monthly_income_units.getText().equalsIgnoreCase("") || !this.other_income.getText().equalsIgnoreCase("")){
+            this.total_monthly_income.setText(Format.format(Format.parse(this.total_monthly_income_units.getText())+Format.parse(this.other_income.getText())));
+            
+        }
+        else
+            this.total_monthly_income.setText(Format.format(0.00d));
+//        float units = ;
+//        float other = ;
+    }
+    
+    private void numbe_of_unitsStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_numbe_of_unitsStateChanged
+        // TODO add your handling code here:
+        this.setTotalMonthlyIncomeOfUnits();
+//        this.setTotalMonthlyIncome();
+    }//GEN-LAST:event_numbe_of_unitsStateChanged
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField average_rent_per_unit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
@@ -200,10 +265,9 @@ public class IncomePanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JSpinner jSpinner2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JSpinner numbe_of_units;
+    private javax.swing.JTextField other_income;
+    private javax.swing.JTextField total_monthly_income;
+    private javax.swing.JTextField total_monthly_income_units;
     // End of variables declaration//GEN-END:variables
 }

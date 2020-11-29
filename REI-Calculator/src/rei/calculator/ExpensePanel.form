@@ -196,7 +196,7 @@
                       <Component id="miscellaneous" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="32" max="32767" attributes="0"/>
+              <EmptySpace pref="26" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -205,7 +205,7 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Black" size="24" style="0"/>
+          <Font name="Leelawadee UI" size="24" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Expenditure Information"/>
       </Properties>
@@ -213,15 +213,16 @@
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Medium" size="16" style="0"/>
+          <Font name="Leelawadee UI" size="16" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Total Fixed Expense"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="total_fixed_expense">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Medium" size="16" style="0"/>
+          <Font name="Leelawadee UI" size="16" style="0"/>
         </Property>
       </Properties>
       <Events>
@@ -231,7 +232,7 @@
     <Component class="javax.swing.JLabel" name="jLabel14">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Medium" size="18" style="1"/>
+          <Font name="Leelawadee UI" size="18" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Fixed Expenses (USD)"/>
       </Properties>
@@ -239,7 +240,7 @@
     <Component class="javax.swing.JLabel" name="jLabel15">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Medium" size="18" style="1"/>
+          <Font name="Leelawadee UI" size="18" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Variable Expeses (USD)"/>
       </Properties>
@@ -247,18 +248,20 @@
     <Component class="javax.swing.JTextField" name="electric">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Medium" size="16" style="0"/>
+          <Font name="Leelawadee UI" size="16" style="0"/>
         </Property>
       </Properties>
       <Events>
+        <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="updateTFE"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="focusGained"/>
         <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="focusLost"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="validateKey"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel17">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Medium" size="16" style="0"/>
+          <Font name="Leelawadee UI" size="16" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Electric"/>
       </Properties>
@@ -266,18 +269,20 @@
     <Component class="javax.swing.JTextField" name="water_and_sewer">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Medium" size="16" style="0"/>
+          <Font name="Leelawadee UI" size="16" style="0"/>
         </Property>
       </Properties>
       <Events>
+        <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="updateTFE"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="focusGained"/>
         <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="focusLost"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="validateKey"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel19">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Medium" size="16" style="0"/>
+          <Font name="Leelawadee UI" size="16" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Water and Sewer"/>
       </Properties>
@@ -285,7 +290,7 @@
     <Component class="javax.swing.JLabel" name="jLabel20">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Medium" size="16" style="0"/>
+          <Font name="Leelawadee UI" size="16" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="PMI"/>
       </Properties>
@@ -293,29 +298,33 @@
     <Component class="javax.swing.JTextField" name="pmi">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Medium" size="16" style="0"/>
+          <Font name="Leelawadee UI" size="16" style="0"/>
         </Property>
       </Properties>
       <Events>
+        <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="updateTFE"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="focusGained"/>
         <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="focusLost"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="validateKey"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="garbage">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Medium" size="16" style="0"/>
+          <Font name="Leelawadee UI" size="16" style="0"/>
         </Property>
       </Properties>
       <Events>
+        <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="updateTFE"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="focusGained"/>
         <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="focusLost"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="validateKey"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel23">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Medium" size="16" style="0"/>
+          <Font name="Leelawadee UI" size="16" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Garbase"/>
       </Properties>
@@ -323,7 +332,7 @@
     <Component class="javax.swing.JLabel" name="jLabel25">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Medium" size="16" style="0"/>
+          <Font name="Leelawadee UI" size="16" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="HOA "/>
       </Properties>
@@ -331,48 +340,52 @@
     <Component class="javax.swing.JTextField" name="hoa">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Medium" size="16" style="0"/>
+          <Font name="Leelawadee UI" size="16" style="0"/>
         </Property>
       </Properties>
       <Events>
+        <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="updateTFE"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="focusGained"/>
         <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="focusLost"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="validateKey"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel26">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Medium" size="16" style="0"/>
+          <Font name="Leelawadee UI" size="16" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Monthly Taxes"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="monthly_taxes">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Medium" size="16" style="0"/>
+          <Font name="Leelawadee UI" size="16" style="0"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel29">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Medium" size="16" style="0"/>
+          <Font name="Leelawadee UI" size="16" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Insurance"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="insurance">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Medium" size="16" style="0"/>
+          <Font name="Leelawadee UI" size="16" style="0"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel30">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Medium" size="16" style="0"/>
+          <Font name="Leelawadee UI" size="16" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Miscellaneous"/>
       </Properties>
@@ -380,18 +393,20 @@
     <Component class="javax.swing.JTextField" name="miscellaneous">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Medium" size="16" style="0"/>
+          <Font name="Leelawadee UI" size="16" style="0"/>
         </Property>
       </Properties>
       <Events>
+        <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="updateTFE"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="focusGained"/>
         <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="focusLost"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="validateKey"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel32">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Medium" size="16" style="0"/>
+          <Font name="Leelawadee UI" size="16" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Repairs/Maint ($)"/>
       </Properties>
@@ -399,7 +414,7 @@
     <Component class="javax.swing.JLabel" name="jLabel33">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Medium" size="16" style="0"/>
+          <Font name="Leelawadee UI" size="16" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Cap. Ex. (%)"/>
       </Properties>
@@ -407,21 +422,28 @@
     <Component class="javax.swing.JTextField" name="cap_ex_perc">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Medium" size="16" style="0"/>
+          <Font name="Leelawadee UI" size="16" style="0"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="updateTVE"/>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="focusGained_Parc"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="focusLost_Perc"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="validateKey"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="cap_ex_dollar">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Medium" size="16" style="0"/>
+          <Font name="Leelawadee UI" size="16" style="0"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel34">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Medium" size="16" style="0"/>
+          <Font name="Leelawadee UI" size="16" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Cap. Ex. ($)"/>
       </Properties>
@@ -429,22 +451,23 @@
     <Component class="javax.swing.JLabel" name="jLabel35">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Medium" size="16" style="0"/>
+          <Font name="Leelawadee UI" size="16" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Management Fee ($)"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="management_fee_dollar">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Medium" size="16" style="0"/>
+          <Font name="Leelawadee UI" size="16" style="0"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Medium" size="16" style="0"/>
+          <Font name="Leelawadee UI" size="16" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Total Variable Expense"/>
       </Properties>
@@ -452,36 +475,44 @@
     <Component class="javax.swing.JTextField" name="repair_maint_perc">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Medium" size="16" style="0"/>
+          <Font name="Leelawadee UI" size="16" style="0"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="updateTVE"/>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="focusGained_Parc"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="focusLost_Perc"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="validateKey"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel36">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Medium" size="16" style="0"/>
+          <Font name="Leelawadee UI" size="16" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Repairs/Maint (%)"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="repair_maint_dollar">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Medium" size="16" style="0"/>
+          <Font name="Leelawadee UI" size="16" style="0"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="total_variable_expense">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Medium" size="16" style="0"/>
+          <Font name="Leelawadee UI" size="16" style="0"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel37">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Medium" size="16" style="0"/>
+          <Font name="Leelawadee UI" size="16" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Vacancy (%)"/>
       </Properties>
@@ -489,29 +520,36 @@
     <Component class="javax.swing.JTextField" name="vacancy_perc">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Medium" size="16" style="0"/>
+          <Font name="Leelawadee UI" size="16" style="0"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="updateTVE"/>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="focusGained_Parc"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="focusLost_Perc"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="validateKey"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel38">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Medium" size="16" style="0"/>
+          <Font name="Leelawadee UI" size="16" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Vacancy ($)"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="vacancy_dollar">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Medium" size="16" style="0"/>
+          <Font name="Leelawadee UI" size="16" style="0"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel39">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Medium" size="16" style="0"/>
+          <Font name="Leelawadee UI" size="16" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Management Fee (%)"/>
       </Properties>
@@ -519,9 +557,15 @@
     <Component class="javax.swing.JTextField" name="management_free_perc">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Medium" size="16" style="0"/>
+          <Font name="Leelawadee UI" size="16" style="0"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="updateTVE"/>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="focusGained_Parc"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="focusLost_Perc"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="validateKey"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel16">
       <Properties>

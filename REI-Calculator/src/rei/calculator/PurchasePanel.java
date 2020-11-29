@@ -1,5 +1,6 @@
 package rei.calculator;
 
+import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.util.Formatter;
@@ -7,6 +8,7 @@ import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JTextField;
+import javax.swing.SpinnerNumberModel;
 import javax.swing.text.Keymap;
 
 /*
@@ -27,7 +29,7 @@ public class PurchasePanel extends javax.swing.JPanel {
     NumberFormat formatter;
     public PurchasePanel() {
         initComponents();
-        formatter = NumberFormat.getCurrencyInstance(Locale.US);
+        
     }
 
     /**
@@ -71,28 +73,28 @@ public class PurchasePanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(246, 245, 245));
         setPreferredSize(new java.awt.Dimension(934, 524));
 
-        jLabel1.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Leelawadee UI", 0, 24)); // NOI18N
         jLabel1.setText("Purchase & Finance Information");
 
-        jLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel2.setText("Asking Price ($)");
 
-        jLabel3.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel3.setText("Purchase Price ($)");
 
-        jLabel4.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel4.setText("Financing Rehab");
 
-        jLabel5.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel5.setText("Rehab Budget ($)");
 
-        jLabel6.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel6.setText("ARV ($)");
 
-        jLabel7.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel7.setText("Closing Costs ($)");
 
-        asking_price.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        asking_price.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         asking_price.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 asking_priceCaretUpdate(evt);
@@ -106,8 +108,13 @@ public class PurchasePanel extends javax.swing.JPanel {
                 PurchasePanel.this.focusLost(evt);
             }
         });
+        asking_price.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                validateKey(evt);
+            }
+        });
 
-        purchase_price.setFont(new java.awt.Font("Roboto Medium", 0, 15)); // NOI18N
+        purchase_price.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         purchase_price.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 purchase_priceCaretUpdate(evt);
@@ -121,8 +128,13 @@ public class PurchasePanel extends javax.swing.JPanel {
                 PurchasePanel.this.focusLost(evt);
             }
         });
+        purchase_price.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                validateKey(evt);
+            }
+        });
 
-        rehab_budget.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        rehab_budget.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         rehab_budget.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 rehab_budgetCaretUpdate(evt);
@@ -141,8 +153,13 @@ public class PurchasePanel extends javax.swing.JPanel {
                 rehab_budgetActionPerformed(evt);
             }
         });
+        rehab_budget.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                validateKey(evt);
+            }
+        });
 
-        arv.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        arv.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         arv.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 PurchasePanel.this.focusGained(evt);
@@ -151,8 +168,13 @@ public class PurchasePanel extends javax.swing.JPanel {
                 PurchasePanel.this.focusLost(evt);
             }
         });
+        arv.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                validateKey(evt);
+            }
+        });
 
-        closing_cost.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        closing_cost.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         closing_cost.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 PurchasePanel.this.focusGained(evt);
@@ -161,32 +183,37 @@ public class PurchasePanel extends javax.swing.JPanel {
                 PurchasePanel.this.focusLost(evt);
             }
         });
+        closing_cost.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                validateKey(evt);
+            }
+        });
 
-        jLabel8.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel8.setText("Downpayment (%)");
 
-        jLabel9.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel9.setText("Downpayment ($)");
 
-        jLabel10.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel10.setText("Loan Amount ($)");
 
-        jLabel11.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel11.setText("Annual Interest Rate");
 
-        jLabel12.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel12.setText("Term (Years)");
 
-        jLabel13.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel13.setText("Emergency Funds ($)");
 
         downpayment_dollar.setEditable(false);
-        downpayment_dollar.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        downpayment_dollar.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
 
         loan_amount.setEditable(false);
-        loan_amount.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        loan_amount.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
 
-        emergency_funds.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        emergency_funds.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         emergency_funds.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 PurchasePanel.this.focusGained(evt);
@@ -195,14 +222,19 @@ public class PurchasePanel extends javax.swing.JPanel {
                 PurchasePanel.this.focusLost(evt);
             }
         });
+        emergency_funds.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                validateKey(evt);
+            }
+        });
 
-        jLabel14.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Leelawadee UI", 1, 18)); // NOI18N
         jLabel14.setText("Purchase");
 
-        jLabel15.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Leelawadee UI", 1, 18)); // NOI18N
         jLabel15.setText("Finance");
 
-        rehab_check.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        rehab_check.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         rehab_check.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "YES", "NO" }));
         rehab_check.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -210,16 +242,24 @@ public class PurchasePanel extends javax.swing.JPanel {
             }
         });
 
-        term_years.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
+        term_years.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
+        term_years.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
-        downpayment_pecentage.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
+        downpayment_pecentage.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
+        downpayment_pecentage.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 1));
         downpayment_pecentage.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 downpayment_pecentageStateChanged(evt);
             }
         });
 
-        annual_interest_rate.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
+        annual_interest_rate.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
+        annual_interest_rate.setModel(new javax.swing.SpinnerNumberModel(4.5d, 0.0d, null, 0.01d));
+        annual_interest_rate.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                annual_interest_rateStateChanged(evt);
+            }
+        });
 
         jLabel16.setBackground(new java.awt.Color(225, 227, 228));
         jLabel16.setForeground(new java.awt.Color(196, 199, 200));
@@ -275,7 +315,7 @@ public class PurchasePanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel16)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -382,10 +422,11 @@ public class PurchasePanel extends javax.swing.JPanel {
     }
     
     public void setDownpayment(){
-        int per = (int) this.downpayment_pecentage.getValue();
+        float per = Float.parseFloat(String.valueOf(this.downpayment_pecentage.getValue()));
         float calculate_dollar_amount = REI_Calculations.calculate_dollar_amount(get_PurchaseValue(),(per)/100);
         this.downpayment_dollar.setText(Format.format(calculate_dollar_amount));
     }
+    
     public void setLoanAmount() {
         setDownpayment();
         if(!this.rehab_budget.getText().equalsIgnoreCase("")){
@@ -422,6 +463,7 @@ public class PurchasePanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         JTextField source = (JTextField) evt.getSource();
         if(!source.getText().equalsIgnoreCase("")){
+            System.out.println(source.getText() + "gained Code: "+evt.hashCode());
             source.setText(Format.formatTo2Float(Format.parse(source.getText())));
         }
     }//GEN-LAST:event_focusGained
@@ -430,6 +472,7 @@ public class PurchasePanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         JTextField source = (JTextField) evt.getSource();
         if(!source.getText().equalsIgnoreCase("")){
+            System.out.println(source.getText() + "lost Code: "+evt.hashCode());
             source.setText(Format.format(Double.parseDouble(source.getText())));
         }
     }//GEN-LAST:event_focusLost
@@ -438,6 +481,20 @@ public class PurchasePanel extends javax.swing.JPanel {
         setDownpayment();
         setLoanAmount();
     }//GEN-LAST:event_rehab_budgetCaretUpdate
+
+    private void validateKey(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_validateKey
+        // TODO add your handling code here:
+        JTextField source = (JTextField) evt.getSource();
+        if ((evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') || evt.getKeyCode() == 8 || evt.getKeyChar() == '-'|| (evt.getKeyCode() >=37 && evt.getKeyCode() <=40)) {
+            source.setEditable(true);
+        } else {
+            source.setEditable(false);
+        }
+    }//GEN-LAST:event_validateKey
+
+    private void annual_interest_rateStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_annual_interest_rateStateChanged
+//        System.out.println("Rate: "+this.annual_interest_rate.getValue().toString());
+    }//GEN-LAST:event_annual_interest_rateStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

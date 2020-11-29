@@ -1,7 +1,13 @@
 package rei.calculator;
 
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
+import javax.swing.UIManager;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -19,6 +25,10 @@ public class ReportPanel extends javax.swing.JPanel {
      * Creates new form NewJPanel
      */
     public ReportPanel() {
+        UIManager.put("jProgressBar1.background", Color.ORANGE);
+        UIManager.put("jProgressBar1.selectionBackground", Color.RED);
+        UIManager.put("jProgressBar1.selectionForeground", Color.GREEN);
+        UIManager.put("jProgressBar.foreground", Color.BLUE);
         initComponents();
     }
 
@@ -39,19 +49,19 @@ public class ReportPanel extends javax.swing.JPanel {
         jCheckBox4 = new javax.swing.JCheckBox();
         jProgressBar1 = new javax.swing.JProgressBar();
         jButton1 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        progress_perc = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(246, 245, 245));
         setPreferredSize(new java.awt.Dimension(934, 524));
 
-        jLabel1.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Leelawadee UI", 0, 24)); // NOI18N
         jLabel1.setText("Report Generation");
 
-        jLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
         jLabel2.setText("Select the items to be included in the report.");
 
-        jCheckBox1.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        jCheckBox1.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
         jCheckBox1.setText("Generate Additional Graphs");
         jCheckBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -60,22 +70,23 @@ public class ReportPanel extends javax.swing.JPanel {
             }
         });
 
-        jCheckBox2.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        jCheckBox2.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
         jCheckBox2.setText("Generate Full Proforma");
         jCheckBox2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jCheckBox3.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        jCheckBox3.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
         jCheckBox3.setText("Generate Amortization Schedule");
         jCheckBox3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jCheckBox4.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        jCheckBox4.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
         jCheckBox4.setText("Attach Loaded Images");
         jCheckBox4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        jProgressBar1.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
         jProgressBar1.setValue(70);
 
         jButton1.setBackground(new java.awt.Color(0, 102, 0));
-        jButton1.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Generate Report");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -84,7 +95,8 @@ public class ReportPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel3.setText("jLabel3");
+        progress_perc.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
+        progress_perc.setText("jLabel3");
 
         jLabel16.setBackground(new java.awt.Color(225, 227, 228));
         jLabel16.setForeground(new java.awt.Color(196, 199, 200));
@@ -106,18 +118,18 @@ public class ReportPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(66, 66, 66)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(58, 58, 58)
-                                .addComponent(jLabel3))
-                            .addComponent(jLabel2)))
+                                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 723, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(progress_perc))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel16)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,22 +138,25 @@ public class ReportPanel extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel16)
-                .addGap(42, 42, 42)
-                .addComponent(jLabel2)
-                .addGap(28, 28, 28)
-                .addComponent(jCheckBox1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCheckBox2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCheckBox3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCheckBox4)
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
-                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(jLabel2)
+                        .addGap(28, 28, 28)
+                        .addComponent(jCheckBox1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jCheckBox2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jCheckBox3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jCheckBox4)
+                        .addGap(43, 43, 43)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
+                        .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(progress_perc)))
                 .addGap(41, 41, 41))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -151,20 +166,42 @@ public class ReportPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        int i =0;
-        while(i<=100){
-            try {
-                
-                Thread.sleep(100);
-                this.jLabel3.setText(String.valueOf(i));
-                
-                this.repaint();
-                this.revalidate();
-                i+=5;
-            } catch (InterruptedException ex) {
-                Logger.getLogger(ReportPanel.class.getName()).log(Level.SEVERE, null, ex);
+        ExecutorService service = Executors.newSingleThreadExecutor();
+        ((JButton)evt.getSource()).setEnabled(false);
+        this.jProgressBar1.setStringPainted(true);
+        this.jProgressBar1.setBorderPainted(true);
+        this.jProgressBar1.setBackground(Color.BLUE);
+        this.jProgressBar1.setForeground(Color.BLUE);
+        //starts long running task off of EDT.
+        service.submit(new Runnable() {
+            public void run() {
+                for (int i = 0; i < 100; i++) {
+                    //the portion of work.
+                    try {
+                        Thread.sleep(20);
+                    } catch (InterruptedException e1) {
+                        //this might be a good spot to quit working.
+                        e1.printStackTrace();
+                    }
+                    //update the progress bar on the EDT.
+                    final int j = i;
+                    EventQueue.invokeLater(new Runnable() {
+                        public void run() {
+                            jProgressBar1.setValue(j);
+                            progress_perc.setText(j+"%");
+                        }
+                    });
+                }
+                //work finished.
+                EventQueue.invokeLater(new Runnable() {
+                  public void run() {
+                    jProgressBar1.setValue(100);
+                    progress_perc.setText("100%");
+                    ((JButton)evt.getSource()).setEnabled(true);
+                  }
+                });
             }
-        }
+        });
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
@@ -177,7 +214,7 @@ public class ReportPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JProgressBar jProgressBar1;
+    private javax.swing.JLabel progress_perc;
     // End of variables declaration//GEN-END:variables
 }

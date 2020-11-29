@@ -1,6 +1,8 @@
 package rei.calculator;
 
+import java.util.Formatter;
 import javax.swing.JTextField;
+import static rei.calculator.Format.fmt;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -14,6 +16,7 @@ import javax.swing.JTextField;
  */
 public class ExpensePanel extends javax.swing.JPanel {
 
+    private final float RATE = 1200.00f;
     /**
      * Creates new form NewJPanel
      */
@@ -76,26 +79,32 @@ public class ExpensePanel extends javax.swing.JPanel {
         setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
         setPreferredSize(new java.awt.Dimension(934, 524));
 
-        jLabel1.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Leelawadee UI", 0, 24)); // NOI18N
         jLabel1.setText("Expenditure Information");
 
-        jLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel2.setText("Total Fixed Expense");
 
-        total_fixed_expense.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        total_fixed_expense.setEditable(false);
+        total_fixed_expense.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         total_fixed_expense.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 total_fixed_expenseFocusLost(evt);
             }
         });
 
-        jLabel14.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Leelawadee UI", 1, 18)); // NOI18N
         jLabel14.setText("Fixed Expenses (USD)");
 
-        jLabel15.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Leelawadee UI", 1, 18)); // NOI18N
         jLabel15.setText("Variable Expeses (USD)");
 
-        electric.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        electric.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
+        electric.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                updateTFE(evt);
+            }
+        });
         electric.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 ExpensePanel.this.focusGained(evt);
@@ -104,11 +113,21 @@ public class ExpensePanel extends javax.swing.JPanel {
                 ExpensePanel.this.focusLost(evt);
             }
         });
+        electric.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                validateKey(evt);
+            }
+        });
 
-        jLabel17.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel17.setText("Electric");
 
-        water_and_sewer.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        water_and_sewer.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
+        water_and_sewer.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                updateTFE(evt);
+            }
+        });
         water_and_sewer.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 ExpensePanel.this.focusGained(evt);
@@ -117,14 +136,24 @@ public class ExpensePanel extends javax.swing.JPanel {
                 ExpensePanel.this.focusLost(evt);
             }
         });
+        water_and_sewer.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                validateKey(evt);
+            }
+        });
 
-        jLabel19.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel19.setText("Water and Sewer");
 
-        jLabel20.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel20.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel20.setText("PMI");
 
-        pmi.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        pmi.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
+        pmi.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                updateTFE(evt);
+            }
+        });
         pmi.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 ExpensePanel.this.focusGained(evt);
@@ -133,8 +162,18 @@ public class ExpensePanel extends javax.swing.JPanel {
                 ExpensePanel.this.focusLost(evt);
             }
         });
+        pmi.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                validateKey(evt);
+            }
+        });
 
-        garbage.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        garbage.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
+        garbage.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                updateTFE(evt);
+            }
+        });
         garbage.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 ExpensePanel.this.focusGained(evt);
@@ -143,14 +182,24 @@ public class ExpensePanel extends javax.swing.JPanel {
                 ExpensePanel.this.focusLost(evt);
             }
         });
+        garbage.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                validateKey(evt);
+            }
+        });
 
-        jLabel23.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel23.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel23.setText("Garbase");
 
-        jLabel25.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel25.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel25.setText("HOA ");
 
-        hoa.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        hoa.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
+        hoa.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                updateTFE(evt);
+            }
+        });
         hoa.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 ExpensePanel.this.focusGained(evt);
@@ -159,21 +208,33 @@ public class ExpensePanel extends javax.swing.JPanel {
                 ExpensePanel.this.focusLost(evt);
             }
         });
+        hoa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                validateKey(evt);
+            }
+        });
 
-        jLabel26.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel26.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel26.setText("Monthly Taxes");
 
-        monthly_taxes.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        monthly_taxes.setEditable(false);
+        monthly_taxes.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
 
-        jLabel29.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel29.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel29.setText("Insurance");
 
-        insurance.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        insurance.setEditable(false);
+        insurance.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
 
-        jLabel30.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel30.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel30.setText("Miscellaneous");
 
-        miscellaneous.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        miscellaneous.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
+        miscellaneous.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                updateTFE(evt);
+            }
+        });
         miscellaneous.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 ExpensePanel.this.focusGained(evt);
@@ -182,51 +243,133 @@ public class ExpensePanel extends javax.swing.JPanel {
                 ExpensePanel.this.focusLost(evt);
             }
         });
+        miscellaneous.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                validateKey(evt);
+            }
+        });
 
-        jLabel32.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel32.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel32.setText("Repairs/Maint ($)");
 
-        jLabel33.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel33.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel33.setText("Cap. Ex. (%)");
 
-        cap_ex_perc.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        cap_ex_perc.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
+        cap_ex_perc.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                updateTVE(evt);
+            }
+        });
+        cap_ex_perc.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                focusGained_Parc(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                focusLost_Perc(evt);
+            }
+        });
+        cap_ex_perc.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                validateKey(evt);
+            }
+        });
 
-        cap_ex_dollar.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        cap_ex_dollar.setEditable(false);
+        cap_ex_dollar.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
 
-        jLabel34.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel34.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel34.setText("Cap. Ex. ($)");
 
-        jLabel35.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel35.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel35.setText("Management Fee ($)");
 
-        management_fee_dollar.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        management_fee_dollar.setEditable(false);
+        management_fee_dollar.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
 
-        jLabel3.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel3.setText("Total Variable Expense");
 
-        repair_maint_perc.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        repair_maint_perc.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
+        repair_maint_perc.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                updateTVE(evt);
+            }
+        });
+        repair_maint_perc.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                focusGained_Parc(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                focusLost_Perc(evt);
+            }
+        });
+        repair_maint_perc.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                validateKey(evt);
+            }
+        });
 
-        jLabel36.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel36.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel36.setText("Repairs/Maint (%)");
 
-        repair_maint_dollar.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        repair_maint_dollar.setEditable(false);
+        repair_maint_dollar.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
 
-        total_variable_expense.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        total_variable_expense.setEditable(false);
+        total_variable_expense.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
 
-        jLabel37.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel37.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel37.setText("Vacancy (%)");
 
-        vacancy_perc.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        vacancy_perc.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
+        vacancy_perc.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                updateTVE(evt);
+            }
+        });
+        vacancy_perc.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                focusGained_Parc(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                focusLost_Perc(evt);
+            }
+        });
+        vacancy_perc.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                validateKey(evt);
+            }
+        });
 
-        jLabel38.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel38.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel38.setText("Vacancy ($)");
 
-        vacancy_dollar.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        vacancy_dollar.setEditable(false);
+        vacancy_dollar.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
 
-        jLabel39.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        jLabel39.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel39.setText("Management Fee (%)");
 
-        management_free_perc.setFont(new java.awt.Font("Roboto Medium", 0, 16)); // NOI18N
+        management_free_perc.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
+        management_free_perc.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                updateTVE(evt);
+            }
+        });
+        management_free_perc.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                focusGained_Parc(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                focusLost_Perc(evt);
+            }
+        });
+        management_free_perc.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                validateKey(evt);
+            }
+        });
 
         jLabel16.setBackground(new java.awt.Color(225, 227, 228));
         jLabel16.setForeground(new java.awt.Color(196, 199, 200));
@@ -382,19 +525,36 @@ public class ExpensePanel extends javax.swing.JPanel {
                         .addComponent(insurance, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(miscellaneous, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private float getTFValue(JTextField src){
+        if(!src.getText().equalsIgnoreCase(""))
+            return Format.parse(src.getText());
+        else return 0.00f;
+    }    
+    
+    private void updateTVE(){
+        float rep_and_main = getTFValue(this.repair_maint_dollar);
+        float cap = getTFValue(this.cap_ex_dollar);
+        float vacancy = getTFValue(this.vacancy_dollar);
+        float manag = getTFValue(this.management_fee_dollar);
+        float[] values = REI_Calculations.variable_expenses_monthly(vacancy, rep_and_main, cap, manag);
+        this.total_variable_expense.setText(Format.formatToCurrency(String.valueOf(values[0])));
+    }
+    
     private void updateTFE(float value){
-        float initial_value = 0.00f;
-        if(!this.total_fixed_expense.getText().equalsIgnoreCase("")){
-            float val = Format.parse(this.total_fixed_expense.getText());
-            float total = val+value;
-            String totals = Format.format(total);
-            this.total_fixed_expense.setText(totals);
-        }
-        else this.total_fixed_expense.setText(Format.format(value));
+        float electric = getTFValue(this.electric);
+        float w_and_s = getTFValue(this.water_and_sewer);
+        float pmi = getTFValue(this.pmi);
+        float garbage = getTFValue(this.garbage);
+        float hoa = getTFValue(this.hoa);
+        float monthly_taxes = getTFValue(this.monthly_taxes);
+        float insurance = getTFValue(this.insurance);
+        float misc = getTFValue(this.miscellaneous);
+        float[] values = REI_Calculations.fixed_expenses_monthly(electric, w_and_s, pmi, garbage, hoa, insurance, monthly_taxes, misc);
+        this.total_fixed_expense.setText(Format.formatToCurrency(Format.formatTo2Float(values[0])));
     }
     
     private void focusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_focusGained
@@ -414,9 +574,60 @@ public class ExpensePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_focusLost
 
     private void total_fixed_expenseFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_total_fixed_expenseFocusLost
-        this.updateTFE(192900.00f);
+//        this.updateTFE(192900.00f);
         // TODO add your handling code here:
     }//GEN-LAST:event_total_fixed_expenseFocusLost
+
+    private void updateTFE(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_updateTFE
+        // TODO add your handling code here:
+        JTextField source = (JTextField) evt.getSource();
+        if(!source.getText().equalsIgnoreCase("")){
+            this.updateTFE(Format.parse(source.getText()));
+        }
+    }//GEN-LAST:event_updateTFE
+
+    private void validateKey(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_validateKey
+        // TODO add your handling code here:
+        JTextField source = (JTextField) evt.getSource();
+        if ((evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') || evt.getKeyCode() == 8 || evt.getKeyChar() == '-' || (evt.getKeyCode() >=37 && evt.getKeyCode() <=40)) {
+            source.setEditable(true);
+        } else {
+            source.setEditable(false);
+        }
+    }//GEN-LAST:event_validateKey
+
+    private void focusLost_Perc(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_focusLost_Perc
+        // TODO add your handling code here:
+        JTextField source = (JTextField) evt.getSource();
+        if(!source.getText().equalsIgnoreCase("")){
+            source.setText(Format.formatToPercent(source.getText()));
+        }
+    }//GEN-LAST:event_focusLost_Perc
+
+    private void focusGained_Parc(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_focusGained_Parc
+        // TODO add your handling code here:
+        JTextField source = (JTextField) evt.getSource();
+        if(!source.getText().equalsIgnoreCase("")){
+            source.setText(Format.formatTo2Float(Float.valueOf(source.getText().replace("%",""))));
+        }
+    }//GEN-LAST:event_focusGained_Parc
+
+    private void updateTVE(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_updateTVE
+        // TODO add your handling code here:
+        JTextField source = (JTextField) evt.getSource();
+        if(!source.getText().equalsIgnoreCase("")){
+            System.out.println("Value here: "+Format.parse_perc(source.getText()));
+            float total = (Format.parse_perc(source.getText()) * this.RATE)/100;
+            if(evt.getSource().hashCode() == this.repair_maint_perc.hashCode())
+                this.repair_maint_dollar.setText(total+"");
+            else if(evt.getSource().hashCode() == this.cap_ex_perc.hashCode())
+                this.cap_ex_dollar.setText(total+"");
+            else if(evt.getSource().hashCode() == this.vacancy_perc.hashCode())
+                this.vacancy_dollar.setText(total+"");
+            else this.management_fee_dollar.setText(total+"");
+            this.updateTVE();
+        }
+    }//GEN-LAST:event_updateTVE
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
