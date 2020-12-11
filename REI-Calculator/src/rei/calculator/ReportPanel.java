@@ -7,6 +7,7 @@ import java.util.concurrent.Executors;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
+import javax.swing.JProgressBar;
 import javax.swing.UIManager;
 
 /*
@@ -24,12 +25,18 @@ public class ReportPanel extends javax.swing.JPanel {
     /**
      * Creates new form NewJPanel
      */
+    final JProgressBar jProgressBar;
     public ReportPanel() {
         UIManager.put("jProgressBar1.background", Color.ORANGE);
         UIManager.put("jProgressBar1.selectionBackground", Color.RED);
         UIManager.put("jProgressBar1.selectionForeground", Color.GREEN);
         UIManager.put("jProgressBar.foreground", Color.BLUE);
         initComponents();
+        
+        
+        jProgressBar = new JProgressBar();
+        
+//        this.add(this.jProgressBar).setBounds(200, 200, 100, 25);
     }
 
     /**
@@ -84,6 +91,7 @@ public class ReportPanel extends javax.swing.JPanel {
 
         jProgressBar1.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
         jProgressBar1.setValue(70);
+        jProgressBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jButton1.setBackground(new java.awt.Color(0, 102, 0));
         jButton1.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N

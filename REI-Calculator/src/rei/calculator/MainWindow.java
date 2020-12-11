@@ -10,6 +10,7 @@ import java.awt.FileDialog;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
+import java.io.File;
 import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -27,20 +28,23 @@ public class MainWindow extends javax.swing.JFrame {
     /**
      * Creates new form MainWindow
      */
-    PropertyPanel property;
-    PurchasePanel purchase;
-    IncomePanel income;
-    ExpensePanel expense;
-    AssumptionPanel assumption;
-    ReportPanel report;
+    private PropertyPanel property;
+    private PurchasePanel purchase;
+    private IncomePanel income;
+    private ExpensePanel expense;
+    private AssumptionPanel assumption;
+    private ReportPanel report;
+    private static FileDialog f;
+    
 
     private JButton homebtn;
     public MainWindow() {
+        f = new FileDialog(this, "Open File", FileDialog.LOAD);
         initComponents();
         setToolBarIcons();
         
         
-//        Initializing Panels Globally to be used in the entire application
+//      Initializing Panels Globally to be used in the entire application
         property = new PropertyPanel();
         purchase = new PurchasePanel();
         income = new IncomePanel();
@@ -48,8 +52,7 @@ public class MainWindow extends javax.swing.JFrame {
         assumption = new AssumptionPanel();
         report = new ReportPanel();
         
-        
-        // New Button 
+        // New Button
         URL icon = getClass().getResource("/rei/calculator/SFI.png");
         ImageIcon imgicon = new ImageIcon(icon);
         Image img = imgicon.getImage();
@@ -1112,8 +1115,12 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jMenu_loadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu_loadActionPerformed
         // TODO add your handling code here:
-        String filepath = load_file();
-        System.out.println(filepath);
+        FileDialog files = loadFiles();
+        for(File i : files.getFiles()){
+            System.out.println(i.getAbsolutePath());
+            System.out.println(i.getName());
+        }
+        
     }//GEN-LAST:event_jMenu_loadActionPerformed
 
     private void jMenu_closeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu_closeActionPerformed
@@ -1226,10 +1233,12 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
     
-    private String load_file(){
-        FileDialog f = new FileDialog(this, "Open File", FileDialog.LOAD);
-        f.setVisible(rootPaneCheckingEnabled);
-        return f.getDirectory()+"*"+f.getFile();
+    protected static FileDialog loadFiles(){
+        f.setDirectory(".\\");
+        f.setMultipleMode(true);
+        f.setVisible(true); //rootPaneCheckingEnabled
+//        return f.getDirectory()+"*"+f.getFile();
+        return f;
     }
     
     /**

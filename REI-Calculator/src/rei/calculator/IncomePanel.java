@@ -56,10 +56,10 @@ public class IncomePanel extends javax.swing.JPanel {
         jLabel3.setText("Average Rent per Unit ($)");
 
         jLabel4.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
-        jLabel4.setText("Total Monthly Income ($)");
+        jLabel4.setText("Total Monthly Rent Income ($)");
 
         jLabel5.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
-        jLabel5.setText("Other Income per Month ($)");
+        jLabel5.setText("Other Monthly Income ($)");
 
         jLabel6.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel6.setText("Total Monthly Income ($)");
@@ -154,7 +154,7 @@ public class IncomePanel extends javax.swing.JPanel {
                             .addComponent(average_rent_per_unit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
                             .addComponent(total_monthly_income_units)
                             .addComponent(numbe_of_units, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addContainerGap(313, Short.MAX_VALUE))
+                        .addContainerGap(328, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)

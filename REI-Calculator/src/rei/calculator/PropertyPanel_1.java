@@ -1,10 +1,7 @@
 package rei.calculator;
 
-import com.sun.prism.paint.Color;
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FileDialog;
-import java.awt.FlowLayout;
 import java.awt.Image;
 import java.io.File;
 import java.util.ArrayList;
@@ -17,15 +14,10 @@ import javax.swing.JPanel;
 import javax.swing.filechooser.FileSystemView;
 import java.lang.Object;
 import java.net.URL;
-import java.util.Iterator;
-import javax.swing.BoxLayout;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
-import javax.swing.ListModel;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.Border;
-import javax.swing.border.LineBorder;
-import javax.swing.event.ListDataListener;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -37,57 +29,13 @@ import javax.swing.event.ListDataListener;
  *
  * @author Shakeel Ahmed
  */
-public class PropertyPanel extends javax.swing.JPanel {
+public class PropertyPanel_1 extends javax.swing.JPanel {
 
     /**
      * Creates new form NewJPanel
      */
-    private JList<Object> image_list;
-    
-    public PropertyPanel() {
+    public PropertyPanel_1() {
         initComponents();
-  
-        // Remove Image Button 
-        URL icon = getClass().getResource("/rei/calculator/remove.png");
-        ImageIcon imgicon = new ImageIcon(icon);
-        Image img = imgicon.getImage();
-        Image img_scaled = img.getScaledInstance(31, 31, Image.SCALE_SMOOTH);
-        imgicon = new ImageIcon(img_scaled);
-        this.jButton_removeImag.setIcon(imgicon); // NOI18N
-        img_scaled = img.getScaledInstance(27, 27, Image.SCALE_SMOOTH);
-        imgicon = new ImageIcon(img_scaled);
-        this.jButton_removeImag.setPressedIcon(imgicon);// NOI18N
-        
-        // Remove Image Button 
-        icon = getClass().getResource("/rei/calculator/img.png");
-        imgicon = new ImageIcon(icon);
-        img = imgicon.getImage();
-        img_scaled = img.getScaledInstance(35, 35, Image.SCALE_SMOOTH);
-        imgicon = new ImageIcon(img_scaled);
-        this.jButton_loadimages.setIcon(imgicon); // NOI18N
-        img_scaled = img.getScaledInstance(33, 33, Image.SCALE_SMOOTH);
-        imgicon = new ImageIcon(img_scaled);
-        this.jButton_loadimages.setPressedIcon(imgicon);// NOI18N
-
-        this.remove(this.jButton_loadimages);
-        this.remove(this.jButton_removeImag);
-        this.repaint();
-        
-        this.jButton_loadimages.setBounds(777, 500, 32, 32);
-        this.jButton_removeImag.setBounds(817, 327, 32, 32);
-        
-        this.image_list = new JList();
-        this.image_list.setCellRenderer(new ImageListCellRenderer());
-        this.image_list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        this.image_list.setLayoutOrientation(JList.VERTICAL);
-        this.image_list.setFixedCellHeight(25);
-        this.image_list.setFont(new java.awt.Font("Leelawadee UI", 0, 14));
-        this.image_list.setBorder(new LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-            
-        // put our JList in a JScrollPane
-        JScrollPane menuScrollPane = new JScrollPane(this.image_list);
-        menuScrollPane.setMinimumSize(new Dimension(44, 112));
-        this.list_panel.add(menuScrollPane).setBounds(0, 0, 222, 223);        
     }
 
     /**
@@ -111,11 +59,12 @@ public class PropertyPanel extends javax.swing.JPanel {
         jTextField_zip_code = new javax.swing.JTextField();
         jTextField_taxes = new javax.swing.JTextField();
         jTextField_insurance = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList_imagelist = new javax.swing.JList<>();
+        jButton_loadimages = new javax.swing.JButton();
         jComboBox_state = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
-        list_panel = new javax.swing.JPanel();
-        jButton_removeImag = new javax.swing.JButton();
-        jButton_loadimages = new javax.swing.JButton();
+        thumb = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(246, 245, 245));
         setPreferredSize(new java.awt.Dimension(934, 524));
@@ -151,6 +100,22 @@ public class PropertyPanel extends javax.swing.JPanel {
 
         jTextField_insurance.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
 
+        jList_imagelist.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
+        jList_imagelist.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(jList_imagelist);
+
+        jButton_loadimages.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
+        jButton_loadimages.setText("Attach Images");
+        jButton_loadimages.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_loadimagesActionPerformed(evt);
+            }
+        });
+
         jComboBox_state.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jComboBox_state.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AK", "AL", "AR", "AS", "AZ", "CA", "CO", "CT", "DC", "DE", "FL", "GA", "HI", "IA", "ID", "IL", "IN", "KS", "KY", "LA", "MA", "ME", "MD", "MI", "MN", "MO", "MS", "MT", "NC", "ND", "NE", "NH", "NJ", "NM", "NV", "NY", "OH", "OK", "OR", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VA", "VI", "VT", "WA", "WI", "WV", "WY" }));
         jComboBox_state.setPreferredSize(new java.awt.Dimension(52, 30));
@@ -159,48 +124,7 @@ public class PropertyPanel extends javax.swing.JPanel {
         jLabel8.setForeground(new java.awt.Color(196, 199, 200));
         jLabel8.setText("________________________________________________________________________________________________________________________________");
 
-        list_panel.setBackground(new java.awt.Color(246, 245, 245));
-
-        jButton_removeImag.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
-        jButton_removeImag.setToolTipText("Remove Selected Image");
-        jButton_removeImag.setBorderPainted(false);
-        jButton_removeImag.setContentAreaFilled(false);
-        jButton_removeImag.setDefaultCapable(false);
-        jButton_removeImag.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_removeImagActionPerformed(evt);
-            }
-        });
-
-        jButton_loadimages.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
-        jButton_loadimages.setToolTipText("Add Property Images");
-        jButton_loadimages.setBorderPainted(false);
-        jButton_loadimages.setContentAreaFilled(false);
-        jButton_loadimages.setDefaultCapable(false);
-        jButton_loadimages.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_loadimagesActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout list_panelLayout = new javax.swing.GroupLayout(list_panel);
-        list_panel.setLayout(list_panelLayout);
-        list_panelLayout.setHorizontalGroup(
-            list_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, list_panelLayout.createSequentialGroup()
-                .addContainerGap(138, Short.MAX_VALUE)
-                .addComponent(jButton_loadimages, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jButton_removeImag, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        list_panelLayout.setVerticalGroup(
-            list_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, list_panelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(list_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton_removeImag, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
-                    .addComponent(jButton_loadimages, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-        );
+        thumb.setText("jLabel9");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -209,31 +133,36 @@ public class PropertyPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(66, 66, 66)
+                        .addGap(44, 44, 44)
+                        .addComponent(jLabel8))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7))
-                        .addGap(44, 44, 44)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(66, 66, 66)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel7))
+                                .addGap(44, 44, 44)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextField_zip_code, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                                    .addComponent(jTextField_taxes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                                    .addComponent(jTextField_property_address, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                                    .addComponent(jTextField_city, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                                    .addComponent(jTextField_insurance, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                                    .addComponent(jComboBox_state, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(44, 44, 44)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(97, 97, 97)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField_zip_code, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                            .addComponent(jTextField_taxes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                            .addComponent(jTextField_property_address, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                            .addComponent(jTextField_city, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                            .addComponent(jTextField_insurance, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                            .addComponent(jComboBox_state, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(95, 95, 95)
-                        .addComponent(list_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(jLabel8)))
-                .addContainerGap(87, Short.MAX_VALUE))
+                            .addComponent(jScrollPane1)
+                            .addComponent(jButton_loadimages, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
+                            .addComponent(thumb, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -263,13 +192,16 @@ public class PropertyPanel extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
-                            .addComponent(jTextField_taxes, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(jTextField_insurance, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(list_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(122, 122, 122))
+                            .addComponent(jTextField_taxes, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jTextField_insurance, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_loadimages, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(49, 49, 49)
+                .addComponent(thumb, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -277,8 +209,13 @@ public class PropertyPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         FileDialog f = MainWindow.loadFiles();
         
+        
         if(true){
-            File[] files = f.getFiles();            
+            ArrayList<String> list = new ArrayList<String>();//cont.getContacts().toArray(new String[cont.getContacts().size()]);
+            File[] files = f.getFiles();
+            JList jlist = new JList();
+            jlist.setCellRenderer(new ImageListCellRenderer());
+            
 //            ImageIcon[] icons = new ImageIcon[files.length];
 //            JLabel[] labels = new JLabel[files.length];
 //            JPanel[] panels = new JPanel[files.length];
@@ -293,11 +230,6 @@ public class PropertyPanel extends javax.swing.JPanel {
 
                 JLabel label = new JLabel(files[i].getName(), icon, JLabel.LEFT);
                 JPanel panel = new JPanel();
-                panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-                panel.setAlignmentX(Component.LEFT_ALIGNMENT);
-//                panel.setAlignmentY(Component.LEFT_ALIGNMENT);
-//                panel.setSize(200, 25);
-//                panel.setLocation(0, 0);
                 panel.add(label);
                 objects[i] = panel;
 
@@ -320,19 +252,24 @@ public class PropertyPanel extends javax.swing.JPanel {
 //                System.out.println(i.getName());
 //                list.add(i.getName().toString());
             }
-
-//            jList_imagelist.setModel(null);
-
-            this.image_list.setListData(objects);
-            this.image_list.updateUI();
+            jlist.setListData(objects);
+            jlist.updateUI();
             
+            jlist.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+            jlist.setLayoutOrientation(JList.VERTICAL);
+            jlist.setFixedCellHeight(25);
+//            jList_imagelist.setFont(new java.awt.Font("Leelawadee UI", 0, 14));
             
+            // put our JList in a JScrollPane
+            JScrollPane menuScrollPane = new JScrollPane(jlist);
+            menuScrollPane.setMinimumSize(new Dimension(200, 100));
             
             // put our JList and JScrollPane in the left hand side of a JSplitPane
 //            JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, 
 //                                       menuScrollPane, 
 //                                       this);
 //            this.remove(this.jList_imagelist);
+            this.add(menuScrollPane).setBounds(600, 140, 200, 200);
             
             
 //            this.add(jlist).setBounds(400,200,200,100);
@@ -350,17 +287,12 @@ public class PropertyPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButton_loadimagesActionPerformed
 
-    private void jButton_removeImagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_removeImagActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton_removeImagActionPerformed
-
     
     
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_loadimages;
-    private javax.swing.JButton jButton_removeImag;
     private javax.swing.JComboBox<String> jComboBox_state;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -370,11 +302,13 @@ public class PropertyPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JList<String> jList_imagelist;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField_city;
     private javax.swing.JTextField jTextField_insurance;
     private javax.swing.JTextField jTextField_property_address;
     private javax.swing.JTextField jTextField_taxes;
     private javax.swing.JTextField jTextField_zip_code;
-    private javax.swing.JPanel list_panel;
+    private javax.swing.JLabel thumb;
     // End of variables declaration//GEN-END:variables
 }

@@ -208,6 +208,7 @@ public class PurchasePanel extends javax.swing.JPanel {
         jLabel13.setText("Emergency Funds ($)");
 
         downpayment_dollar.setEditable(false);
+        downpayment_dollar.setBackground(new java.awt.Color(204, 255, 204));
         downpayment_dollar.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
 
         loan_amount.setEditable(false);

@@ -111,7 +111,7 @@ public class ProgressBarExample {
                   //update the progress bar on the EDT.
                   final int j = i;
                   EventQueue.invokeLater(new Runnable() {
-                    public void run() {
+                    public void run() { 
                       progress.setValue(j);
                     }
                   });
