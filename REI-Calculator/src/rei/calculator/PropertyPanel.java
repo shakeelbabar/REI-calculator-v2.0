@@ -43,7 +43,7 @@ public class PropertyPanel extends javax.swing.JPanel {
      * Creates new form NewJPanel
      */
     private JList<Object> image_list;
-    
+    protected File[] IMAGES;
     public PropertyPanel() {
         initComponents();
   
@@ -82,7 +82,7 @@ public class PropertyPanel extends javax.swing.JPanel {
         this.image_list.setLayoutOrientation(JList.VERTICAL);
         this.image_list.setFixedCellHeight(25);
         this.image_list.setFont(new java.awt.Font("Leelawadee UI", 0, 14));
-        this.image_list.setBorder(new LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        this.image_list.setBorder(new LineBorder(new java.awt.Color(225,227,228), 1, true));
             
         // put our JList in a JScrollPane
         JScrollPane menuScrollPane = new JScrollPane(this.image_list);
@@ -276,82 +276,55 @@ public class PropertyPanel extends javax.swing.JPanel {
     private void jButton_loadimagesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_loadimagesActionPerformed
         // TODO add your handling code here:
         FileDialog f = MainWindow.loadFiles();
-        
-        if(true){
-            File[] files = f.getFiles();            
-//            ImageIcon[] icons = new ImageIcon[files.length];
-//            JLabel[] labels = new JLabel[files.length];
-//            JPanel[] panels = new JPanel[files.length];
-            Object[] objects = new Object[files.length];
-            
-            for(int i = 0; i<files.length;i++){
-                ImageIcon icon = new ImageIcon(files[i].getAbsolutePath());
+        IMAGES = f.getFiles();
+        Object[] objects = new Object[IMAGES.length];            
+        for(int i = 0; i<IMAGES.length;i++){
+            ImageIcon icon = new ImageIcon(IMAGES[i].getAbsolutePath());
 
-                Image img = icon.getImage();
-                Image img_scaled = img.getScaledInstance(20, 20, Image.SCALE_SMOOTH);
-                icon = new ImageIcon(img_scaled);
+            Image img = icon.getImage();
+            Image img_scaled = img.getScaledInstance(20, 20, Image.SCALE_SMOOTH);
+            icon = new ImageIcon(img_scaled);
 
-                JLabel label = new JLabel(files[i].getName(), icon, JLabel.LEFT);
-                JPanel panel = new JPanel();
-                panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-                panel.setAlignmentX(Component.LEFT_ALIGNMENT);
-//                panel.setAlignmentY(Component.LEFT_ALIGNMENT);
-//                panel.setSize(200, 25);
-//                panel.setLocation(0, 0);
-                panel.add(label);
-                objects[i] = panel;
-
-                  // New Button 
-//                URL icon = getClass().getResource("/rei/calculator/new1.png");
-//                ImageIcon imgicon = new ImageIcon(icon);
-//                Image img = imgicon.getImage();
-//                Image img_scaled = img.getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-//                imgicon = new ImageIcon(img_scaled);
-//                new_button.setIcon(imgicon); // NOI18N
-//                img_scaled = img.getScaledInstance(27, 27, Image.SCALE_SMOOTH);
-//                imgicon = new ImageIcon(img_scaled);
-//                new_button.setPressedIcon(imgicon);// NOI18N
-
-//                Icon ico = FileSystemView.getFileSystemView().getSystemIcon(i);
-//                Image img = ((ImageIcon) ico).getImage();
-//                ImageIcon imgicon = new ImageIcon(ico);
-
-//                System.out.println(i.getAbsolutePath());
-//                System.out.println(i.getName());
-//                list.add(i.getName().toString());
-            }
-
-//            jList_imagelist.setModel(null);
-
-            this.image_list.setListData(objects);
-            this.image_list.updateUI();
-            
-            
-            
-            // put our JList and JScrollPane in the left hand side of a JSplitPane
-//            JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, 
-//                                       menuScrollPane, 
-//                                       this);
-//            this.remove(this.jList_imagelist);
-            
-            
-//            this.add(jlist).setBounds(400,200,200,100);
-    //                this.jList_contacts = new JList<String>(list);
-    //                this.jList_contacts.updateUI();
-    //                DefaultListModel listModel = new DefaultListModel();
-    //                for (int i = 0; i < list.length; i++)
-    //                {
-    //                    listModel.addElement(list[i]);
-    //                }
-    //                this.jList_contacts.setModel(listModel);
+            JLabel label = new JLabel(IMAGES[i].getName(), icon, JLabel.LEFT);
+            JPanel panel = new JPanel();
+            panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+            panel.setAlignmentX(Component.LEFT_ALIGNMENT);
+            panel.add(label);
+            objects[i] = panel;
         }
-        else{
-            JOptionPane.showMessageDialog(null, "No Record Exists.", "Not Found", JOptionPane.ERROR_MESSAGE);
-        }
+        this.image_list.setListData(objects);
+        this.image_list.updateUI();
     }//GEN-LAST:event_jButton_loadimagesActionPerformed
 
     private void jButton_removeImagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_removeImagActionPerformed
-        // TODO add your handling code here:
+        if(!this.image_list.isSelectionEmpty()){
+            int index = this.image_list.getSelectedIndex();
+            Object[] objects = new Object[IMAGES.length-1];
+            ArrayList<File> temp = new ArrayList<>();
+            int k = 0;
+            for(int i = 0; i<IMAGES.length;i++){
+                if(index != i){
+                    temp.add(IMAGES[i]);
+                    ImageIcon icon = new ImageIcon(IMAGES[i].getAbsolutePath());
+                    Image img = icon.getImage();
+                    Image img_scaled = img.getScaledInstance(20, 20, Image.SCALE_SMOOTH);
+                    icon = new ImageIcon(img_scaled);
+
+                    JLabel label = new JLabel(IMAGES[i].getName(), icon, JLabel.LEFT);
+                    JPanel panel = new JPanel();
+                    panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+                    panel.setAlignmentX(Component.LEFT_ALIGNMENT);
+                    panel.add(label);
+                    objects[k++] = panel;
+                }
+            }
+            this.image_list.setListData(objects);
+            this.image_list.updateUI();
+            IMAGES = temp.toArray(new File[temp.size()]);
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "No image selected.", "Invalid Selected", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButton_removeImagActionPerformed
 
     
