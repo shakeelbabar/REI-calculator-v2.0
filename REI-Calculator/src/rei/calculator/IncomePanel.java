@@ -44,6 +44,7 @@ public class IncomePanel extends javax.swing.JPanel {
         jLabel16 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(246, 245, 245));
+        setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
         setPreferredSize(new java.awt.Dimension(934, 524));
 
         jLabel1.setFont(new java.awt.Font("Leelawadee UI", 0, 24)); // NOI18N
@@ -154,7 +155,7 @@ public class IncomePanel extends javax.swing.JPanel {
                             .addComponent(average_rent_per_unit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
                             .addComponent(total_monthly_income_units)
                             .addComponent(numbe_of_units, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addContainerGap(328, Short.MAX_VALUE))
+                        .addContainerGap(326, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
@@ -196,7 +197,7 @@ public class IncomePanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(total_monthly_income, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(173, Short.MAX_VALUE))
+                .addContainerGap(168, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

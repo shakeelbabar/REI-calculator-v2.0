@@ -11,6 +11,7 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.io.File;
+import java.io.FilenameFilter;
 import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -42,6 +43,7 @@ public class MainWindow extends javax.swing.JFrame {
         f = new FileDialog(this, "Open File", FileDialog.LOAD);
         initComponents();
         setToolBarIcons();
+        setTabIcons();
         
         
 //      Initializing Panels Globally to be used in the entire application
@@ -68,129 +70,49 @@ public class MainWindow extends javax.swing.JFrame {
         });
         homebtn.doClick();
     }
-    
-    public void setToolBarIcons(){
-        
-        // New Button 
-        URL icon = getClass().getResource("/rei/calculator/new1.png");
+
+    private void setTabIcon(JLabel label, String src){
+        URL icon = getClass().getResource(src);
         ImageIcon imgicon = new ImageIcon(icon);
         Image img = imgicon.getImage();
-        Image img_scaled = img.getScaledInstance(30, 30, Image.SCALE_SMOOTH);
+        Image img_scaled = img.getScaledInstance(label.getWidth()-2, label.getHeight()-2, Image.SCALE_SMOOTH);
         imgicon = new ImageIcon(img_scaled);
-        new_button.setIcon(imgicon); // NOI18N
-        img_scaled = img.getScaledInstance(27, 27, Image.SCALE_SMOOTH);
-        imgicon = new ImageIcon(img_scaled);
-        new_button.setPressedIcon(imgicon);// NOI18N
-        
-        // Open Button
-        icon = getClass().getResource("/rei/calculator/open.png");
-        imgicon = new ImageIcon(icon);
-        img = imgicon.getImage();
-        img_scaled = img.getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-        imgicon = new ImageIcon(img_scaled);
-        open_button.setIcon(imgicon); // NOI18N
-        img_scaled = img.getScaledInstance(27, 27, Image.SCALE_SMOOTH);
-        imgicon = new ImageIcon(img_scaled);
-        open_button.setPressedIcon(imgicon);// NOI18N
+        label.setIcon(imgicon); // NOI18N
+    }
 
-        // Save Button
-        icon = getClass().getResource("/rei/calculator/save.png");
-        imgicon = new ImageIcon(icon);
-        img = imgicon.getImage();
-        img_scaled = img.getScaledInstance(30, 30, Image.SCALE_SMOOTH);
+    private void setTabIcons(){
+        setTabIcon(this.property_icon, "/rei/calculator/src/home.png");
+        setTabIcon(this.purchase_icon, "/rei/calculator/src/shop.png");
+        setTabIcon(this.income_icon, "/rei/calculator/src/coin (5).png");
+        setTabIcon(this.expense_icon, "/rei/calculator/src/expense.png");
+        setTabIcon(this.assumptions_icon, "/rei/calculator/src/chart (1).png");
+        setTabIcon(this.report_icon, "/rei/calculator/src/report (1).png");
+    }
+    
+    private void setToolBarIcon(JButton button, String src){
+        URL icon = getClass().getResource(src);
+        ImageIcon imgicon = new ImageIcon(icon);
+        Image img = imgicon.getImage();
+        Image img_scaled = img.getScaledInstance(25, 25, Image.SCALE_SMOOTH);
         imgicon = new ImageIcon(img_scaled);
-        save_button.setIcon(imgicon); // NOI18N
-        img_scaled = img.getScaledInstance(27, 27, Image.SCALE_SMOOTH);
+        button.setIcon(imgicon); // NOI18N
+        img_scaled = img.getScaledInstance(22, 22, Image.SCALE_SMOOTH);
         imgicon = new ImageIcon(img_scaled);
-        save_button.setPressedIcon(imgicon);// NOI18N
-
-        // SaveAs Button
-        icon = getClass().getResource("/rei/calculator/saveas.png");
-        imgicon = new ImageIcon(icon);
-        img = imgicon.getImage();
-        img_scaled = img.getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-        imgicon = new ImageIcon(img_scaled);
-        saveAs_button.setIcon(imgicon); // NOI18N
-        img_scaled = img.getScaledInstance(27, 27, Image.SCALE_SMOOTH);
-        imgicon = new ImageIcon(img_scaled);
-        saveAs_button.setPressedIcon(imgicon);// NOI18N
-
-        // Settings Button
-        icon = getClass().getResource("/rei/calculator/settings.png");
-        imgicon = new ImageIcon(icon);
-        img = imgicon.getImage();
-        img_scaled = img.getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-        imgicon = new ImageIcon(img_scaled);
-        settings_button.setIcon(imgicon); // NOI18N
-        img_scaled = img.getScaledInstance(27, 27, Image.SCALE_SMOOTH);
-        imgicon = new ImageIcon(img_scaled);
-        settings_button.setPressedIcon(imgicon);// NOI18N
-
-        // Execute Button
-        icon = getClass().getResource("/rei/calculator/execute.png");
-        imgicon = new ImageIcon(icon);
-        img = imgicon.getImage();
-        img_scaled = img.getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-        imgicon = new ImageIcon(img_scaled);
-        execute_button.setIcon(imgicon); // NOI18N
-        img_scaled = img.getScaledInstance(27, 27, Image.SCALE_SMOOTH);
-        imgicon = new ImageIcon(img_scaled);
-        execute_button.setPressedIcon(imgicon);// NOI18N
-
-        // Email Button
-        icon = getClass().getResource("/rei/calculator/email.png");
-        imgicon = new ImageIcon(icon);
-        img = imgicon.getImage();
-        img_scaled = img.getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-        imgicon = new ImageIcon(img_scaled);
-        email_button.setIcon(imgicon); // NOI18N
-        img_scaled = img.getScaledInstance(27, 27, Image.SCALE_SMOOTH);
-        imgicon = new ImageIcon(img_scaled);
-        email_button.setPressedIcon(imgicon);// NOI18N
-
-        // ClearAll Button
-        icon = getClass().getResource("/rei/calculator/clearall.png");
-        imgicon = new ImageIcon(icon);
-        img = imgicon.getImage();
-        img_scaled = img.getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-        imgicon = new ImageIcon(img_scaled);
-        clearAll_button.setIcon(imgicon); // NOI18N
-        img_scaled = img.getScaledInstance(27, 27, Image.SCALE_SMOOTH);
-        imgicon = new ImageIcon(img_scaled);
-        clearAll_button.setPressedIcon(imgicon);// NOI18N
-
-        // Close Button
-        icon = getClass().getResource("/rei/calculator/close.png");
-        imgicon = new ImageIcon(icon);
-        img = imgicon.getImage();
-        img_scaled = img.getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-        imgicon = new ImageIcon(img_scaled);
-        close_button.setIcon(imgicon); // NOI18N
-        img_scaled = img.getScaledInstance(27, 27, Image.SCALE_SMOOTH);
-        imgicon = new ImageIcon(img_scaled);
-        close_button.setPressedIcon(imgicon);// NOI18N
-
-        // Help Button
-        icon = getClass().getResource("/rei/calculator/help.png");
-        imgicon = new ImageIcon(icon);
-        img = imgicon.getImage();
-        img_scaled = img.getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-        imgicon = new ImageIcon(img_scaled);
-        help_button.setIcon(imgicon); // NOI18N
-        img_scaled = img.getScaledInstance(27, 27, Image.SCALE_SMOOTH);
-        imgicon = new ImageIcon(img_scaled);
-        help_button.setPressedIcon(imgicon);// NOI18N
-
-        // SFI Button
-        icon = getClass().getResource("/rei/calculator/SFI.png");
-        imgicon = new ImageIcon(icon);
-        img = imgicon.getImage();
-        img_scaled = img.getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-        imgicon = new ImageIcon(img_scaled);
-        SFI_button.setIcon(imgicon); // NOI18N
-        img_scaled = img.getScaledInstance(27, 27, Image.SCALE_SMOOTH);
-        imgicon = new ImageIcon(img_scaled);
-        SFI_button.setPressedIcon(imgicon);// NOI18N
+        button.setPressedIcon(imgicon);// NOI18N
+    }
+    
+    private void setToolBarIcons(){
+        setToolBarIcon(this.new_button, "/rei/calculator/src/new.png");
+        setToolBarIcon(this.open_button, "/rei/calculator/src/load1.png");
+        setToolBarIcon(this.save_button, "/rei/calculator/src/save.png");
+        setToolBarIcon(this.saveAs_button, "/rei/calculator/src/saveas.png");
+        setToolBarIcon(this.settings_button, "/rei/calculator/src/settings.png");
+        setToolBarIcon(this.execute_button, "/rei/calculator/src/run1.png");
+        setToolBarIcon(this.email_button, "/rei/calculator/src/email.png");
+        setToolBarIcon(this.clearAll_button, "/rei/calculator/src/clear.png");
+        setToolBarIcon(this.close_button, "/rei/calculator/src/close.png");
+        setToolBarIcon(this.help_button, "/rei/calculator/src/help.png");
+        setToolBarIcon(this.SFI_button, "/rei/calculator/SFI.png");
     }
     
     
@@ -222,21 +144,27 @@ public class MainWindow extends javax.swing.JFrame {
         jPanel_property = new javax.swing.JPanel();
         jPanel_property_active = new javax.swing.JPanel();
         jLabel_property = new javax.swing.JLabel();
+        property_icon = new javax.swing.JLabel();
         jPanel_purchase = new javax.swing.JPanel();
         jPanel_purchase_active = new javax.swing.JPanel();
         jLabel_purchase = new javax.swing.JLabel();
+        purchase_icon = new javax.swing.JLabel();
         jPanel_income = new javax.swing.JPanel();
         jPanel_income_active = new javax.swing.JPanel();
         jLabel_income = new javax.swing.JLabel();
+        income_icon = new javax.swing.JLabel();
         jPanel_expense = new javax.swing.JPanel();
         jPanel_expense_active = new javax.swing.JPanel();
         jLabel_expense = new javax.swing.JLabel();
+        expense_icon = new javax.swing.JLabel();
         jPanel_assumption = new javax.swing.JPanel();
         jPanel_assumption_active = new javax.swing.JPanel();
         jLabel_assumption = new javax.swing.JLabel();
+        assumptions_icon = new javax.swing.JLabel();
         jPanel_report = new javax.swing.JPanel();
         jPanel_report_active = new javax.swing.JPanel();
         jLabel_report = new javax.swing.JLabel();
+        report_icon = new javax.swing.JLabel();
         jLabel_logo = new javax.swing.JLabel();
         jPanel_tabPanel = new javax.swing.JPanel();
         jTextField8 = new javax.swing.JTextField();
@@ -308,7 +236,9 @@ public class MainWindow extends javax.swing.JFrame {
         new_button.setFocusPainted(false);
         new_button.setFocusable(false);
         new_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        new_button.setMargin(new java.awt.Insets(0, 5, 0, 0));
         new_button.setPreferredSize(new java.awt.Dimension(40, 40));
+        new_button.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         new_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 new_buttonActionPerformed(evt);
@@ -322,6 +252,11 @@ public class MainWindow extends javax.swing.JFrame {
         open_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         open_button.setPreferredSize(new java.awt.Dimension(40, 40));
         open_button.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        open_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                open_buttonActionPerformed(evt);
+            }
+        });
         jToolBar1.add(open_button);
 
         save_button.setToolTipText("");
@@ -438,8 +373,10 @@ public class MainWindow extends javax.swing.JFrame {
         jPanel_propertyLayout.setHorizontalGroup(
             jPanel_propertyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_propertyLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jLabel_property, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(property_icon, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel_property, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel_property_active, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
@@ -449,7 +386,9 @@ public class MainWindow extends javax.swing.JFrame {
             .addComponent(jPanel_property_active, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel_propertyLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel_property)
+                .addGroup(jPanel_propertyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(property_icon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel_property, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -483,8 +422,10 @@ public class MainWindow extends javax.swing.JFrame {
         jPanel_purchaseLayout.setHorizontalGroup(
             jPanel_purchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_purchaseLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jLabel_purchase, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(purchase_icon, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel_purchase, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel_purchase_active, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
@@ -494,8 +435,12 @@ public class MainWindow extends javax.swing.JFrame {
             .addComponent(jPanel_purchase_active, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel_purchaseLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel_purchase)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel_purchaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(purchase_icon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel_purchaseLayout.createSequentialGroup()
+                        .addComponent(jLabel_purchase)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         jPanel_income.setBackground(new java.awt.Color(225, 227, 228));
@@ -528,8 +473,10 @@ public class MainWindow extends javax.swing.JFrame {
         jPanel_incomeLayout.setHorizontalGroup(
             jPanel_incomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_incomeLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jLabel_income, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(income_icon, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel_income, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel_income_active, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
@@ -539,8 +486,12 @@ public class MainWindow extends javax.swing.JFrame {
             .addComponent(jPanel_income_active, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel_incomeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel_income)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel_incomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(income_icon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel_incomeLayout.createSequentialGroup()
+                        .addComponent(jLabel_income)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         jPanel_expense.setBackground(new java.awt.Color(225, 227, 228));
@@ -573,8 +524,10 @@ public class MainWindow extends javax.swing.JFrame {
         jPanel_expenseLayout.setHorizontalGroup(
             jPanel_expenseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_expenseLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jLabel_expense, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(expense_icon, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel_expense, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel_expense_active, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
@@ -584,8 +537,12 @@ public class MainWindow extends javax.swing.JFrame {
             .addComponent(jPanel_expense_active, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel_expenseLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel_expense)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel_expenseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(expense_icon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel_expenseLayout.createSequentialGroup()
+                        .addComponent(jLabel_expense)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         jPanel_assumption.setBackground(new java.awt.Color(225, 227, 228));
@@ -618,8 +575,10 @@ public class MainWindow extends javax.swing.JFrame {
         jPanel_assumptionLayout.setHorizontalGroup(
             jPanel_assumptionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_assumptionLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jLabel_assumption, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(assumptions_icon, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel_assumption, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel_assumption_active, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
@@ -629,8 +588,12 @@ public class MainWindow extends javax.swing.JFrame {
             .addComponent(jPanel_assumption_active, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel_assumptionLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel_assumption)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel_assumptionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(assumptions_icon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel_assumptionLayout.createSequentialGroup()
+                        .addComponent(jLabel_assumption)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         jPanel_report.setBackground(new java.awt.Color(225, 227, 228));
@@ -663,8 +626,10 @@ public class MainWindow extends javax.swing.JFrame {
         jPanel_reportLayout.setHorizontalGroup(
             jPanel_reportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_reportLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jLabel_report, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(report_icon, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel_report, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel_report_active, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
@@ -674,8 +639,12 @@ public class MainWindow extends javax.swing.JFrame {
             .addComponent(jPanel_report_active, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel_reportLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel_report)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel_reportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(report_icon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel_reportLayout.createSequentialGroup()
+                        .addComponent(jLabel_report)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         jLabel_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rei/calculator/SFI.png"))); // NOI18N
@@ -959,7 +928,7 @@ public class MainWindow extends javax.swing.JFrame {
         jMenu1.setText("File");
 
         jMene_new.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
-        jMene_new.setIcon(new javax.swing.ImageIcon("E:\\PNG Icons\\Paint 3D\\new.png")); // NOI18N
+        jMene_new.setIcon(new javax.swing.ImageIcon("C:\\Users\\sajam\\Pictures\\20px\\new11.png")); // NOI18N
         jMene_new.setText("New File");
         jMene_new.setActionCommand("");
         jMene_new.addActionListener(new java.awt.event.ActionListener() {
@@ -970,7 +939,7 @@ public class MainWindow extends javax.swing.JFrame {
         jMenu1.add(jMene_new);
 
         jMenu_load.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
-        jMenu_load.setIcon(new javax.swing.ImageIcon("E:\\PNG Icons\\Paint 3D\\open.png")); // NOI18N
+        jMenu_load.setIcon(new javax.swing.ImageIcon("C:\\Users\\sajam\\Pictures\\20px\\load1.png")); // NOI18N
         jMenu_load.setText("Load / Open");
         jMenu_load.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -980,7 +949,7 @@ public class MainWindow extends javax.swing.JFrame {
         jMenu1.add(jMenu_load);
 
         jMenu_save.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
-        jMenu_save.setIcon(new javax.swing.ImageIcon("E:\\PNG Icons\\Paint 3D\\save.png")); // NOI18N
+        jMenu_save.setIcon(new javax.swing.ImageIcon("C:\\Users\\sajam\\Pictures\\20px\\save.png")); // NOI18N
         jMenu_save.setText("Save");
         jMenu_save.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -990,7 +959,7 @@ public class MainWindow extends javax.swing.JFrame {
         jMenu1.add(jMenu_save);
 
         jMenu_saveas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        jMenu_saveas.setIcon(new javax.swing.ImageIcon("E:\\PNG Icons\\Paint 3D\\saveas.png")); // NOI18N
+        jMenu_saveas.setIcon(new javax.swing.ImageIcon("C:\\Users\\sajam\\Pictures\\20px\\saveas.png")); // NOI18N
         jMenu_saveas.setText("Save As");
         jMenu1.add(jMenu_saveas);
         jMenu1.add(jSeparator1);
@@ -1008,7 +977,7 @@ public class MainWindow extends javax.swing.JFrame {
         jMenu1.add(jSeparator4);
 
         jMenu_execute.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F10, 0));
-        jMenu_execute.setIcon(new javax.swing.ImageIcon("E:\\PNG Icons\\Paint 3D\\execute.png")); // NOI18N
+        jMenu_execute.setIcon(new javax.swing.ImageIcon("C:\\Users\\sajam\\Pictures\\20px\\run1.png")); // NOI18N
         jMenu_execute.setText("Execute");
         jMenu1.add(jMenu_execute);
         jMenu1.add(jSeparator2);
@@ -1018,13 +987,13 @@ public class MainWindow extends javax.swing.JFrame {
         jMenu_print.setText("Print");
         jMenu1.add(jMenu_print);
 
-        jMenu_email.setIcon(new javax.swing.ImageIcon("E:\\PNG Icons\\Paint 3D\\email.png")); // NOI18N
+        jMenu_email.setIcon(new javax.swing.ImageIcon("C:\\Users\\sajam\\Pictures\\20px\\email.png")); // NOI18N
         jMenu_email.setText("Email / Send");
         jMenu1.add(jMenu_email);
         jMenu1.add(jSeparator3);
 
         jMenu_close.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
-        jMenu_close.setIcon(new javax.swing.ImageIcon("E:\\PNG Icons\\Paint 3D\\close.png")); // NOI18N
+        jMenu_close.setIcon(new javax.swing.ImageIcon("C:\\Users\\sajam\\Pictures\\20px\\close.png")); // NOI18N
         jMenu_close.setText("Close");
         jMenu_close.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1038,7 +1007,7 @@ public class MainWindow extends javax.swing.JFrame {
         jMenu2.setText("Edit");
 
         jMenu_clearall.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F8, 0));
-        jMenu_clearall.setIcon(new javax.swing.ImageIcon("E:\\PNG Icons\\Paint 3D\\clearAll.png")); // NOI18N
+        jMenu_clearall.setIcon(new javax.swing.ImageIcon("C:\\Users\\sajam\\Pictures\\20px\\clear.png")); // NOI18N
         jMenu_clearall.setText("ClearAll / Reset");
         jMenu2.add(jMenu_clearall);
 
@@ -1050,7 +1019,7 @@ public class MainWindow extends javax.swing.JFrame {
         jMenu3.setText("Tools");
 
         jMenu_settings.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
-        jMenu_settings.setIcon(new javax.swing.ImageIcon("E:\\PNG Icons\\Paint 3D\\settings.png")); // NOI18N
+        jMenu_settings.setIcon(new javax.swing.ImageIcon("C:\\Users\\sajam\\Pictures\\20px\\settings.png")); // NOI18N
         jMenu_settings.setText("Settings");
         jMenu3.add(jMenu_settings);
 
@@ -1067,7 +1036,7 @@ public class MainWindow extends javax.swing.JFrame {
         jMenu4.add(jSeparator5);
 
         jMenu_help.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0));
-        jMenu_help.setIcon(new javax.swing.ImageIcon("E:\\PNG Icons\\Paint 3D\\help.png")); // NOI18N
+        jMenu_help.setIcon(new javax.swing.ImageIcon("C:\\Users\\sajam\\Pictures\\20px\\help.png")); // NOI18N
         jMenu_help.setText("Help");
         jMenu4.add(jMenu_help);
 
@@ -1080,7 +1049,7 @@ public class MainWindow extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(main_panel, javax.swing.GroupLayout.DEFAULT_SIZE, 1124, Short.MAX_VALUE)
+            .addComponent(main_panel, javax.swing.GroupLayout.DEFAULT_SIZE, 1126, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1164,14 +1133,23 @@ public class MainWindow extends javax.swing.JFrame {
         JPanel p = (JPanel)evt.getSource();
 //        p.setBackground(new Color(50,50,50));
         p.setBackground(new Color(196,199,200));
-        JPanel active = (JPanel)p.getComponent(1);
+        JPanel active = (JPanel)p.getComponent(2);
         active.setBackground(new Color(30,30,30));
-        JLabel label_active = (JLabel)p.getComponent(0);
+        JLabel label_active = (JLabel)p.getComponent(1);
         label_active.setFont(new java.awt.Font("Leelawadee UI", 0, 18));
         label_active.setForeground(new Color(30,30,30));
     }
     private void new_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_new_buttonActionPerformed
         // TODO add your handling code here:
+        int confirm = JOptionPane.showConfirmDialog(null, "Do you want to create a new report?", "New Report", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);        
+        if(confirm == JOptionPane.YES_OPTION){
+            this.property = new PropertyPanel();
+            this.purchase = new PurchasePanel();
+            this.income = new IncomePanel();
+            this.expense = new ExpensePanel();
+            this.assumption = new AssumptionPanel();
+            this.report = new ReportPanel();
+        }
     }//GEN-LAST:event_new_buttonActionPerformed
     private void jPanel_propertyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_propertyMouseClicked
         // TODO add your handling code here:
@@ -1232,6 +1210,24 @@ public class MainWindow extends javax.swing.JFrame {
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void open_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_open_buttonActionPerformed
+        // TODO add your handling code here:
+        f.setDirectory(".\\");
+        f.setMultipleMode(false);
+        f.setVisible(true);
+        f.setFilenameFilter(new FilenameFilter(){
+            public boolean accept(File dir, String name)
+            {
+//                if(new File(dir,name).getName().split(".")[0].equalsIgnoreCase("java")){
+//                    return true;
+//                }
+                return name.endsWith(".java");
+            }
+        });
+        for(File f_ : f.getFiles())
+            System.out.println(f_.getAbsoluteFile());
+    }//GEN-LAST:event_open_buttonActionPerformed
     
     protected static FileDialog loadFiles(){
         f.setDirectory(".\\");
@@ -1277,11 +1273,14 @@ public class MainWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton SFI_button;
+    private javax.swing.JLabel assumptions_icon;
     private javax.swing.JButton clearAll_button;
     private javax.swing.JButton close_button;
     private javax.swing.JButton email_button;
     private javax.swing.JButton execute_button;
+    private javax.swing.JLabel expense_icon;
     private javax.swing.JButton help_button;
+    private javax.swing.JLabel income_icon;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -1362,6 +1361,9 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel main_panel;
     private javax.swing.JButton new_button;
     private javax.swing.JButton open_button;
+    private javax.swing.JLabel property_icon;
+    private javax.swing.JLabel purchase_icon;
+    private javax.swing.JLabel report_icon;
     private javax.swing.JButton saveAs_button;
     private javax.swing.JButton save_button;
     private javax.swing.JButton settings_button;

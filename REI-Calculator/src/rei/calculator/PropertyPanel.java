@@ -43,38 +43,49 @@ public class PropertyPanel extends javax.swing.JPanel {
      * Creates new form NewJPanel
      */
     private JList<Object> image_list;
-    protected File[] IMAGES;
+    protected ArrayList<File> IMAGES = new ArrayList<>();
     public PropertyPanel() {
         initComponents();
   
         // Remove Image Button 
-        URL icon = getClass().getResource("/rei/calculator/remove.png");
+        URL icon = getClass().getResource("/rei/calculator/src/trashAll (2).png");
         ImageIcon imgicon = new ImageIcon(icon);
         Image img = imgicon.getImage();
-        Image img_scaled = img.getScaledInstance(31, 31, Image.SCALE_SMOOTH);
+        Image img_scaled = img.getScaledInstance(35, 35, Image.SCALE_SMOOTH);
         imgicon = new ImageIcon(img_scaled);
-        this.jButton_removeImag.setIcon(imgicon); // NOI18N
-        img_scaled = img.getScaledInstance(27, 27, Image.SCALE_SMOOTH);
+        this.jButton_removeAll.setIcon(imgicon); // NOI18N
+        img_scaled = img.getScaledInstance(33, 33, Image.SCALE_SMOOTH);
         imgicon = new ImageIcon(img_scaled);
-        this.jButton_removeImag.setPressedIcon(imgicon);// NOI18N
+        this.jButton_removeAll.setPressedIcon(imgicon);// NOI18N
         
         // Remove Image Button 
-        icon = getClass().getResource("/rei/calculator/img.png");
+        icon = getClass().getResource("/rei/calculator/src/trash (4).png");
         imgicon = new ImageIcon(icon);
         img = imgicon.getImage();
         img_scaled = img.getScaledInstance(35, 35, Image.SCALE_SMOOTH);
         imgicon = new ImageIcon(img_scaled);
-        this.jButton_loadimages.setIcon(imgicon); // NOI18N
+        this.jButton_removeImg.setIcon(imgicon); // NOI18N
         img_scaled = img.getScaledInstance(33, 33, Image.SCALE_SMOOTH);
+        imgicon = new ImageIcon(img_scaled);
+        this.jButton_removeImg.setPressedIcon(imgicon);// NOI18N
+
+        // Remove Image Button 
+        icon = getClass().getResource("/rei/calculator/src/pic (4).png");
+        imgicon = new ImageIcon(icon);
+        img = imgicon.getImage();
+        img_scaled = img.getScaledInstance(40, 40, Image.SCALE_SMOOTH);
+        imgicon = new ImageIcon(img_scaled);
+        this.jButton_loadimages.setIcon(imgicon); // NOI18N
+        img_scaled = img.getScaledInstance(37, 37, Image.SCALE_SMOOTH);
         imgicon = new ImageIcon(img_scaled);
         this.jButton_loadimages.setPressedIcon(imgicon);// NOI18N
 
-        this.remove(this.jButton_loadimages);
-        this.remove(this.jButton_removeImag);
+        this.remove(this.jButton_removeImg);
+        this.remove(this.jButton_removeAll);
         this.repaint();
         
-        this.jButton_loadimages.setBounds(777, 500, 32, 32);
-        this.jButton_removeImag.setBounds(817, 327, 32, 32);
+        this.jButton_removeImg.setBounds(777, 500, 32, 32);
+        this.jButton_removeAll.setBounds(817, 327, 32, 32);
         
         this.image_list = new JList();
         this.image_list.setCellRenderer(new ImageListCellRenderer());
@@ -87,7 +98,7 @@ public class PropertyPanel extends javax.swing.JPanel {
         // put our JList in a JScrollPane
         JScrollPane menuScrollPane = new JScrollPane(this.image_list);
         menuScrollPane.setMinimumSize(new Dimension(44, 112));
-        this.list_panel.add(menuScrollPane).setBounds(0, 0, 222, 223);        
+        this.list_panel.add(menuScrollPane).setBounds(0, 0, 222, 230);        
     }
 
     /**
@@ -114,10 +125,12 @@ public class PropertyPanel extends javax.swing.JPanel {
         jComboBox_state = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         list_panel = new javax.swing.JPanel();
-        jButton_removeImag = new javax.swing.JButton();
+        jButton_removeAll = new javax.swing.JButton();
+        jButton_removeImg = new javax.swing.JButton();
         jButton_loadimages = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(246, 245, 245));
+        setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
         setPreferredSize(new java.awt.Dimension(934, 524));
 
         jLabel1.setFont(new java.awt.Font("Leelawadee UI", 0, 24)); // NOI18N
@@ -161,14 +174,25 @@ public class PropertyPanel extends javax.swing.JPanel {
 
         list_panel.setBackground(new java.awt.Color(246, 245, 245));
 
-        jButton_removeImag.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
-        jButton_removeImag.setToolTipText("Remove Selected Image");
-        jButton_removeImag.setBorderPainted(false);
-        jButton_removeImag.setContentAreaFilled(false);
-        jButton_removeImag.setDefaultCapable(false);
-        jButton_removeImag.addActionListener(new java.awt.event.ActionListener() {
+        jButton_removeAll.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
+        jButton_removeAll.setToolTipText("Remove Selected Image");
+        jButton_removeAll.setBorderPainted(false);
+        jButton_removeAll.setContentAreaFilled(false);
+        jButton_removeAll.setDefaultCapable(false);
+        jButton_removeAll.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_removeImagActionPerformed(evt);
+                jButton_removeAllActionPerformed(evt);
+            }
+        });
+
+        jButton_removeImg.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
+        jButton_removeImg.setToolTipText("Add Property Images");
+        jButton_removeImg.setBorderPainted(false);
+        jButton_removeImg.setContentAreaFilled(false);
+        jButton_removeImg.setDefaultCapable(false);
+        jButton_removeImg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_removeImgActionPerformed(evt);
             }
         });
 
@@ -188,17 +212,19 @@ public class PropertyPanel extends javax.swing.JPanel {
         list_panelLayout.setHorizontalGroup(
             list_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, list_panelLayout.createSequentialGroup()
-                .addContainerGap(138, Short.MAX_VALUE)
                 .addComponent(jButton_loadimages, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
+                .addComponent(jButton_removeImg, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jButton_removeImag, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jButton_removeAll, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         list_panelLayout.setVerticalGroup(
             list_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, list_panelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(list_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton_removeImag, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                    .addComponent(jButton_removeAll, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                    .addComponent(jButton_removeImg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton_loadimages, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
@@ -233,7 +259,7 @@ public class PropertyPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addComponent(jLabel8)))
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -273,67 +299,78 @@ public class PropertyPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton_removeImgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_removeImgActionPerformed
+        // TODO add your handling code here:
+        this.removeImage();
+    }//GEN-LAST:event_jButton_removeImgActionPerformed
+
+    private void jButton_removeAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_removeAllActionPerformed
+        // TODO add your handling code here:
+        this.removeAllImage();
+    }//GEN-LAST:event_jButton_removeAllActionPerformed
+
     private void jButton_loadimagesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_loadimagesActionPerformed
         // TODO add your handling code here:
+        this.LoadImages();
+    }//GEN-LAST:event_jButton_loadimagesActionPerformed
+
+    private void removeAllImage(){
+        this.image_list.setListData(new Object[0]);
+        this.image_list.updateUI();
+        this.IMAGES = new ArrayList<>();
+    }
+    
+    private void removeImage(){
+        if(!this.image_list.isSelectionEmpty()){
+            int index = this.image_list.getSelectedIndex();
+            this.IMAGES.remove(index);
+            this.updateList();
+        }
+        else JOptionPane.showMessageDialog(null, "No image selected.", "Invalid Selected", JOptionPane.ERROR_MESSAGE);
+    }
+    
+    private void LoadImages(){
+        this.updateImages();
+        this.updateList();
+    }
+    
+    private void updateImages(){
         FileDialog f = MainWindow.loadFiles();
-        IMAGES = f.getFiles();
-        Object[] objects = new Object[IMAGES.length];            
-        for(int i = 0; i<IMAGES.length;i++){
-            ImageIcon icon = new ImageIcon(IMAGES[i].getAbsolutePath());
+        for(File file : f.getFiles()){
+            if(!IMAGES.contains(file)){
+                IMAGES.add(file);
+            }
+        }
+    }
+    
+    private void updateList(){
+        ArrayList<Object> objects = new ArrayList<>();            
+        for(File f : IMAGES){
+            ImageIcon icon = new ImageIcon(f.getAbsolutePath());
 
             Image img = icon.getImage();
             Image img_scaled = img.getScaledInstance(20, 20, Image.SCALE_SMOOTH);
             icon = new ImageIcon(img_scaled);
 
-            JLabel label = new JLabel(IMAGES[i].getName(), icon, JLabel.LEFT);
+            JLabel label = new JLabel(f.getName(), icon, JLabel.LEFT);
             JPanel panel = new JPanel();
             panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
             panel.setAlignmentX(Component.LEFT_ALIGNMENT);
             panel.add(label);
-            objects[i] = panel;
+            objects.add(panel);
         }
-        this.image_list.setListData(objects);
+        this.image_list.setListData(objects.toArray(new Object[objects.size()]));
         this.image_list.updateUI();
-    }//GEN-LAST:event_jButton_loadimagesActionPerformed
-
-    private void jButton_removeImagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_removeImagActionPerformed
-        if(!this.image_list.isSelectionEmpty()){
-            int index = this.image_list.getSelectedIndex();
-            Object[] objects = new Object[IMAGES.length-1];
-            ArrayList<File> temp = new ArrayList<>();
-            int k = 0;
-            for(int i = 0; i<IMAGES.length;i++){
-                if(index != i){
-                    temp.add(IMAGES[i]);
-                    ImageIcon icon = new ImageIcon(IMAGES[i].getAbsolutePath());
-                    Image img = icon.getImage();
-                    Image img_scaled = img.getScaledInstance(20, 20, Image.SCALE_SMOOTH);
-                    icon = new ImageIcon(img_scaled);
-
-                    JLabel label = new JLabel(IMAGES[i].getName(), icon, JLabel.LEFT);
-                    JPanel panel = new JPanel();
-                    panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-                    panel.setAlignmentX(Component.LEFT_ALIGNMENT);
-                    panel.add(label);
-                    objects[k++] = panel;
-                }
-            }
-            this.image_list.setListData(objects);
-            this.image_list.updateUI();
-            IMAGES = temp.toArray(new File[temp.size()]);
-        }
-        else{
-            JOptionPane.showMessageDialog(null, "No image selected.", "Invalid Selected", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_jButton_removeImagActionPerformed
-
+    }
+    
     
     
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_loadimages;
-    private javax.swing.JButton jButton_removeImag;
+    private javax.swing.JButton jButton_removeAll;
+    private javax.swing.JButton jButton_removeImg;
     private javax.swing.JComboBox<String> jComboBox_state;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
