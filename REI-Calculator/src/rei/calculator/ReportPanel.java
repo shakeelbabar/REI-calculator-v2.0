@@ -27,10 +27,10 @@ public class ReportPanel extends javax.swing.JPanel {
      */
     final JProgressBar jProgressBar;
     public ReportPanel() {
-        UIManager.put("jProgressBar1.background", Color.ORANGE);
-        UIManager.put("jProgressBar1.selectionBackground", Color.RED);
-        UIManager.put("jProgressBar1.selectionForeground", Color.GREEN);
-        UIManager.put("jProgressBar.foreground", Color.BLUE);
+//        UIManager.put("jProgressBar1.background", Color.ORANGE);
+//        UIManager.put("jProgressBar1.selectionBackground", Color.RED);
+//        UIManager.put("jProgressBar1.selectionForeground", Color.GREEN);
+//        UIManager.put("jProgressBar.foreground", Color.BLUE);
         initComponents();
         
         
@@ -91,6 +91,7 @@ public class ReportPanel extends javax.swing.JPanel {
         jCheckBox4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jProgressBar1.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
+        jProgressBar1.setForeground(new java.awt.Color(240, 240, 240));
         jProgressBar1.setValue(70);
         jProgressBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -177,10 +178,10 @@ public class ReportPanel extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         ExecutorService service = Executors.newSingleThreadExecutor();
         ((JButton)evt.getSource()).setEnabled(false);
-        this.jProgressBar1.setStringPainted(true);
-        this.jProgressBar1.setBorderPainted(true);
-        this.jProgressBar1.setBackground(Color.BLUE);
-        this.jProgressBar1.setForeground(Color.BLUE);
+//        this.jProgressBar1.setStringPainted(true);
+//        this.jProgressBar1.setBorderPainted(true);
+//        this.jProgressBar1.setBackground(Color.BLUE);
+//        this.jProgressBar1.setForeground(Color.BLUE);
         //starts long running task off of EDT.
         service.submit(new Runnable() {
             public void run() {

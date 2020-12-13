@@ -113,6 +113,13 @@ public class ExpensePanel extends javax.swing.JPanel {
                 ExpensePanel.this.focusLost(evt);
             }
         });
+        electric.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+                electricCaretPositionChanged(evt);
+            }
+        });
         electric.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 validateKey(evt);
@@ -529,32 +536,47 @@ public class ExpensePanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private float getTFValue(JTextField src){
+    private float getTFValue_Dollar(JTextField src){
         if(!src.getText().equalsIgnoreCase(""))
             return Format.parse(src.getText());
         else return 0.00f;
     }    
     
+    private float getTFValue_Perc(JTextField src){
+        if(!src.getText().equalsIgnoreCase(""))
+            return Format.parse_perc(src.getText());
+        else return 0.00f;
+    }    
+    
     private void updateTVE(){
-        float rep_and_main = getTFValue(this.repair_maint_dollar);
-        float cap = getTFValue(this.cap_ex_dollar);
-        float vacancy = getTFValue(this.vacancy_dollar);
-        float manag = getTFValue(this.management_fee_dollar);
+        float rep_and_main = getTFValue_Dollar(this.repair_maint_dollar);
+        float cap = getTFValue_Dollar(this.cap_ex_dollar);
+        float vacancy = getTFValue_Dollar(this.vacancy_dollar);
+        float manag = getTFValue_Dollar(this.management_fee_dollar);
         float[] values = REI_Calculations.variable_expenses_monthly(vacancy, rep_and_main, cap, manag);
         this.total_variable_expense.setText(Format.formatToCurrency(String.valueOf(values[0])));
     }
     
-    private void updateTFE(float value){
-        float electric = getTFValue(this.electric);
-        float w_and_s = getTFValue(this.water_and_sewer);
-        float pmi = getTFValue(this.pmi);
-        float garbage = getTFValue(this.garbage);
-        float hoa = getTFValue(this.hoa);
-        float monthly_taxes = getTFValue(this.monthly_taxes);
-        float insurance = getTFValue(this.insurance);
-        float misc = getTFValue(this.miscellaneous);
+    private void updateTFE(){
+        float electric = getTFValue_Dollar(this.electric);
+        float w_and_s = getTFValue_Dollar(this.water_and_sewer);
+        float pmi = getTFValue_Dollar(this.pmi);
+        float garbage = getTFValue_Dollar(this.garbage);
+        float hoa = getTFValue_Dollar(this.hoa);
+        float monthly_taxes = getTFValue_Dollar(this.monthly_taxes);
+        float insurance = getTFValue_Dollar(this.insurance);
+        float misc = getTFValue_Dollar(this.miscellaneous);
         float[] values = REI_Calculations.fixed_expenses_monthly(electric, w_and_s, pmi, garbage, hoa, insurance, monthly_taxes, misc);
         this.total_fixed_expense.setText(Format.formatToCurrency(Format.formatTo2Float(values[0])));
+//        System.out.println("e"+electric);
+//        System.out.println("w"+w_and_s);
+//        System.out.println("pmi"+pmi);
+//        System.out.println("g"+garbage);
+//        System.out.println("h"+hoa);
+//        System.out.println("mt"+monthly_taxes);
+//        System.out.println("i"+insurance);
+//        System.out.println("misc"+misc);
+//        System.out.println("t"+values[0]);
     }
     
     private void focusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_focusGained
@@ -580,20 +602,17 @@ public class ExpensePanel extends javax.swing.JPanel {
 
     private void updateTFE(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_updateTFE
         // TODO add your handling code here:
-        JTextField source = (JTextField) evt.getSource();
-        if(!source.getText().equalsIgnoreCase("")){
-            this.updateTFE(Format.parse(source.getText()));
-        }
+        this.updateTFE();
     }//GEN-LAST:event_updateTFE
 
     private void validateKey(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_validateKey
         // TODO add your handling code here:
         JTextField source = (JTextField) evt.getSource();
-        if ((evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') || evt.getKeyCode() == 8 || evt.getKeyChar() == '-' || (evt.getKeyCode() >=37 && evt.getKeyCode() <=40)) {
-            source.setEditable(true);
-        } else {
-            source.setEditable(false);
-        }
+        if ((evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') || evt.getKeyChar() == '.' || evt.isControlDown() || evt.getKeyCode() == 8 || evt.getKeyCode() == 16 || evt.getKeyCode() == 17 ||  (evt.getKeyCode() >=37 && evt.getKeyCode() <=40)) {
+            if(evt.getKeyChar() == '.'  && source.getText().contains("."))
+                source.setEditable(false);
+            else source.setEditable(true);
+        } else source.setEditable(false);
     }//GEN-LAST:event_validateKey
 
     private void focusLost_Perc(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_focusLost_Perc
@@ -615,9 +634,9 @@ public class ExpensePanel extends javax.swing.JPanel {
     private void updateTVE(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_updateTVE
         // TODO add your handling code here:
         JTextField source = (JTextField) evt.getSource();
-        if(!source.getText().equalsIgnoreCase("")){
-            System.out.println("Value here: "+Format.parse_perc(source.getText()));
-            float total = (Format.parse_perc(source.getText()) * this.RATE)/100;
+//        if(!source.getText().equalsIgnoreCase("")){
+//            System.out.println("Value here: "+Format.parse_perc(source.getText()));
+            float total = (this.getTFValue_Perc(source) * this.RATE)/100;
             if(evt.getSource().hashCode() == this.repair_maint_perc.hashCode())
                 this.repair_maint_dollar.setText(total+"");
             else if(evt.getSource().hashCode() == this.cap_ex_perc.hashCode())
@@ -626,8 +645,13 @@ public class ExpensePanel extends javax.swing.JPanel {
                 this.vacancy_dollar.setText(total+"");
             else this.management_fee_dollar.setText(total+"");
             this.updateTVE();
-        }
+//        }
     }//GEN-LAST:event_updateTVE
+
+    private void electricCaretPositionChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_electricCaretPositionChanged
+        // TODO add your handling code here:
+//        this.updateTFE(0.00f);
+    }//GEN-LAST:event_electricCaretPositionChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

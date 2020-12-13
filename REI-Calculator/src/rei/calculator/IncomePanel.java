@@ -81,6 +81,11 @@ public class IncomePanel extends javax.swing.JPanel {
         });
 
         average_rent_per_unit.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
+        average_rent_per_unit.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                average_rent_per_unitCaretUpdate(evt);
+            }
+        });
         average_rent_per_unit.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 IncomePanel.this.focusGained(evt);
@@ -96,6 +101,11 @@ public class IncomePanel extends javax.swing.JPanel {
         });
 
         other_income.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
+        other_income.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                other_incomeCaretUpdate(evt);
+            }
+        });
         other_income.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 IncomePanel.this.focusGained(evt);
@@ -221,40 +231,42 @@ public class IncomePanel extends javax.swing.JPanel {
     private void validateKey(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_validateKey
         // TODO add your handling code here:
         JTextField source = (JTextField) evt.getSource();
-        if ((evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') || evt.getKeyCode() == 8 || (evt.getKeyCode() >=37 && evt.getKeyCode() <=40)) {
-            source.setEditable(true);
-        } else {
-            source.setEditable(false);
-        }
+        if ((evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') || evt.getKeyCode() == 8 || evt.getKeyChar() == '.' || evt.getKeyCode() == 16 || evt.getKeyCode() == 17 || (evt.getKeyCode() >=37 && evt.getKeyCode() <=40)) {
+            if(evt.getKeyChar() == '.' && source.getText().contains("."))
+                source.setEditable(false);
+            else source.setEditable(true);
+        } else source.setEditable(false);
     }//GEN-LAST:event_validateKey
 
-    private void setTotalMonthlyIncomeOfUnits(){
-        if(!this.average_rent_per_unit.getText().equalsIgnoreCase("")){
-            int a = (int) this.numbe_of_units.getValue();
-            Float b = Format.parse(this.average_rent_per_unit.getText());
-            String value = Format.format(a * b);
-            this.total_monthly_income_units.setText(value);
-        }
-        else
-            this.total_monthly_income_units.setText(Format.format(0.00d));
+    private float getTFValue_Dollar(JTextField src){
+        if(!src.getText().equalsIgnoreCase(""))
+            return Format.parse(src.getText());
+        else return 0.00f;
+    }    
+    private void updateTotalMonthlyRentIncome(){
+        this.total_monthly_income_units.setText(Format.format((int) this.numbe_of_units.getValue() * this.getTFValue_Dollar(this.average_rent_per_unit)));
     }
     
-    private void setTotalMonthlyIncome(){
-        if(!this.total_monthly_income_units.getText().equalsIgnoreCase("") || !this.other_income.getText().equalsIgnoreCase("")){
-            this.total_monthly_income.setText(Format.format(Format.parse(this.total_monthly_income_units.getText())+Format.parse(this.other_income.getText())));
-            
-        }
-        else
-            this.total_monthly_income.setText(Format.format(0.00d));
-//        float units = ;
-//        float other = ;
+    private void updateTotalMonthlyIncome(){
+        this.total_monthly_income.setText(Format.format(this.getTFValue_Dollar(this.total_monthly_income_units)+this.getTFValue_Dollar(this.other_income)));
     }
     
     private void numbe_of_unitsStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_numbe_of_unitsStateChanged
         // TODO add your handling code here:
-        this.setTotalMonthlyIncomeOfUnits();
+        this.updateTotalMonthlyRentIncome();
 //        this.setTotalMonthlyIncome();
     }//GEN-LAST:event_numbe_of_unitsStateChanged
+
+    private void average_rent_per_unitCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_average_rent_per_unitCaretUpdate
+        // TODO add your handling code here:
+        this.updateTotalMonthlyRentIncome();
+        this.updateTotalMonthlyIncome();
+    }//GEN-LAST:event_average_rent_per_unitCaretUpdate
+
+    private void other_incomeCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_other_incomeCaretUpdate
+        // TODO add your handling code here:
+        this.updateTotalMonthlyIncome();
+    }//GEN-LAST:event_other_incomeCaretUpdate
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

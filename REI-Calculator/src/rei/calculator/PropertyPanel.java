@@ -46,15 +46,18 @@ public class PropertyPanel extends javax.swing.JPanel {
     protected ArrayList<File> IMAGES = new ArrayList<>();
     public PropertyPanel() {
         initComponents();
-  
+        this.image_list = new JList<>();
+        this.image_list.setListData(new Object[0]);
+        this.image_list.updateUI();
+        
         // Remove Image Button 
         URL icon = getClass().getResource("/rei/calculator/src/trashAll (2).png");
         ImageIcon imgicon = new ImageIcon(icon);
         Image img = imgicon.getImage();
-        Image img_scaled = img.getScaledInstance(35, 35, Image.SCALE_SMOOTH);
+        Image img_scaled = img.getScaledInstance(25, 25, Image.SCALE_SMOOTH);
         imgicon = new ImageIcon(img_scaled);
         this.jButton_removeAll.setIcon(imgicon); // NOI18N
-        img_scaled = img.getScaledInstance(33, 33, Image.SCALE_SMOOTH);
+        img_scaled = img.getScaledInstance(23, 23, Image.SCALE_SMOOTH);
         imgicon = new ImageIcon(img_scaled);
         this.jButton_removeAll.setPressedIcon(imgicon);// NOI18N
         
@@ -62,10 +65,10 @@ public class PropertyPanel extends javax.swing.JPanel {
         icon = getClass().getResource("/rei/calculator/src/trash (4).png");
         imgicon = new ImageIcon(icon);
         img = imgicon.getImage();
-        img_scaled = img.getScaledInstance(35, 35, Image.SCALE_SMOOTH);
+        img_scaled = img.getScaledInstance(25, 25, Image.SCALE_SMOOTH);
         imgicon = new ImageIcon(img_scaled);
         this.jButton_removeImg.setIcon(imgicon); // NOI18N
-        img_scaled = img.getScaledInstance(33, 33, Image.SCALE_SMOOTH);
+        img_scaled = img.getScaledInstance(23, 23, Image.SCALE_SMOOTH);
         imgicon = new ImageIcon(img_scaled);
         this.jButton_removeImg.setPressedIcon(imgicon);// NOI18N
 
@@ -73,10 +76,10 @@ public class PropertyPanel extends javax.swing.JPanel {
         icon = getClass().getResource("/rei/calculator/src/pic (4).png");
         imgicon = new ImageIcon(icon);
         img = imgicon.getImage();
-        img_scaled = img.getScaledInstance(40, 40, Image.SCALE_SMOOTH);
+        img_scaled = img.getScaledInstance(30, 30, Image.SCALE_SMOOTH);
         imgicon = new ImageIcon(img_scaled);
         this.jButton_loadimages.setIcon(imgicon); // NOI18N
-        img_scaled = img.getScaledInstance(37, 37, Image.SCALE_SMOOTH);
+        img_scaled = img.getScaledInstance(27, 27, Image.SCALE_SMOOTH);
         imgicon = new ImageIcon(img_scaled);
         this.jButton_loadimages.setPressedIcon(imgicon);// NOI18N
 
@@ -98,7 +101,7 @@ public class PropertyPanel extends javax.swing.JPanel {
         // put our JList in a JScrollPane
         JScrollPane menuScrollPane = new JScrollPane(this.image_list);
         menuScrollPane.setMinimumSize(new Dimension(44, 112));
-        this.list_panel.add(menuScrollPane).setBounds(0, 0, 222, 230);        
+        this.list_panel.add(menuScrollPane).setBounds(0, 0, 222, 238);        
     }
 
     /**
@@ -175,7 +178,7 @@ public class PropertyPanel extends javax.swing.JPanel {
         list_panel.setBackground(new java.awt.Color(246, 245, 245));
 
         jButton_removeAll.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
-        jButton_removeAll.setToolTipText("Remove Selected Image");
+        jButton_removeAll.setToolTipText("Clear List");
         jButton_removeAll.setBorderPainted(false);
         jButton_removeAll.setContentAreaFilled(false);
         jButton_removeAll.setDefaultCapable(false);
@@ -186,7 +189,7 @@ public class PropertyPanel extends javax.swing.JPanel {
         });
 
         jButton_removeImg.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
-        jButton_removeImg.setToolTipText("Add Property Images");
+        jButton_removeImg.setToolTipText("Remove Selected Image");
         jButton_removeImg.setBorderPainted(false);
         jButton_removeImg.setContentAreaFilled(false);
         jButton_removeImg.setDefaultCapable(false);
@@ -197,7 +200,7 @@ public class PropertyPanel extends javax.swing.JPanel {
         });
 
         jButton_loadimages.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
-        jButton_loadimages.setToolTipText("Add Property Images");
+        jButton_loadimages.setToolTipText("Add Images");
         jButton_loadimages.setBorderPainted(false);
         jButton_loadimages.setContentAreaFilled(false);
         jButton_loadimages.setDefaultCapable(false);
@@ -301,12 +304,14 @@ public class PropertyPanel extends javax.swing.JPanel {
 
     private void jButton_removeImgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_removeImgActionPerformed
         // TODO add your handling code here:
-        this.removeImage();
+            this.removeImage();
     }//GEN-LAST:event_jButton_removeImgActionPerformed
 
     private void jButton_removeAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_removeAllActionPerformed
         // TODO add your handling code here:
-        this.removeAllImage();
+        int cofirm = JOptionPane.showConfirmDialog(null, "Remove all images form list?", "Clear List", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if(cofirm == JOptionPane.YES_OPTION)
+            this.removeAllImage();
     }//GEN-LAST:event_jButton_removeAllActionPerformed
 
     private void jButton_loadimagesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_loadimagesActionPerformed

@@ -38,7 +38,6 @@ public class MainWindow extends javax.swing.JFrame {
     private static FileDialog f;
     
 
-    private JButton homebtn;
     public MainWindow() {
         f = new FileDialog(this, "Open File", FileDialog.LOAD);
         initComponents();
@@ -62,13 +61,18 @@ public class MainWindow extends javax.swing.JFrame {
         imgicon = new ImageIcon(img_scaled);
         this.jLabel_logo.setIcon(imgicon); // NOI18N
         
-        homebtn = new JButton();
-        homebtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel_propertyMouseClicked(evt);
-            }
-        });
-        homebtn.doClick();
+        this.homebtn.setVisible(false);
+        this.homebtn.doClick();
+    }
+    
+    private void setHomeTab(){
+        // TODO add your handling code here:
+        setTabColors(this.jPanel_property);
+        
+        this.jPanel_tabPanel.removeAll();
+        this.jPanel_tabPanel.repaint();
+        this.jPanel_tabPanel.add(property).setBounds(0, 0, this.jPanel_tabPanel.getWidth(), this.jPanel_tabPanel.getHeight());
+        this.pack();
     }
 
     private void setTabIcon(JLabel label, String src){
@@ -166,6 +170,7 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel_report = new javax.swing.JLabel();
         report_icon = new javax.swing.JLabel();
         jLabel_logo = new javax.swing.JLabel();
+        homebtn = new javax.swing.JButton();
         jPanel_tabPanel = new javax.swing.JPanel();
         jTextField8 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
@@ -649,6 +654,18 @@ public class MainWindow extends javax.swing.JFrame {
 
         jLabel_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rei/calculator/SFI.png"))); // NOI18N
 
+        homebtn.setText("homebtn");
+        homebtn.setBorderPainted(false);
+        homebtn.setContentAreaFilled(false);
+        homebtn.setDefaultCapable(false);
+        homebtn.setFocusPainted(false);
+        homebtn.setFocusable(false);
+        homebtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homebtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -661,13 +678,15 @@ public class MainWindow extends javax.swing.JFrame {
             .addComponent(jPanel_report, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(homebtn)
+                    .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(48, 48, 48)
+                .addGap(50, 50, 50)
                 .addComponent(jPanel_property, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel_purchase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -679,7 +698,9 @@ public class MainWindow extends javax.swing.JFrame {
                 .addComponent(jPanel_assumption, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel_report, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addComponent(homebtn)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40))
         );
@@ -1065,12 +1086,16 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jMene_newActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMene_newActionPerformed
         // TODO add your handling code here:
-        int confirm_new = JOptionPane.showConfirmDialog(this,"Want to initiate a new transaction?","New Transaction",JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-        if(confirm_new == JOptionPane.YES_OPTION){
-            System.out.println("YES New");
-        }
-        else{
-            System.out.println("NO New");
+        int confirm = JOptionPane.showConfirmDialog(null, "Do you want to create a new report?", "New Report", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);        
+//        int confirm_new = JOptionPane.showConfirmDialog(this,"Want to initiate a new transaction?","New Transaction",JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if(confirm == JOptionPane.YES_OPTION){
+            this.property = new PropertyPanel();
+            this.purchase = new PurchasePanel();
+            this.income = new IncomePanel();
+            this.expense = new ExpensePanel();
+            this.assumption = new AssumptionPanel();
+            this.pack();
+            this.homebtn.doClick();
         }
     }//GEN-LAST:event_jMene_newActionPerformed
 
@@ -1098,7 +1123,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu_closeActionPerformed
 
     
-    private void setTabColors(java.awt.event.MouseEvent evt){
+    private void setTabColors(JPanel p){
         this.jPanel_property.setBackground(new java.awt.Color(225,227,228));
         this.jPanel_property_active.setBackground(new java.awt.Color(225,227,228));
         this.jLabel_property.setForeground(new Color(80,80,80));
@@ -1130,7 +1155,7 @@ public class MainWindow extends javax.swing.JFrame {
         this.jLabel_report.setForeground(new Color(80,80,80));
         this.jLabel_report.setFont(new java.awt.Font("Leelawadee UI", 0, 18));
 
-        JPanel p = (JPanel)evt.getSource();
+//        JPanel p = (JPanel)evt.getSource();
 //        p.setBackground(new Color(50,50,50));
         p.setBackground(new Color(196,199,200));
         JPanel active = (JPanel)p.getComponent(2);
@@ -1148,12 +1173,14 @@ public class MainWindow extends javax.swing.JFrame {
             this.income = new IncomePanel();
             this.expense = new ExpensePanel();
             this.assumption = new AssumptionPanel();
-            this.report = new ReportPanel();
+//            this.report = new ReportPanel();
+            this.homebtn.doClick();
         }
     }//GEN-LAST:event_new_buttonActionPerformed
     private void jPanel_propertyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_propertyMouseClicked
         // TODO add your handling code here:
-        setTabColors(evt);
+        JPanel source = (JPanel) evt.getSource();
+        setTabColors(source);
 //        property = new PropertyPanel();
         this.jPanel_tabPanel.removeAll();
         this.jPanel_tabPanel.repaint();
@@ -1163,7 +1190,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jPanel_purchaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_purchaseMouseClicked
         // TODO add your handling code here:
-        setTabColors(evt);
+        setTabColors((JPanel) evt.getSource());
 //        purchase = new PurchasePanel();
         this.jPanel_tabPanel.removeAll();
         this.jPanel_tabPanel.repaint();
@@ -1173,7 +1200,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jPanel_incomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_incomeMouseClicked
         // TODO add your handling code here:
-        setTabColors(evt);
+        setTabColors((JPanel) evt.getSource());
         this.jPanel_tabPanel.removeAll();
         this.jPanel_tabPanel.repaint();
         this.jPanel_tabPanel.add(income).setBounds(0, 0, this.jPanel_tabPanel.getWidth(), this.jPanel_tabPanel.getHeight());
@@ -1182,7 +1209,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jPanel_expenseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_expenseMouseClicked
         // TODO add your handling code here:
-        setTabColors(evt);
+        setTabColors((JPanel) evt.getSource());
         this.jPanel_tabPanel.removeAll();
         this.jPanel_tabPanel.repaint();
         this.jPanel_tabPanel.add(expense).setBounds(0, 0, this.jPanel_tabPanel.getWidth(), this.jPanel_tabPanel.getHeight());
@@ -1191,7 +1218,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jPanel_assumptionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_assumptionMouseClicked
         // TODO add your handling code here:
-        setTabColors(evt);
+        setTabColors((JPanel) evt.getSource());
         this.jPanel_tabPanel.removeAll();
         this.jPanel_tabPanel.repaint();
         this.jPanel_tabPanel.add(assumption).setBounds(0, 0, this.jPanel_tabPanel.getWidth(), this.jPanel_tabPanel.getHeight());
@@ -1200,7 +1227,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jPanel_reportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_reportMouseClicked
         // TODO add your handling code here:
-        setTabColors(evt);
+        setTabColors((JPanel) evt.getSource());
         this.jPanel_tabPanel.removeAll();
         this.jPanel_tabPanel.repaint();
         this.jPanel_tabPanel.add(report).setBounds(0, 0, this.jPanel_tabPanel.getWidth(), this.jPanel_tabPanel.getHeight());
@@ -1228,6 +1255,11 @@ public class MainWindow extends javax.swing.JFrame {
         for(File f_ : f.getFiles())
             System.out.println(f_.getAbsoluteFile());
     }//GEN-LAST:event_open_buttonActionPerformed
+
+    private void homebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homebtnActionPerformed
+        // TODO add your handling code here:
+        this.setHomeTab();
+    }//GEN-LAST:event_homebtnActionPerformed
     
     protected static FileDialog loadFiles(){
         f.setDirectory(".\\");
@@ -1280,6 +1312,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton execute_button;
     private javax.swing.JLabel expense_icon;
     private javax.swing.JButton help_button;
+    private javax.swing.JButton homebtn;
     private javax.swing.JLabel income_icon;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel13;

@@ -197,7 +197,7 @@ public class AssumptionPanel extends javax.swing.JPanel {
     private void validateKey(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_validateKey
         // TODO add your handling code here:
         JTextField source = (JTextField) evt.getSource();
-        if ((evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') || evt.getKeyCode() == 8 || evt.getKeyChar() == '-' || evt.getKeyChar() == '.' || (evt.getKeyCode() >=37 && evt.getKeyCode() <=40)) {
+        if ((evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') || evt.getKeyCode() == 8 ||  evt.getKeyChar() == '.' || (evt.getKeyCode() >=37 && evt.getKeyCode() <=40)) {
             source.setEditable(true);
         } else {
             source.setEditable(false);
