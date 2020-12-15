@@ -29,13 +29,13 @@ public class MainWindow extends javax.swing.JFrame {
     /**
      * Creates new form MainWindow
      */
-    private PropertyPanel property;
-    private PurchasePanel purchase;
-    private IncomePanel income;
-    private ExpensePanel expense;
-    private AssumptionPanel assumption;
-    private ReportPanel report;
-    private static FileDialog f;
+    protected static PropertyPanel property;
+    protected static PurchasePanel purchase;
+    protected static IncomePanel income;
+    protected static ExpensePanel expense;
+    protected static AssumptionPanel assumption;
+    protected static ReportPanel report;
+    protected static FileDialog f;
     
 
     public MainWindow() {
@@ -43,7 +43,6 @@ public class MainWindow extends javax.swing.JFrame {
         initComponents();
         setToolBarIcons();
         setTabIcons();
-        
         
 //      Initializing Panels Globally to be used in the entire application
         property = new PropertyPanel();
@@ -1122,45 +1121,27 @@ public class MainWindow extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jMenu_closeActionPerformed
 
+    private void setTabColor(JPanel panel, JPanel active, JLabel label){
+        panel.setBackground(new java.awt.Color(225,227,228));
+        active.setBackground(new java.awt.Color(225,227,228));
+        label.setForeground(new Color(80,80,80));
+        label.setFont(new java.awt.Font("Leelawadee UI", 0, 18));
+    }
     
-    private void setTabColors(JPanel p){
-        this.jPanel_property.setBackground(new java.awt.Color(225,227,228));
-        this.jPanel_property_active.setBackground(new java.awt.Color(225,227,228));
-        this.jLabel_property.setForeground(new Color(80,80,80));
-//        this.jLabel_property.setFont(new java.awt.Font("Gotham XLight", 1, 16));
-        this.jLabel_property.setFont(new java.awt.Font("Leelawadee UI", 0, 18));
-        
-        this.jPanel_purchase.setBackground(new java.awt.Color(225,227,228));
-        this.jPanel_purchase_active.setBackground(new java.awt.Color(225,227,228));
-        this.jLabel_purchase.setForeground(new Color(80,80,80));
-        this.jLabel_purchase.setFont(new java.awt.Font("Leelawadee UI", 0, 18));
+    private void setTabColors(JPanel source){
+        // Setting tabs' color and font to default
+        setTabColor(this.jPanel_property, this.jPanel_property_active, this.jLabel_property);
+        setTabColor(this.jPanel_purchase, this.jPanel_purchase_active, this.jLabel_purchase);
+        setTabColor(this.jPanel_income, this.jPanel_income_active, this.jLabel_income);
+        setTabColor(this.jPanel_expense, this.jPanel_expense_active, this.jLabel_expense);
+        setTabColor(this.jPanel_assumption, this.jPanel_assumption_active, this.jLabel_assumption);
+        setTabColor(this.jPanel_report, this.jPanel_report_active, this.jLabel_report);        
 
-        this.jPanel_expense.setBackground(new java.awt.Color(225,227,228));
-        this.jPanel_expense_active.setBackground(new java.awt.Color(225,227,228));
-        this.jLabel_expense.setForeground(new Color(80,80,80));
-        this.jLabel_expense.setFont(new java.awt.Font("Leelawadee UI", 0, 18));
-
-        this.jPanel_income.setBackground(new java.awt.Color(225,227,228));
-        this.jPanel_income_active.setBackground(new java.awt.Color(225,227,228));
-        this.jLabel_income.setForeground(new Color(80,80,80));
-        this.jLabel_income.setFont(new java.awt.Font("Leelawadee UI", 0, 18));
-
-        this.jPanel_assumption.setBackground(new java.awt.Color(225,227,228));
-        this.jPanel_assumption_active.setBackground(new java.awt.Color(225,227,228));
-        this.jLabel_assumption.setForeground(new Color(80,80,80));
-        this.jLabel_assumption.setFont(new java.awt.Font("Leelawadee UI", 0, 18));
-
-        this.jPanel_report.setBackground(new java.awt.Color(225,227,228));
-        this.jPanel_report_active.setBackground(new java.awt.Color(225,227,228));
-        this.jLabel_report.setForeground(new Color(80,80,80));
-        this.jLabel_report.setFont(new java.awt.Font("Leelawadee UI", 0, 18));
-
-//        JPanel p = (JPanel)evt.getSource();
-//        p.setBackground(new Color(50,50,50));
-        p.setBackground(new Color(196,199,200));
-        JPanel active = (JPanel)p.getComponent(2);
+        // Setting Color and font of Active Tab
+        source.setBackground(new Color(196,199,200));
+        JPanel active = (JPanel)source.getComponent(2);
         active.setBackground(new Color(30,30,30));
-        JLabel label_active = (JLabel)p.getComponent(1);
+        JLabel label_active = (JLabel)source.getComponent(1);
         label_active.setFont(new java.awt.Font("Leelawadee UI", 0, 18));
         label_active.setForeground(new Color(30,30,30));
     }

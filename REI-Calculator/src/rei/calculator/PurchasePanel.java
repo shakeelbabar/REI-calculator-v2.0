@@ -7,6 +7,8 @@ import java.util.Formatter;
 import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JComboBox;
+import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.text.Keymap;
@@ -248,7 +250,7 @@ public class PurchasePanel extends javax.swing.JPanel {
         term_years.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
         downpayment_pecentage.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
-        downpayment_pecentage.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 1));
+        downpayment_pecentage.setModel(new javax.swing.SpinnerNumberModel(20.0d, 0.0d, 100.0d, 0.01d));
         downpayment_pecentage.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 downpayment_pecentageStateChanged(evt);
@@ -499,15 +501,79 @@ public class PurchasePanel extends javax.swing.JPanel {
 //        System.out.println("Rate: "+this.annual_interest_rate.getValue().toString());
     }//GEN-LAST:event_annual_interest_rateStateChanged
 
+    private static float getTFValue_Dollar(JTextField src){
+        if(!src.getText().equalsIgnoreCase(""))
+            return Format.parse(src.getText());
+        else return 0.00f;
+    }    
 
+    
+    public static float getAnnualInterestRate() {
+        try{
+            annual_interest_rate.commitEdit();
+        } catch (ParseException e ) { e.getMessage(); }
+        return (float)annual_interest_rate.getValue();        
+    }
+
+    public static float getARV() {
+        return getTFValue_Dollar(arv);
+    }
+
+    public static float getAskingPrice() {
+        return getTFValue_Dollar(asking_price);
+    }
+
+    public static float getClosingCost() {
+        return getTFValue_Dollar(closing_cost);
+    }
+
+    public static float getDownpaymentValue() {
+        return getTFValue_Dollar(downpayment_dollar);
+    }
+
+    public static float getDownpaymentPerc() {
+        try{
+            downpayment_pecentage.commitEdit();
+        } catch (ParseException e) { e.getMessage(); }
+        return (float)downpayment_pecentage.getValue();
+    }
+
+    public static float getEmergencyFunds() {
+        return getTFValue_Dollar(emergency_funds);
+    }
+
+    public static float getLoanAmount() {
+        return getTFValue_Dollar(loan_amount);
+    }
+
+    public static float getPurchasePrice() {
+        return getTFValue_Dollar(purchase_price);
+    }
+
+    public static float getRehabBudget() {
+        return getTFValue_Dollar(rehab_budget);
+    }
+
+    public static String getRehabCheck() {
+        return rehab_check.getItemAt(rehab_check.getSelectedIndex());
+    }
+
+    public static int getTerm() {
+        try{
+            term_years.commitEdit();
+        } catch (ParseException e) { e.getMessage(); }
+        return (int)term_years.getValue();
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JSpinner annual_interest_rate;
-    private javax.swing.JTextField arv;
-    private javax.swing.JTextField asking_price;
-    private javax.swing.JTextField closing_cost;
-    private javax.swing.JTextField downpayment_dollar;
-    private javax.swing.JSpinner downpayment_pecentage;
-    private javax.swing.JTextField emergency_funds;
+    private static javax.swing.JSpinner annual_interest_rate;
+    private static javax.swing.JTextField arv;
+    private static javax.swing.JTextField asking_price;
+    private static javax.swing.JTextField closing_cost;
+    private static javax.swing.JTextField downpayment_dollar;
+    private static javax.swing.JSpinner downpayment_pecentage;
+    private static javax.swing.JTextField emergency_funds;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -524,10 +590,10 @@ public class PurchasePanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField loan_amount;
-    private javax.swing.JTextField purchase_price;
-    private javax.swing.JTextField rehab_budget;
-    private javax.swing.JComboBox<String> rehab_check;
-    private javax.swing.JSpinner term_years;
+    private static javax.swing.JTextField loan_amount;
+    private static javax.swing.JTextField purchase_price;
+    private static javax.swing.JTextField rehab_budget;
+    private static javax.swing.JComboBox<String> rehab_check;
+    private static javax.swing.JSpinner term_years;
     // End of variables declaration//GEN-END:variables
 }

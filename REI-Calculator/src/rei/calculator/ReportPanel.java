@@ -10,6 +10,9 @@ import javax.swing.JButton;
 import javax.swing.JProgressBar;
 import javax.swing.UIManager;
 
+import org.python.util.PythonInterpreter;
+import org.python.core.*;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -32,10 +35,7 @@ public class ReportPanel extends javax.swing.JPanel {
 //        UIManager.put("jProgressBar1.selectionForeground", Color.GREEN);
 //        UIManager.put("jProgressBar.foreground", Color.BLUE);
         initComponents();
-        
-        
         jProgressBar = new JProgressBar();
-        
 //        this.add(this.jProgressBar).setBounds(200, 200, 100, 25);
     }
 
@@ -212,9 +212,149 @@ public class ReportPanel extends javax.swing.JPanel {
                 });
             }
         });
+        
+        try{
+            PythonInterpreter.initialize(System.getProperties(), System.getProperties(), new String[0]);
+            PythonInterpreter interp = new PythonInterpreter();
+            interp.execfile("./src/rei/calculator/new_main.py");
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void runCalculations(){
+        
+        /**
+         *  Initially we just need to calculate the 12 key figures.
+         *  Will then build a loop for the Pro forma statement.
+         *  
+         **/
+        
+        // Begin by calculating the monthly payment of the loan
+        float payment = REI_Calculations.loan_payment(PurchasePanel.getAnnualInterestRate(), 
+                                                    PurchasePanel.getTerm(),
+                                                    PurchasePanel.getLoanAmount());
 
+        /**
+         * 
+         * Each item that is to be showcased will have a number before it.
+         * only 8 are being calculated here.  There are an additional 4
+         *    - Purchase Price (taken from GUI input)
+         *    - Monthly Income (taken from GUI input)
+         *    - Monthly Expense ( sum(fixed_monthly, var_monthly) )
+         * The desired order for the 12 are to be as follows:
+         * cash_2_close  Purch. Price   Monthly Income
+         * Monthly Exp.  Monthly CF     50% Rule
+         * NOI           NIAF           CoCR
+         * Cap Rate      1% Rule        Gross Rent Mult.     
+         * 
+         */
+
+        /**
+         * Calculate the fixed and variable expenses
+         */
+        float fixed_monthly = ExpensePanel.getTotalFixedExpense();
+        float variable_monthly = ExpensePanel.getTotalVariableExpense();
+      
+        /**
+         * 1 Calculate NOI
+         */
+        float NOI = REI_Calculations.NOI_yearly(IncomePanel.getTotalMonthlyIncome(), 
+                                               fixed_monthly*12.0f,
+                                               variable_monthly*12.0f);
+       
+        /**
+         * 2,3 Calculate Monthly and yearly NIAF or monthly cash flows
+         */
+        float cf_monthly = REI_Calculations.cash_flow_monthly(IncomePanel.getTotalMonthlyIncome(),
+                                                              payment,
+                                                              fixed_monthly,
+                                                              variable_monthly);
+        float NIAF = REI_Calculations.NIAF_yearly(NOI, payment);
+
+        /**
+         * 4 Calculate the cash to close
+         */
+        float cash_2_close = REI_Calculations.cash_to_close(PurchasePanel.getDownpaymentValue(),
+                                                            PurchasePanel.getClosingCost(),
+                                                            PurchasePanel.getEmergencyFunds(),
+                                                            PurchasePanel.getRehabBudget(),
+                                                            PurchasePanel.getRehabCheck());
+
+        /**
+         * 5 Calculate Cash on Cash Return (CoCR)
+         */
+        float CoCR = REI_Calculations.cash_on_cash_return(NIAF, cash_2_close);
+
+        /**
+         * 6 Calculate the cap rate
+         */
+        float capRate = REI_Calculations.cap_rate(NOI,
+                                                  PurchasePanel.getPurchasePrice(),
+                                                  PurchasePanel.getRehabBudget(),
+                                                  PurchasePanel.getClosingCost());
+        
+        /**
+         * 7 Calculate Gross Rent Multiplier
+         */
+        float GRM = REI_Calculations.gross_rent_mult(PurchasePanel.getPurchasePrice(),
+                                                     PurchasePanel.getRehabBudget(),
+                                                     IncomePanel.getTotalMonthlyIncome());
+        
+        /**
+         * 8,9 Calculate the 1 and 50 percent rules
+         */
+        float one_perc = REI_Calculations.one_perc_rule(PurchasePanel.getPurchasePrice(),
+                                                        PurchasePanel.getRehabBudget(),
+                                                        IncomePanel.getTotalMonthlyIncome());
+        float fifty_perc = REI_Calculations.fifty_perc_rule(fixed_monthly,
+                                                            variable_monthly,
+                                                            IncomePanel.getTotalMonthlyIncome());
+
+        String[][] general_analysis_and_results = {
+            {
+                Format.FullFormat(cash_2_close),
+                Format.FullFormat(PurchasePanel.getPurchasePrice()),
+                Format.FullFormat(IncomePanel.getOtherIncome())
+            },
+            {
+                Format.FullFormat(variable_monthly + fixed_monthly),
+                Format.FullFormat(cf_monthly),
+                Format.FullFormat(one_perc)
+            },
+            {
+                Format.FullFormat(NOI),
+                Format.FullFormat(NIAF),
+                Format.FullFormat(CoCR)
+            },
+            {
+                Format.FullFormat(capRate),
+                Format.FullFormat(fifty_perc),
+                Format.FullFormat(GRM)
+            }
+        };
+
+        /**
+         *  Will need to store this data now as some of it may be overwritten
+         *  during the pro forma construction
+         * 
+         *  Now we begin the loop for ten years.  I will define a var here
+         *  because in the future I may make this adjustable for the number
+         *  of years to do the pro forma for
+         * 
+         *  Pro forma begins
+         *  Set initial values
+         */
+        int cum_NIAF = 0;
+        int cum_CoCR = 0;
+        int length_yrs = 10;
+        for(int i = 0; i <= length_yrs; i++){
+            
+        }
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JCheckBox jCheckBox1;

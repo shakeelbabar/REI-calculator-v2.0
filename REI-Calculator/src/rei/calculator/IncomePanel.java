@@ -1,5 +1,7 @@
 package rei.calculator;
 
+import java.text.ParseException;
+import javax.swing.JSpinner;
 import javax.swing.JTextField;
 
 /*
@@ -40,7 +42,7 @@ public class IncomePanel extends javax.swing.JPanel {
         average_rent_per_unit = new javax.swing.JTextField();
         other_income = new javax.swing.JTextField();
         total_monthly_income = new javax.swing.JTextField();
-        numbe_of_units = new javax.swing.JSpinner();
+        number_of_units = new javax.swing.JSpinner();
         jLabel16 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(246, 245, 245));
@@ -135,11 +137,11 @@ public class IncomePanel extends javax.swing.JPanel {
             }
         });
 
-        numbe_of_units.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
-        numbe_of_units.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
-        numbe_of_units.addChangeListener(new javax.swing.event.ChangeListener() {
+        number_of_units.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
+        number_of_units.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        number_of_units.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                numbe_of_unitsStateChanged(evt);
+                number_of_unitsStateChanged(evt);
             }
         });
 
@@ -164,7 +166,7 @@ public class IncomePanel extends javax.swing.JPanel {
                             .addComponent(total_monthly_income, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
                             .addComponent(average_rent_per_unit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
                             .addComponent(total_monthly_income_units)
-                            .addComponent(numbe_of_units, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(number_of_units, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addContainerGap(326, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,7 +191,7 @@ public class IncomePanel extends javax.swing.JPanel {
                 .addComponent(jLabel16)
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(numbe_of_units, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(number_of_units, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -238,24 +240,24 @@ public class IncomePanel extends javax.swing.JPanel {
         } else source.setEditable(false);
     }//GEN-LAST:event_validateKey
 
-    private float getTFValue_Dollar(JTextField src){
+    private static float getTFValue_Dollar(JTextField src){
         if(!src.getText().equalsIgnoreCase(""))
             return Format.parse(src.getText());
         else return 0.00f;
     }    
     private void updateTotalMonthlyRentIncome(){
-        this.total_monthly_income_units.setText(Format.format((int) this.numbe_of_units.getValue() * this.getTFValue_Dollar(this.average_rent_per_unit)));
+        this.total_monthly_income_units.setText(Format.format((int) this.number_of_units.getValue() * this.getTFValue_Dollar(this.average_rent_per_unit)));
     }
     
     private void updateTotalMonthlyIncome(){
         this.total_monthly_income.setText(Format.format(this.getTFValue_Dollar(this.total_monthly_income_units)+this.getTFValue_Dollar(this.other_income)));
     }
     
-    private void numbe_of_unitsStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_numbe_of_unitsStateChanged
+    private void number_of_unitsStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_number_of_unitsStateChanged
         // TODO add your handling code here:
         this.updateTotalMonthlyRentIncome();
 //        this.setTotalMonthlyIncome();
-    }//GEN-LAST:event_numbe_of_unitsStateChanged
+    }//GEN-LAST:event_number_of_unitsStateChanged
 
     private void average_rent_per_unitCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_average_rent_per_unitCaretUpdate
         // TODO add your handling code here:
@@ -268,9 +270,32 @@ public class IncomePanel extends javax.swing.JPanel {
         this.updateTotalMonthlyIncome();
     }//GEN-LAST:event_other_incomeCaretUpdate
 
+    public static float getAverageRentPerUnit() {
+        return getTFValue_Dollar(average_rent_per_unit);
+    }
+
+    public static int getNumbe_of_units() {
+        try{
+            number_of_units.commitEdit();
+        } catch (ParseException e) { e.getMessage(); }
+        return (int) number_of_units.getValue();
+    }
+
+    public static float getOtherIncome() {
+        return getTFValue_Dollar(other_income);
+    }
+
+    public static float getTotalMonthlyIncome() {
+        return getTFValue_Dollar(total_monthly_income);
+    }
+
+    public static float getTotalMonthlyIncomeUnits() {
+        return getTFValue_Dollar(total_monthly_income_units);
+    }
+
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField average_rent_per_unit;
+    private static javax.swing.JTextField average_rent_per_unit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
@@ -278,9 +303,9 @@ public class IncomePanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JSpinner numbe_of_units;
-    private javax.swing.JTextField other_income;
-    private javax.swing.JTextField total_monthly_income;
-    private javax.swing.JTextField total_monthly_income_units;
+    private static javax.swing.JSpinner number_of_units;
+    private static javax.swing.JTextField other_income;
+    private static javax.swing.JTextField total_monthly_income;
+    private static javax.swing.JTextField total_monthly_income_units;
     // End of variables declaration//GEN-END:variables
 }

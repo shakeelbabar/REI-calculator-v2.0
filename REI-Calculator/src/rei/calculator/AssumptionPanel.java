@@ -35,10 +35,10 @@ public class AssumptionPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        annual_expense_app = new javax.swing.JTextField();
+        annual_rate_app = new javax.swing.JTextField();
+        annual_property_app = new javax.swing.JTextField();
+        selling_cost = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(246, 245, 245));
@@ -60,8 +60,8 @@ public class AssumptionPanel extends javax.swing.JPanel {
         jLabel6.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
         jLabel6.setText("Selling Costs (%)");
 
-        jTextField1.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
-        jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
+        annual_expense_app.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
+        annual_expense_app.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 focusGained_perc(evt);
             }
@@ -69,14 +69,14 @@ public class AssumptionPanel extends javax.swing.JPanel {
                 focusLost_perc(evt);
             }
         });
-        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+        annual_expense_app.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 validateKey(evt);
             }
         });
 
-        jTextField2.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
-        jTextField2.addFocusListener(new java.awt.event.FocusAdapter() {
+        annual_rate_app.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
+        annual_rate_app.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 focusGained_perc(evt);
             }
@@ -84,14 +84,14 @@ public class AssumptionPanel extends javax.swing.JPanel {
                 focusLost_perc(evt);
             }
         });
-        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+        annual_rate_app.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 validateKey(evt);
             }
         });
 
-        jTextField4.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
-        jTextField4.addFocusListener(new java.awt.event.FocusAdapter() {
+        annual_property_app.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
+        annual_property_app.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 focusGained_perc(evt);
             }
@@ -99,14 +99,14 @@ public class AssumptionPanel extends javax.swing.JPanel {
                 focusLost_perc(evt);
             }
         });
-        jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
+        annual_property_app.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 validateKey(evt);
             }
         });
 
-        jTextField5.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
-        jTextField5.addFocusListener(new java.awt.event.FocusAdapter() {
+        selling_cost.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
+        selling_cost.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 focusGained_perc(evt);
             }
@@ -114,7 +114,7 @@ public class AssumptionPanel extends javax.swing.JPanel {
                 focusLost_perc(evt);
             }
         });
-        jTextField5.addKeyListener(new java.awt.event.KeyAdapter() {
+        selling_cost.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 validateKey(evt);
             }
@@ -140,10 +140,10 @@ public class AssumptionPanel extends javax.swing.JPanel {
                                 .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)))
                         .addGap(69, 69, 69)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField1)))
+                            .addComponent(annual_property_app, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                            .addComponent(selling_cost, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(annual_rate_app, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(annual_expense_app)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,19 +160,19 @@ public class AssumptionPanel extends javax.swing.JPanel {
                 .addComponent(jLabel5)
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(annual_rate_app, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(annual_expense_app, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(annual_property_app, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(selling_cost, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addContainerGap(216, Short.MAX_VALUE))
         );
@@ -204,17 +204,42 @@ public class AssumptionPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_validateKey
 
+    private float getTFValue_Perc(JTextField src){
+        if(!src.getText().equalsIgnoreCase(""))
+            return Format.parse_perc(src.getText());
+        else return 0.00f;
+    }    
+        
+    public float getAnnualExpenseApp() {
+        return this.getTFValue_Perc(annual_expense_app);
+    }
+
+    public float getAnnualPropertyAapp() {
+        return this.getTFValue_Perc(annual_property_app);
+    }
+
+    public float getAnnualRateApp() {
+        return this.getTFValue_Perc(annual_rate_app);
+    }
+
+    public float getSellingCost() {
+        return this.getTFValue_Perc(selling_cost);
+    }
+
+
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField annual_expense_app;
+    private javax.swing.JTextField annual_property_app;
+    private javax.swing.JTextField annual_rate_app;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField selling_cost;
     // End of variables declaration//GEN-END:variables
 }

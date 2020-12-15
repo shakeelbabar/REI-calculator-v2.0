@@ -87,7 +87,7 @@ public class REI_Calculations {
     public static float cash_to_close(float downpayment, float closing_costs, 
         float emergency_fund, float rehab_budget, String finance_rehab_logical){
         //Calculates the cash needed to close the deal
-        if (finance_rehab_logical == "Yes") {
+        if (finance_rehab_logical == "Yes" || finance_rehab_logical == "YES") {
             rehab_budget = 0f;
         }
         float cash_2_close = downpayment + closing_costs + emergency_fund + rehab_budget;

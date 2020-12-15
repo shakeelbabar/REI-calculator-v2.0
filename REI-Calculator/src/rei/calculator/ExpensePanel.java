@@ -16,7 +16,7 @@ import static rei.calculator.Format.fmt;
  */
 public class ExpensePanel extends javax.swing.JPanel {
 
-    private final float RATE = 1200.00f;
+    private static final float RATE = 1200.00f;
     /**
      * Creates new form NewJPanel
      */
@@ -114,10 +114,10 @@ public class ExpensePanel extends javax.swing.JPanel {
             }
         });
         electric.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-            }
             public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
                 electricCaretPositionChanged(evt);
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         electric.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -536,13 +536,13 @@ public class ExpensePanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private float getTFValue_Dollar(JTextField src){
+    private static float getTFValue_Dollar(JTextField src){
         if(!src.getText().equalsIgnoreCase(""))
             return Format.parse(src.getText());
         else return 0.00f;
     }    
     
-    private float getTFValue_Perc(JTextField src){
+    private static float getTFValue_Perc(JTextField src){
         if(!src.getText().equalsIgnoreCase(""))
             return Format.parse_perc(src.getText());
         else return 0.00f;
@@ -653,14 +653,90 @@ public class ExpensePanel extends javax.swing.JPanel {
 //        this.updateTFE(0.00f);
     }//GEN-LAST:event_electricCaretPositionChanged
 
+    public static float getRATE() {
+        return RATE;
+    }
 
+    public static float getCapExValue() {
+        return getTFValue_Dollar(cap_ex_dollar);
+    }
+
+    public static float getCapExPerc() {
+        return getTFValue_Dollar(cap_ex_perc);
+    }
+
+    public static float getElectric() {
+        return getTFValue_Dollar(electric);
+    }
+
+    public static float getGarbage() {
+        return getTFValue_Dollar(garbage);
+    }
+
+    public static float getHoa() {
+        return getTFValue_Dollar(hoa);
+    }
+
+    public static float getInsurance() {
+        return getTFValue_Dollar(insurance);
+    }
+
+    public static float getManagementFeeValue() {
+        return getTFValue_Dollar(management_fee_dollar);
+    }
+
+    public static float getManagementFreePerc() {
+        return getTFValue_Perc(management_free_perc);
+    }
+
+    public static float getMiscellaneous() {
+        return getTFValue_Dollar(miscellaneous);
+    }
+
+    public static float getMonthlyTaxes() {
+        return getTFValue_Dollar(monthly_taxes);
+    }
+
+    public static float getPMI() {
+        return getTFValue_Dollar(pmi);
+    }
+
+    public static float getRepairMaintValue() {
+        return getTFValue_Dollar(repair_maint_dollar);
+    }
+
+    public static float getRepairMaintPerc() {
+        return getTFValue_Dollar(repair_maint_perc);
+    }
+
+    public static float getTotalFixedExpense() {
+        return getTFValue_Dollar(total_fixed_expense);
+    }
+
+    public static float getTotalVariableExpense() {
+        return getTFValue_Dollar(total_variable_expense);
+    }
+
+    public static float getVacancyValue() {
+        return getTFValue_Dollar(vacancy_dollar);
+    }
+
+    public static float getVacancyPerc() {
+        return getTFValue_Perc(vacancy_perc);
+    }
+
+    public static float getWaterAndSewer() {
+        return getTFValue_Dollar(water_and_sewer);
+    }
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField cap_ex_dollar;
-    private javax.swing.JTextField cap_ex_perc;
-    private javax.swing.JTextField electric;
-    private javax.swing.JTextField garbage;
-    private javax.swing.JTextField hoa;
-    private javax.swing.JTextField insurance;
+    private static javax.swing.JTextField cap_ex_dollar;
+    private static javax.swing.JTextField cap_ex_perc;
+    private static javax.swing.JTextField electric;
+    private static javax.swing.JTextField garbage;
+    private static javax.swing.JTextField hoa;
+    private static javax.swing.JTextField insurance;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -683,17 +759,17 @@ public class ExpensePanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
-    private javax.swing.JTextField management_fee_dollar;
-    private javax.swing.JTextField management_free_perc;
-    private javax.swing.JTextField miscellaneous;
-    private javax.swing.JTextField monthly_taxes;
-    private javax.swing.JTextField pmi;
-    private javax.swing.JTextField repair_maint_dollar;
-    private javax.swing.JTextField repair_maint_perc;
-    private javax.swing.JTextField total_fixed_expense;
-    private javax.swing.JTextField total_variable_expense;
-    private javax.swing.JTextField vacancy_dollar;
-    private javax.swing.JTextField vacancy_perc;
-    private javax.swing.JTextField water_and_sewer;
+    private static javax.swing.JTextField management_fee_dollar;
+    private static javax.swing.JTextField management_free_perc;
+    private static javax.swing.JTextField miscellaneous;
+    private static javax.swing.JTextField monthly_taxes;
+    private static javax.swing.JTextField pmi;
+    private static javax.swing.JTextField repair_maint_dollar;
+    private static javax.swing.JTextField repair_maint_perc;
+    private static javax.swing.JTextField total_fixed_expense;
+    private static javax.swing.JTextField total_variable_expense;
+    private static javax.swing.JTextField vacancy_dollar;
+    private static javax.swing.JTextField vacancy_perc;
+    private static javax.swing.JTextField water_and_sewer;
     // End of variables declaration//GEN-END:variables
 }

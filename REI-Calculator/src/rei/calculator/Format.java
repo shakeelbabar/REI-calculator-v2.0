@@ -67,4 +67,8 @@ public class Format {
     public static String format(double value){
         return formatter.format(value);
     }
+    
+    public static String FullFormat(float value){
+        return formatToCurrency(formatTo2Float(value));
+    }
 }

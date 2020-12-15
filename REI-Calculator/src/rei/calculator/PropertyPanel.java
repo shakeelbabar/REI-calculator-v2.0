@@ -19,8 +19,10 @@ import java.lang.Object;
 import java.net.URL;
 import java.util.Iterator;
 import javax.swing.BoxLayout;
+import javax.swing.JComboBox;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
+import javax.swing.JTextField;
 import javax.swing.ListModel;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.Border;
@@ -42,8 +44,8 @@ public class PropertyPanel extends javax.swing.JPanel {
     /**
      * Creates new form NewJPanel
      */
-    private JList<Object> image_list;
-    protected ArrayList<File> IMAGES = new ArrayList<>();
+    private static JList<Object> image_list;
+    private static ArrayList<File> IMAGES = new ArrayList<>();
     public PropertyPanel() {
         initComponents();
         this.image_list = new JList<>();
@@ -367,16 +369,51 @@ public class PropertyPanel extends javax.swing.JPanel {
         this.image_list.setListData(objects.toArray(new Object[objects.size()]));
         this.image_list.updateUI();
     }
-    
-    
-    
-    
 
+    private static float getTFValue_Dollar(JTextField src){
+        if(!src.getText().equalsIgnoreCase(""))
+            return Format.parse(src.getText());
+        else return 0.00f;
+    }    
+
+    
+    public static JList<Object> getImageList() {
+        return image_list;
+    }
+
+    public static ArrayList<File> getImages() {
+        return IMAGES;
+    }
+
+    public static String getState() {
+        return jComboBox_state.getItemAt(jComboBox_state.getSelectedIndex());
+    }
+
+    public static String getCity() {
+        return jTextField_city.getText();
+    }
+
+    public static float getInsurance() {
+        return getTFValue_Dollar(jTextField_insurance);
+    }
+
+    public static String getjPropertyAddress() {
+        return jTextField_property_address.getText();
+    }
+
+    public static float getTaxes() {
+        return getTFValue_Dollar(jTextField_taxes);
+    }
+
+    public static String getZipCode() {
+        return jTextField_zip_code.getText();
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_loadimages;
     private javax.swing.JButton jButton_removeAll;
     private javax.swing.JButton jButton_removeImg;
-    private javax.swing.JComboBox<String> jComboBox_state;
+    private static javax.swing.JComboBox<String> jComboBox_state;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -385,11 +422,11 @@ public class PropertyPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JTextField jTextField_city;
-    private javax.swing.JTextField jTextField_insurance;
-    private javax.swing.JTextField jTextField_property_address;
-    private javax.swing.JTextField jTextField_taxes;
-    private javax.swing.JTextField jTextField_zip_code;
+    private static javax.swing.JTextField jTextField_city;
+    private static javax.swing.JTextField jTextField_insurance;
+    private static javax.swing.JTextField jTextField_property_address;
+    private static javax.swing.JTextField jTextField_taxes;
+    private static javax.swing.JTextField jTextField_zip_code;
     private javax.swing.JPanel list_panel;
     // End of variables declaration//GEN-END:variables
 }
